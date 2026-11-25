@@ -24,8 +24,12 @@ into the download; this file is for us.
 - `.gitignore` keeps Pinegrow's backups (`website/_pgbackup/`) and logs out of the repository.
 - `.gitattributes` marks `tools/`, `notes/`, `source/`, this file and the packaging files `export-ignore`, so the zip
   holds only `README.md`, `LICENSE`, `website/` and `kit-builder/`. GitHub's release "Source code (zip)" follows the same rules.
-- `./package.sh 1.0` makes `~/Documents/PinegrowDist/pinegrow-website-kit-1.0.zip` from the last commit, so commit
-  first. To leave the skill out of a release, add `kit-builder/ export-ignore` to `.gitattributes`.
+- `./package.sh 1.1` makes two zips in `~/Documents/PinegrowDist/` from the last commit (so commit first):
+  `pinegrow-website-kit-1.1-static.zip` and `pinegrow-website-kit-1.1-wordpress.zip`. `tools/make_variant.py`
+  makes the static one by removing the WordPress attributes (`cms-*`, `wp-*`), `website/templates/` and
+  `wp-blocks.html`. We only maintain the WordPress version. README sections between `<!-- static -->`,
+  `<!-- wordpress -->` and `<!-- repo -->` markers go only into that version (repo: only on GitHub).
+- Publish: `gh release create v1.1 <both zips> --repo Pinegrow/pinegrow-website-kit`. To leave the skill out of a release, add `kit-builder/ export-ignore` to `.gitattributes`.
 
 ## What is in the website project
 

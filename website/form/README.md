@@ -26,10 +26,12 @@ For GitHub Pages, Cloudflare Pages, SFTP or any other host, use a form service s
 
 Until one of these is set up, sending shows the error message.
 
+<!-- wordpress -->
 ## WordPress
 
 When the site is exported as a WordPress theme, WordPress sends the messages to the site's admin email. Nothing to
 set up. The form's `cms-form-*` attributes control the subject and the messages.
+<!-- /wordpress -->
 
 ## Spam
 

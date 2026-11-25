@@ -4,6 +4,27 @@ A client-ready website kit for Pinegrow 10.1 and later: a complete site, five mo
 drag-and-drop blocks and four saved designs, all built with Tailwind CSS. Use it as it is, or as the start of your own
 client sites.
 
+<!-- repo -->
+## Downloads
+
+Get the kit from [Releases](https://github.com/Pinegrow/pinegrow-website-kit/releases) in one of two versions:
+
+- **Static** (`pinegrow-website-kit-<version>-static.zip`): plain HTML pages for any host. Choose this unless you
+  build WordPress themes.
+- **WordPress** (`pinegrow-website-kit-<version>-wordpress.zip`): the same kit, plus the attributes and templates
+  that export it as a WordPress block theme. This repository holds this version.
+
+<!-- /repo -->
+<!-- static -->
+This is the **static** version: plain HTML pages for any host. A WordPress version with block theme support is a
+separate download.
+
+<!-- /static -->
+<!-- wordpress -->
+This is the **WordPress** version: the pages carry the attributes (`cms-*`) and templates that export the kit as a
+WordPress block theme. If you only need a static site, the static version is the same kit without them.
+
+<!-- /wordpress -->
 ## What's inside
 
 - `website/`: the Pinegrow project. Open this folder in Pinegrow (File › Open project).
@@ -54,11 +75,13 @@ be added, duplicated and reordered there. Your clients can edit texts and images
 The contact form works on static hosting: with Netlify Forms when you publish to Netlify, or with a form service such
 as Formspree or Web3Forms on any other host. `website/form/README.md` explains the setup.
 
+<!-- wordpress -->
 ### WordPress
 
 The Northlight pages and `wp-blocks.html` define WordPress blocks, and `website/templates/` holds the block theme
 templates (theme slug `northlight`). Export the project as a WordPress block theme with Pinegrow's WordPress
 features, and every block can be used in the Site Editor.
+<!-- /wordpress -->
 
 ### Images
 
