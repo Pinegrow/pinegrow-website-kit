@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Headers and footers | Block library</title>
+        <meta name="description" content="Block library: headers and footers. Drag blocks into your pages.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+        <style>
+            .lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+            z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+            .lib-nav.lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; }
+            .lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+            .lib-pass.pg-lib-hover-menu a:hover, .lib-pass.pg-lib-hover-menu .lib-current { text-decoration: underline; text-underline-offset: 4px; }
+            html body .lib-pass.pg-lib-hover-menu, html body .lib-pass.pg-lib-hover-menu *, html body .lib-pass.pg-lib-hover-menu *:hover {
+            cursor: pointer !important; transform: none !important; box-shadow: none !important; }
+        </style>
+        <script>
+            /* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+            pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+            the whole block instead, and keeps clicks inside blocks from picking inner elements. Runs only in the Insert panel:
+            editor pages load with pgedit=1. */
+            if (!/[?&]pgedit=1/.test(location.search)) {
+            (function() {
+            var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+            };
+            document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+            return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+            el.removeAttribute("pg-draggable");
+            el.removeAttribute("draggable");
+            el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+            block.setAttribute("pg-draggable", "true");
+            block.setAttribute("draggable", "true");
+            block.classList.add("pg-lib-item");
+            }
+            }, true);
+            ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+            if (e.target.closest && e.target.closest(".lib-pass")) {
+            return;
+            }
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            }, true);
+            });
+            })();
+            }
+        </script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased lib-page">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <div class="pg-lib-hover-menu lib-pass lib-nav">
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 bg-ink px-5 py-3 font-mono text-xs tracking-wider text-page uppercase" aria-label="Block library">
+                <a href="blocks/kit-blocks.html" class="font-semibold">All blocks</a>
+                <a href="blocks/headers-footers.html" class="lib-current">Headers and footers</a>
+                <a href="blocks/heroes.html">Heroes</a>
+                <a href="blocks/services-pricing.html">Services and pricing</a>
+                <a href="blocks/work.html">Work</a>
+                <a href="blocks/story-team.html">Story and team</a>
+                <a href="blocks/testimonials.html">Testimonials</a>
+                <a href="blocks/contact-calls-to-action.html">Contact and calls to action</a>
+                <a href="blocks/posts.html">Posts</a>
+            </nav>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Header · drawing</p>
+            <header class="site-header" data-pg-name="Header (drawing)" cms-block="header-drawing" cms-block-title="Header (drawing)" cms-block-description="Logo mark, technical menu and a button" data-pg-content-group="Header (drawing)">
+                <div class="container-site flex h-16 items-center justify-between gap-6">
+                    <a href="index.html" class="brand" aria-label="Northlight Interiors home"><span class="brand-mark" aria-hidden="true">NL</span> <span cms-site-name data-pg-content-label="Site name">Northlight Interiors</span></a>
+                    <nav class="hidden lg:block" aria-label="Main">
+                        <ul class="flex items-center gap-8" cms-menu="primary">
+                            <li><a href="index.html#schedule" class="nav-link">Services</a></li>
+                            <li><a href="index.html#cases" class="nav-link">Case files</a></li>
+                            <li><a href="about.html" class="nav-link">Studio</a></li>
+                            <li><a href="journal.html" class="nav-link">Journal</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-2">
+                        <a href="contact.html" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Request a site visit</a>
+                        <details class="mobile-menu lg:hidden">
+                            <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
+                            <div class="mobile-menu-panel">
+                                <a href="index.html#schedule" class="nav-link">Services</a>
+                                <a href="index.html#cases" class="nav-link">Case files</a>
+                                <a href="about.html" class="nav-link">Studio</a>
+                                <a href="journal.html" class="nav-link">Journal</a>
+                                <a href="contact.html" class="btn-primary mt-2">Request a site visit</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Header · simple</p>
+            <header class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
+                <div class="container-site flex h-20 items-center justify-between gap-6">
+                    <a href="#" class="wordmark-small" aria-label="Ember & Oat home"><span cms-site-name data-pg-content-label="Site name">Ember & Oat</span></a>
+                    <nav class="hidden lg:block" aria-label="Main">
+                        <ul class="flex items-center gap-8" cms-menu="primary">
+                            <li><a href="#menu" class="nav-link-plain">Menu</a></li>
+                            <li><a href="#story" class="nav-link-plain">Our story</a></li>
+                            <li><a href="#visit" class="nav-link-plain">Visit</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-2">
+                        <a href="#visit" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Find us</a>
+                        <details class="mobile-menu lg:hidden">
+                            <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
+                            <div class="mobile-menu-panel">
+                                <a href="#menu" class="nav-link-plain text-xl">Menu</a>
+                                <a href="#story" class="nav-link-plain text-xl">Our story</a>
+                                <a href="#visit" class="nav-link-plain text-xl">Visit</a>
+                                <a href="#visit" class="btn-primary mt-2">Find us</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Footer · title block</p>
+            <footer class="site-footer" data-pg-name="Footer (title block)" cms-block="footer-titleblock" cms-block-title="Footer (title block)" cms-block-description="Details laid out like a drawing title block" data-pg-content-group="Footer (title block)">
+                <div class="container-site">
+                    <dl class="footer-block">
+                        <div class="md:col-span-2">
+                            <dt>Studio</dt>
+                            <dd><span cms-site-name class="font-display text-2xl font-semibold tracking-tight">Northlight Interiors</span><span class="mt-2 block text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Interior design for homes and small workplaces.</span></dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="address_label" cms-block-field-type="content" cms-block-field-title="Address label" data-pg-content-label="Address label">Address</dt>
+                            <dd cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">48 Alder Street<br>Portland, OR 97205</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</dt>
+                            <dd><a href="mailto:hello@northlight.studio" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@northlight.studio</a><br><a href="tel:+15035550142" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">+1 503 555 0142</a></dd>
+                        </div>
+                        <div>
+                            <dt>Follow</dt>
+                            <dd><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a><br><a href="https://www.pinterest.com/" class="footer-link" cms-block-field="pinterest_link" cms-block-field-type="link" cms-block-field-title="Pinterest link" cms-block-field-2="pinterest_label" cms-block-field-type-2="content" cms-block-field-title-2="Pinterest label" data-pg-content-label="Pinterest">Pinterest</a></dd>
+                        </div>
+                        <div>
+                            <dt>Drawing</dt>
+                            <dd>NL-<span cms-function="current_year" cms-function-type="content">2026</span> · Rev. 3</dd>
+                        </div>
+                        <div class="md:col-span-6">
+                            <dt>Notes</dt>
+                            <dd cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">© Northlight Interiors. Made with Pinegrow.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </footer>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Footer · columns</p>
+            <footer class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
+                <div class="container-site grid gap-12 md:grid-cols-12">
+                    <div class="md:col-span-4">
+                        <p class="wordmark-small"><span cms-site-name>Movewell Physio</span></p>
+                        <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Physiotherapy for sport, work and everyday life.</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <p class="ref" cms-block-field="visit_label" cms-block-field-type="content" cms-block-field-title="Visit label" data-pg-content-label="Visit label">Visit</p>
+                        <p class="mt-3" cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">Unit 3, 12 Mill Lane<br>Bristol BS1 6QA</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <p class="ref" cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</p>
+                        <p class="mt-3"><a href="mailto:hello@movewellphysio.co.uk" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@movewellphysio.co.uk</a><br><a href="tel:01174960321" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">0117 496 0321</a></p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <p class="ref" cms-block-field="follow_label" cms-block-field-type="content" cms-block-field-title="Follow label" data-pg-content-label="Follow label">Follow</p>
+                        <p class="mt-3"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a></p>
+                    </div>
+                </div>
+                <div class="container-site mt-16 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
+                    <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Movewell Physio</span></p>
+                    <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
+                </div>
+            </footer>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Footer · big</p>
+            <footer class="site-footer-big" data-pg-name="Footer (big)" cms-block="footer-big" cms-block-title="Footer (big)" cms-block-description="A closing line with a large email link" data-pg-content-group="Footer (big)">
+                <div class="container-site">
+                    <p class="ref" cms-block-field="eyebrow" cms-block-field-type="content" cms-block-field-title="Eyebrow" data-pg-content-label="Eyebrow">Have a project in mind?</p>
+                    <p class="footer-statement mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Let’s make something people will actually use.</p>
+                    <a href="mailto:hello@fieldoffice.studio" class="footer-email mt-8" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@fieldoffice.studio</a>
+                    <div class="mt-16 flex flex-col gap-4 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+                        <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Field Office</span></p>
+                        <p class="flex gap-6"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a> <a href="https://www.linkedin.com/" class="footer-link" cms-block-field="linkedin_link" cms-block-field-type="link" cms-block-field-title="LinkedIn link" cms-block-field-2="linkedin_label" cms-block-field-type-2="content" cms-block-field-title-2="LinkedIn label" data-pg-content-label="LinkedIn">LinkedIn</a></p>
+                        <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+# The download (GitHub's release "Source code" zips and ./package.sh) leaves these out.
+MAINTAINERS.md export-ignore
+package.sh export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+notes/ export-ignore
+source/ export-ignore
+tools/ export-ignore

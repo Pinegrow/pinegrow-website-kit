@@ -1,0 +1,7 @@
+# Pinegrow backups and logs
+website/_pgbackup/
+website/_pginfo/logs/
+# macOS
+.DS_Store
+# Python
+__pycache__/

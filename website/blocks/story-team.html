@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Story and team | Block library</title>
+        <meta name="description" content="Block library: story and team. Drag blocks into your pages.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+        <style>
+            .lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+            z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+            .lib-nav.lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; }
+            .lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+            .lib-pass.pg-lib-hover-menu a:hover, .lib-pass.pg-lib-hover-menu .lib-current { text-decoration: underline; text-underline-offset: 4px; }
+            html body .lib-pass.pg-lib-hover-menu, html body .lib-pass.pg-lib-hover-menu *, html body .lib-pass.pg-lib-hover-menu *:hover {
+            cursor: pointer !important; transform: none !important; box-shadow: none !important; }
+        </style>
+        <script>
+            /* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+            pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+            the whole block instead, and keeps clicks inside blocks from picking inner elements. Runs only in the Insert panel:
+            editor pages load with pgedit=1. */
+            if (!/[?&]pgedit=1/.test(location.search)) {
+            (function() {
+            var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+            };
+            document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+            return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+            el.removeAttribute("pg-draggable");
+            el.removeAttribute("draggable");
+            el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+            block.setAttribute("pg-draggable", "true");
+            block.setAttribute("draggable", "true");
+            block.classList.add("pg-lib-item");
+            }
+            }, true);
+            ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+            if (e.target.closest && e.target.closest(".lib-pass")) {
+            return;
+            }
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            }, true);
+            });
+            })();
+            }
+        </script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased lib-page">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <div class="pg-lib-hover-menu lib-pass lib-nav">
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 bg-ink px-5 py-3 font-mono text-xs tracking-wider text-page uppercase" aria-label="Block library">
+                <a href="blocks/kit-blocks.html" class="font-semibold">All blocks</a>
+                <a href="blocks/headers-footers.html">Headers and footers</a>
+                <a href="blocks/heroes.html">Heroes</a>
+                <a href="blocks/services-pricing.html">Services and pricing</a>
+                <a href="blocks/work.html">Work</a>
+                <a href="blocks/story-team.html" class="lib-current">Story and team</a>
+                <a href="blocks/testimonials.html">Testimonials</a>
+                <a href="blocks/contact-calls-to-action.html">Contact and calls to action</a>
+                <a href="blocks/posts.html">Posts</a>
+            </nav>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Page intro · wide image</p>
+            <section class="section-hero grid-paper" data-pg-name="Page intro (wide image)" cms-block="page-intro" cms-block-title="Page intro (wide image)" cms-block-description="Page title with facts and a wide image" data-pg-content-group="Page intro (wide image)">
+                <div class="container-site">
+                    <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+                        <div class="lg:col-span-7">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-00 · The studio</p>
+                            <h1 class="heading-xl mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">A small studio that measures twice.</h1>
+                            <p class="lead mt-6 max-w-xl" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three designers, one workshop table and a long list of builders we trust. We take on a few projects at a time and see each one through.</p>
+                        </div>
+                        <dl class="title-block lg:col-span-5">
+                            <div>
+                                <dt cms-block-field="fact_1_label" cms-block-field-type="content" cms-block-field-title="Fact 1 label" data-pg-content-label="Fact 1 label">Founded</dt>
+                                <dd cms-block-field="fact_1_value" cms-block-field-type="content" cms-block-field-title="Fact 1 value" data-pg-content-label="Fact 1 value">2014</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="fact_2_label" cms-block-field-type="content" cms-block-field-title="Fact 2 label" data-pg-content-label="Fact 2 label">Team</dt>
+                                <dd cms-block-field="fact_2_value" cms-block-field-type="content" cms-block-field-title="Fact 2 value" data-pg-content-label="Fact 2 value">3 designers</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="fact_3_label" cms-block-field-type="content" cms-block-field-title="Fact 3 label" data-pg-content-label="Fact 3 label">Rooms designed</dt>
+                                <dd cms-block-field="fact_3_value" cms-block-field-type="content" cms-block-field-title="Fact 3 value" data-pg-content-label="Fact 3 value">140+</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="fact_4_label" cms-block-field-type="content" cms-block-field-title="Fact 4 label" data-pg-content-label="Fact 4 label">Builders we trust</dt>
+                                <dd cms-block-field="fact_4_value" cms-block-field-type="content" cms-block-field-title="Fact 4 value" data-pg-content-label="Fact 4 value">12</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <img src="images/about-studio.webp" alt="The Northlight studio with a long work table, material samples and tall windows" width="2400" height="1029" class="img-frame mt-12 aspect-[21/9] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Story · text and image</p>
+            <section class="section" data-pg-name="Story (text and image)" cms-block="story-split" cms-block-title="Story (text and image)" cms-block-description="A short story next to a tall image" data-pg-content-group="Story (text and image)">
+                <div class="container-site grid items-start gap-12 lg:grid-cols-12">
+                    <img src="images/about-detail.webp" alt="Hands sketching a floor plan next to fabric swatches" width="1200" height="1500" class="img-frame aspect-[4/5] w-full lg:col-span-5" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                    <div class="lg:col-span-6 lg:col-start-7">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-01</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We start with how you live, not with a mood board.</h2>
+                        <div class="mt-6 space-y-4 text-lg leading-relaxed text-muted" cms-block-field="text" cms-block-field-type="content" cms-block-field-title="Text" cms-block-field-control="richtext" data-pg-content-label="Text">
+                            <p>Before we draw anything, we spend time in your space. Where does the morning light fall? Where do the bags land after school? Which chair does everyone fight over?</p>
+                            <p>Then we measure everything, twice. Good drawings are the reason our projects finish on time: builders know exactly what to do, and you know exactly what it costs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Team · grid</p>
+            <section id="team" class="section" data-pg-name="Team (grid)" cms-block="team-grid" cms-block-title="Team (grid)" cms-block-description="People with portraits, names and roles" data-pg-content-group="Team (grid)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Our physios</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Chartered physiotherapists</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Registered with the HCPC and the Chartered Society of Physiotherapy.</p>
+                    </div>
+                    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" cms-block-inner-content cms-block-inner-content-allowed="team-member" data-pg-content-collection="People">
+                        <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
+                            <img src="images/physio-team-1.webp" alt="Portrait of Priya Shah" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Priya Shah</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Sports and running injuries</span></figcaption>
+                        </figure>
+                        <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
+                            <img src="images/physio-team-2.webp" alt="Portrait of Owen Hughes" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Owen Hughes</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Back pain and posture</span></figcaption>
+                        </figure>
+                        <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
+                            <img src="images/physio-team-3.webp" alt="Portrait of Clara Novak" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Clara Novak</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Post-surgery rehab, Pilates</span></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Principles · list</p>
+            <section class="section bg-surface" data-pg-name="Principles (list)" cms-block="principles-list" cms-block-title="Principles (list)" cms-block-description="Numbered principles or promises" data-pg-content-group="Principles (list)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-02</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">What you can count on</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three things we promise on every project, large or small.</p>
+                    </div>
+                    <div class="" cms-block-inner-content cms-block-inner-content-allowed="principle" data-pg-content-collection="Principles">
+                        <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-01</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Fees before we start</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Every proposal has a fixed fee. If something will cost more, you hear it from us first, in writing.</p>
+                        </div>
+                        <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-02</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Drawings builders love</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Clear, measured drawings with every detail. Fewer questions on site, fewer surprises on the invoice.</p>
+                        </div>
+                        <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-03</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">One designer, start to finish</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">The person who measures your room on day one is on site on the last day.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Process · time line</p>
+            <section class="section" data-pg-name="Process (time line)" cms-block="process-timeline" cms-block-title="Process (time line)" cms-block-description="Steps along a time line" data-pg-content-group="Process (time line)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-03</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">How a room plan runs</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">From the first visit to a plan your builder can follow, in about three weeks.</p>
+                    </div>
+                    <ol class="timeline" cms-block-inner-content cms-block-inner-content-allowed="timeline-step" data-pg-content-collection="Steps">
+                        <li class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                            <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Day 1</span>
+                            <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Measure</h3>
+                            <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We visit, listen, measure every wall and photograph the light.</p>
+                        </li>
+                        <li class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                            <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 1</span>
+                            <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Two directions</h3>
+                            <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Two layouts with samples you can touch and a budget for each.</p>
+                        </li>
+                        <li class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                            <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 2</span>
+                            <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Detail</h3>
+                            <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Drawings, lighting and a shopping list with every product linked.</p>
+                        </li>
+                        <li class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                            <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 3</span>
+                            <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Hand over</h3>
+                            <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We walk you and your builder through the plan, on site.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Process · numbered steps</p>
+            <section id="first-visit" class="section bg-surface" data-pg-name="Process (numbered steps)" cms-block="process-steps" cms-block-title="Process (numbered steps)" cms-block-description="Heading with large numbered steps" data-pg-content-group="Process (numbered steps)">
+                <div class="container-site grid gap-12 lg:grid-cols-12">
+                    <div class="lg:col-span-5">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Your first visit</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">What happens at your first appointment</h2>
+                        <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Wear comfortable clothes. Everything else we’ll sort out together.</p>
+                    </div>
+                    <ol class="border-t border-ink lg:col-span-7" cms-block-inner-content cms-block-inner-content-allowed="process-step" data-pg-content-collection="Steps">
+                        <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
+                            <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">1</span>
+                            <div>
+                                <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We listen</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">What happened, what hurts and what you want to get back to.</p>
+                            </div>
+                        </li>
+                        <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
+                            <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">2</span>
+                            <div>
+                                <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We assess</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Movement, strength and a clear explanation of what’s going on.</p>
+                            </div>
+                        </li>
+                        <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
+                            <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">3</span>
+                            <div>
+                                <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We treat</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Hands-on treatment in the same session, so you leave feeling better.</p>
+                            </div>
+                        </li>
+                        <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
+                            <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">4</span>
+                            <div>
+                                <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">You get a plan</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">A few exercises on your phone and a date to check progress.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Numbers · band</p>
+            <section class="section-band" data-pg-name="Numbers (band)" cms-block="stats-band" cms-block-title="Numbers (band)" cms-block-description="Key numbers on the band color" data-pg-content-group="Numbers (band)">
+                <div class="container-site">
+                    <p class="ref text-on-band/70" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Field Office in numbers</p>
+                    <div class="stats" cms-block-inner-content cms-block-inner-content-allowed="stat" data-pg-content-collection="Numbers">
+                        <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">12</p>
+                            <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">years building for the web</p>
+                        </div>
+                        <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">80+</p>
+                            <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">sites launched</p>
+                        </div>
+                        <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">98</p>
+                            <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">average Lighthouse score</p>
+                        </div>
+                        <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">4</p>
+                            <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">people, no account managers</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Sample board</p>
+            <section class="section bg-surface" data-pg-name="Sample board" cms-block="samples-board" cms-block-title="Sample board" cms-block-description="A board of materials or products with names" data-pg-content-group="Sample board">
+                <div class="container-site grid gap-12 lg:grid-cols-12">
+                    <div class="lg:col-span-4">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-04</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">On our sample board</h2>
+                        <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Honest materials that get better with use. We order samples for every project so you can see them in your own light.</p>
+                    </div>
+                    <ul class="sample-board lg:col-span-8" cms-block-inner-content cms-block-inner-content-allowed="sample" data-pg-content-collection="Samples">
+                        <li class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                            <img src="images/sample-oak.webp" alt="Oiled oak board" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Oiled oak</p>
+                            <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Floors, shelving</p>
+                        </li>
+                        <li class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                            <img src="images/sample-linen.webp" alt="Folded natural linen" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Washed linen</p>
+                            <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Curtains, covers</p>
+                        </li>
+                        <li class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                            <img src="images/sample-stone.webp" alt="Honed travertine tile" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Travertine</p>
+                            <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Worktops, sills</p>
+                        </li>
+                        <li class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                            <img src="images/sample-plaster.webp" alt="Lime plaster wall texture" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Lime plaster</p>
+                            <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Walls, ceilings</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

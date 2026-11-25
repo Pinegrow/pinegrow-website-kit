@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Posts | Block library</title>
+        <meta name="description" content="Block library: posts. Drag blocks into your pages.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+        <style>
+            .lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+            z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+            .lib-nav.lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; }
+            .lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+            .lib-pass.pg-lib-hover-menu a:hover, .lib-pass.pg-lib-hover-menu .lib-current { text-decoration: underline; text-underline-offset: 4px; }
+            html body .lib-pass.pg-lib-hover-menu, html body .lib-pass.pg-lib-hover-menu *, html body .lib-pass.pg-lib-hover-menu *:hover {
+            cursor: pointer !important; transform: none !important; box-shadow: none !important; }
+        </style>
+        <script>
+            /* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+            pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+            the whole block instead, and keeps clicks inside blocks from picking inner elements. Runs only in the Insert panel:
+            editor pages load with pgedit=1. */
+            if (!/[?&]pgedit=1/.test(location.search)) {
+            (function() {
+            var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+            };
+            document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+            return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+            el.removeAttribute("pg-draggable");
+            el.removeAttribute("draggable");
+            el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+            block.setAttribute("pg-draggable", "true");
+            block.setAttribute("draggable", "true");
+            block.classList.add("pg-lib-item");
+            }
+            }, true);
+            ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+            if (e.target.closest && e.target.closest(".lib-pass")) {
+            return;
+            }
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            }, true);
+            });
+            })();
+            }
+        </script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased lib-page">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <div class="pg-lib-hover-menu lib-pass lib-nav">
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 bg-ink px-5 py-3 font-mono text-xs tracking-wider text-page uppercase" aria-label="Block library">
+                <a href="blocks/kit-blocks.html" class="font-semibold">All blocks</a>
+                <a href="blocks/headers-footers.html">Headers and footers</a>
+                <a href="blocks/heroes.html">Heroes</a>
+                <a href="blocks/services-pricing.html">Services and pricing</a>
+                <a href="blocks/work.html">Work</a>
+                <a href="blocks/story-team.html">Story and team</a>
+                <a href="blocks/testimonials.html">Testimonials</a>
+                <a href="blocks/contact-calls-to-action.html">Contact and calls to action</a>
+                <a href="blocks/posts.html" class="lib-current">Posts</a>
+            </nav>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Posts · selected</p>
+            <section id="writing" class="section" data-pg-name="Posts (selected)" cms-block="posts-latest" cms-block-title="Posts (selected)" cms-block-description="Three selected posts" data-pg-content-group="Posts (selected)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Writing</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Recent essays</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">About once a month. Never about productivity hacks.</p>
+                    </div>
+                    <div class="grid gap-x-8 gap-y-14 md:grid-cols-3">
+                        <article class="post-card" cms-post="block" cms-post-loop-block-attribute="posts" cms-post-loop-block-attribute-title="Posts" cms-post-loop-block-attribute-type="post">
+                            <p class="ref"><span cms-tags="category" cms-tags-display="this">Essay</span> · <span cms-post-date>Nov 3, 2026</span></p>
+                            <a href="#" class="mt-4 block" cms-post-link><img src="images/sam-post-1.webp" alt="A notebook and a cup of coffee on a wooden desk" width="1200" height="800" class="img-frame aspect-[3/2] w-full" cms-post-image="large"></a>
+                            <h3 class="heading-md mt-5"><a href="#" cms-post-title cms-post-link>Software that leaves you alone</a></h3>
+                            <p class="mt-3 text-muted" cms-post-excerpt>Notifications, streaks and red dots: what happens when we take them away.</p>
+                        </article>
+                        <article class="post-card" cms-no-export>
+                            <p class="ref"><span>Essay</span> · <span>Oct 1, 2026</span></p>
+                            <a href="#" class="mt-4 block"><img src="images/sam-post-2.webp" alt="A small brass bell on a white table" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h3 class="heading-md mt-5"><a href="#">The quiet power of a good default</a></h3>
+                            <p class="mt-3 text-muted">Most people never change a setting. That makes defaults a moral choice.</p>
+                        </article>
+                        <article class="post-card" cms-no-export>
+                            <p class="ref"><span>Notes</span> · <span>Sep 2, 2026</span></p>
+                            <a href="#" class="mt-4 block"><img src="images/sam-post-3.webp" alt="A city street in Montréal in the snow" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h3 class="heading-md mt-5"><a href="#">Building tools for one person</a></h3>
+                            <p class="mt-3 text-muted">Why I write software for exactly one user, and what it taught me.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Posts · all (blog page)</p>
+            <section class="section-hero" data-pg-name="Posts (all, for the blog page)" cms-block="journal-list" cms-block-title="Posts (all, for the blog page)" cms-block-description="The list of posts for a blog or archive page" data-pg-content-group="Posts (all, for the blog page)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet D-00 · Journal</p>
+                        <h1 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Notes from the studio</h1>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Small, practical ideas from real projects. One a month, never more.</p>
+                    </div>
+                    <div class="grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3" data-pg-content-collection="Posts">
+                        <article class="post-card" cms-post="loop" data-pg-content-item="Post">
+                            <p class="ref"><span cms-tags="category" cms-tags-display="this">Living</span> · <span cms-post-date>Nov 12, 2026</span></p>
+                            <a href="post.html" class="mt-4 block" cms-post-link><img src="images/post-1.webp" alt="Morning light on a reading corner with a wool armchair" width="1200" height="800" class="img-frame aspect-[3/2] w-full" cms-post-image="large"></a>
+                            <h2 class="heading-md mt-5"><a href="post.html" cms-post-title cms-post-link>Five small changes that make a living room calmer</a></h2>
+                            <p class="mt-3 text-muted" cms-post-excerpt>Before you buy anything new, try moving what you already have. Here is where we always start.</p>
+                            <a href="post.html" class="link-arrow mt-5 self-start" cms-post-link>Read the note</a>
+                        </article>
+                        <article class="post-card" cms-no-export data-pg-content-item="Post">
+                            <p class="ref"><span>Materials</span> · <span>Oct 28, 2026</span></p>
+                            <a href="post.html" class="mt-4 block"><img src="images/post-2.webp" alt="Stacked samples of oak, ash and walnut boards" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h2 class="heading-md mt-5"><a href="post.html">Choosing wood that ages well</a></h2>
+                            <p class="mt-3 text-muted">Oak, ash or walnut? How each one looks after ten years of everyday life.</p>
+                            <a href="post.html" class="link-arrow mt-5 self-start">Read the note</a>
+                        </article>
+                        <article class="post-card" cms-no-export data-pg-content-item="Post">
+                            <p class="ref"><span>Small spaces</span> · <span>Oct 9, 2026</span></p>
+                            <a href="post.html" class="mt-4 block"><img src="images/post-3.webp" alt="A narrow hallway with a long bench and hooks on a sage green wall" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h2 class="heading-md mt-5"><a href="post.html">Making the most of a narrow hallway</a></h2>
+                            <p class="mt-3 text-muted">Hallways work hard. A bench, the right hooks and one good lamp change everything.</p>
+                            <a href="post.html" class="link-arrow mt-5 self-start">Read the note</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

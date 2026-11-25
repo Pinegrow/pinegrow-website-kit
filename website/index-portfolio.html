@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ana Ruiz | Photography</title>
+        <meta name="description" content="Editorial and portrait photography from Lisbon.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <header class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
+            <div class="container-site flex h-20 items-center justify-between gap-6">
+                <a href="#" class="wordmark-small" aria-label="Ana Ruiz home"><span cms-site-name data-pg-content-label="Site name">Ana Ruiz</span></a>
+                <nav class="hidden lg:block" aria-label="Main">
+                    <ul class="flex items-center gap-8" cms-menu="primary">
+                        <li><a href="#work" class="nav-link-plain">Work</a></li>
+                        <li><a href="#clients" class="nav-link-plain">Clients</a></li>
+                        <li><a href="#contact" class="nav-link-plain">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <a href="#contact" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Book a shoot</a>
+                    <details class="mobile-menu lg:hidden">
+                        <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
+                        <div class="mobile-menu-panel">
+                            <a href="#work" class="nav-link-plain text-xl">Work</a>
+                            <a href="#clients" class="nav-link-plain text-xl">Clients</a>
+                            <a href="#contact" class="nav-link-plain text-xl">Contact</a>
+                            <a href="#contact" class="btn-primary mt-2">Book a shoot</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <section class="cover-hero" data-pg-name="Hero (cover)" cms-block="hero-cover" cms-block-title="Hero (cover)" cms-block-description="Full-width photo with the headline over it" data-pg-content-group="Hero (cover)">
+                <img src="images/photo-1.webp" alt="A woman standing in a doorway in warm late-afternoon light" width="2000" height="1250" class="cover-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Background image" data-pg-content-label="Background image">
+                <div class="cover-shade" aria-hidden="true"></div>
+                <div class="container-site relative grid w-full gap-10 lg:grid-cols-12 lg:items-end">
+                    <div class="lg:col-span-8">
+                        <p class="cover-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">Photography · Lisbon</p>
+                        <h1 class="cover-title mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Light, people and places.</h1>
+                        <p class="mt-6 max-w-xl text-lg opacity-90" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Editorial and portrait photography for magazines, architects and brands who care about quiet, honest pictures.</p>
+                        <div class="mt-8 flex flex-wrap gap-2">
+                            <a href="#work" class="btn-on-band" cms-block-field="primary_link" cms-block-field-type="link" cms-block-field-title="Primary button link" cms-block-field-2="primary_label" cms-block-field-type-2="content" cms-block-field-title-2="Primary button label" data-pg-content-label="Primary button">See the work</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="work" class="section" data-pg-name="Work (gallery)" cms-block="work-gallery" cms-block-title="Work (gallery)" cms-block-description="An image gallery with a varied grid and captions" data-pg-content-group="Work (gallery)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Selected work</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Recent commissions</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Portraits, interiors and a few walks around Lisbon.</p>
+                    </div>
+                    <div class="gallery" cms-block-inner-content cms-block-inner-content-allowed="gallery-item" data-pg-content-collection="Images">
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-2.webp" alt="A ceramicist at work in her studio" width="1500" height="1000" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The Ceramicist</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Kinfolk</span></figcaption>
+                        </figure>
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-3.webp" alt="A white stair winding up through a house" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Casa Branca</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Architect: Ala Studio</span></figcaption>
+                        </figure>
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-4.webp" alt="Fishermen mending nets on a beach at dawn" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Nazaré, 6 a.m.</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Personal</span></figcaption>
+                        </figure>
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-5.webp" alt="A chef plating a dish in a small kitchen" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Taberna do Mar</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Monocle</span></figcaption>
+                        </figure>
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-6.webp" alt="Laundry drying between old houses in Alfama" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Alfama</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Personal</span></figcaption>
+                        </figure>
+                        <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <img src="images/photo-7.webp" alt="A portrait of an old man in a flat cap" width="1500" height="1000" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                            <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Senhor Augusto</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">The Gentlewoman</span></figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section id="clients" class="bg-page py-10" data-pg-name="Logos (names)" cms-block="logos-row" cms-block-title="Logos (names)" cms-block-description="A row of client or publication names" data-pg-content-group="Logos (names)">
+                <div class="container-site">
+                    <div class="flex flex-col gap-6 border-y border-ink py-8 md:flex-row md:items-baseline md:gap-12">
+                        <p class="ref shrink-0" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Published in</p>
+                        <ul class="flex flex-wrap items-baseline gap-x-10 gap-y-3" cms-block-inner-content cms-block-inner-content-allowed="logo-name" data-pg-content-collection="Names">
+                            <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
+                                <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Kinfolk</span>
+                            </li>
+                            <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
+                                <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Monocle</span>
+                            </li>
+                            <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
+                                <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Cereal</span>
+                            </li>
+                            <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
+                                <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">The Gentlewoman</span>
+                            </li>
+                            <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
+                                <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Apartamento</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="section" data-pg-name="Testimonial (large)" cms-block="quote-large" cms-block-title="Testimonial (large)" cms-block-description="One large quote with a name and photo" data-pg-content-group="Testimonial (large)">
+                <div class="container-site grid gap-10 lg:grid-cols-12">
+                    <p class="sheet-label lg:col-span-3" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Kind words</p>
+                    <figure class="lg:col-span-9">
+                        <blockquote class="quote-xl" cms-block-field="quote" cms-block-field-type="content" cms-block-field-title="Quote" data-pg-content-label="Quote">Ana makes people forget the camera. Every portrait she sends us feels like a conversation.</blockquote>
+                        <figcaption class="mt-10 flex items-center gap-4"><img src="images/photo-client.webp" alt="Portrait of Lena Fischer" width="160" height="160" class="h-14 w-14 object-cover" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo"><span><span class="block font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Lena Fischer</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Photo editor, Cereal</span></span></figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section id="contact" class="section" data-pg-name="Contact (simple)" cms-block="contact-simple" cms-block-title="Contact (simple)" cms-block-description="A large email address with a few details" data-pg-content-group="Contact (simple)">
+                <div class="container-site">
+                    <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Contact</p>
+                    <h2 class="heading-lg mt-8 max-w-3xl" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Tell me about your story, your deadline and your budget.</h2>
+                    <a href="mailto:studio@anaruiz.photo" class="footer-email mt-8" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">studio@anaruiz.photo</a>
+                    <dl class="title-block mt-12 md:grid-cols-4">
+                        <div>
+                            <dt cms-block-field="detail_1_label" cms-block-field-type="content" cms-block-field-title="Detail 1 label" data-pg-content-label="Detail 1 label">Based in</dt>
+                            <dd cms-block-field="detail_1_value" cms-block-field-type="content" cms-block-field-title="Detail 1 value" data-pg-content-label="Detail 1 value">Lisbon, Portugal</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_2_label" cms-block-field-type="content" cms-block-field-title="Detail 2 label" data-pg-content-label="Detail 2 label">Travel</dt>
+                            <dd cms-block-field="detail_2_value" cms-block-field-type="content" cms-block-field-title="Detail 2 value" data-pg-content-label="Detail 2 value">Europe and beyond</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_3_label" cms-block-field-type="content" cms-block-field-title="Detail 3 label" data-pg-content-label="Detail 3 label">Booking</dt>
+                            <dd cms-block-field="detail_3_value" cms-block-field-type="content" cms-block-field-title="Detail 3 value" data-pg-content-label="Detail 3 value">Autumn 2027</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_4_label" cms-block-field-type="content" cms-block-field-title="Detail 4 label" data-pg-content-label="Detail 4 label">Agent</dt>
+                            <dd cms-block-field="detail_4_value" cms-block-field-type="content" cms-block-field-title="Detail 4 value" data-pg-content-label="Detail 4 value">Unrepresented</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
+            <div class="container-site grid gap-12 md:grid-cols-12">
+                <div class="md:col-span-4">
+                    <p class="wordmark-small"><span cms-site-name>Ana Ruiz</span></p>
+                    <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Editorial and portrait photography, booking autumn 2027.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="ref" cms-block-field="visit_label" cms-block-field-type="content" cms-block-field-title="Visit label" data-pg-content-label="Visit label">Visit</p>
+                    <p class="mt-3" cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">Rua da Rosa 112<br>1200-389 Lisboa</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="ref" cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</p>
+                    <p class="mt-3"><a href="mailto:studio@anaruiz.photo" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">studio@anaruiz.photo</a><br><a href="tel:+351912345678" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">+351 912 345 678</a></p>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="ref" cms-block-field="follow_label" cms-block-field-type="content" cms-block-field-title="Follow label" data-pg-content-label="Follow label">Follow</p>
+                    <p class="mt-3"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a></p>
+                </div>
+            </div>
+            <div class="container-site mt-16 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
+                <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Ana Ruiz</span></p>
+                <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
+            </div>
+        </footer>
+    </body>
+</html>

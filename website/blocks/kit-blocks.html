@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Blocks | Block library</title>
+        <meta name="description" content="Every block of the kit by category. Click a category, then drag blocks into your pages.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+        <style>
+            .lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+            z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+            .lib-nav.lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; }
+            .lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+            .lib-pass.pg-lib-hover-menu a:hover, .lib-pass.pg-lib-hover-menu .lib-current { text-decoration: underline; text-underline-offset: 4px; }
+            html body .lib-pass.pg-lib-hover-menu, html body .lib-pass.pg-lib-hover-menu *, html body .lib-pass.pg-lib-hover-menu *:hover {
+            cursor: pointer !important; transform: none !important; box-shadow: none !important; }
+        </style>
+        <script>
+            /* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+            pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+            the whole block instead, and keeps clicks inside blocks from picking inner elements. Runs only in the Insert panel:
+            editor pages load with pgedit=1. */
+            if (!/[?&]pgedit=1/.test(location.search)) {
+            (function() {
+            var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+            };
+            document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+            return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+            el.removeAttribute("pg-draggable");
+            el.removeAttribute("draggable");
+            el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+            block.setAttribute("pg-draggable", "true");
+            block.setAttribute("draggable", "true");
+            block.classList.add("pg-lib-item");
+            }
+            }, true);
+            ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+            if (e.target.closest && e.target.closest(".lib-pass")) {
+            return;
+            }
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            }, true);
+            });
+            })();
+            }
+        </script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased lib-page">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <div class="pg-lib-hover-menu lib-pass lib-nav">
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 bg-ink px-5 py-3 font-mono text-xs tracking-wider text-page uppercase" aria-label="Block library">
+                <a href="blocks/kit-blocks.html" class="font-semibold lib-current">All blocks</a>
+                <a href="blocks/headers-footers.html">Headers and footers</a>
+                <a href="blocks/heroes.html">Heroes</a>
+                <a href="blocks/services-pricing.html">Services and pricing</a>
+                <a href="blocks/work.html">Work</a>
+                <a href="blocks/story-team.html">Story and team</a>
+                <a href="blocks/testimonials.html">Testimonials</a>
+                <a href="blocks/contact-calls-to-action.html">Contact and calls to action</a>
+                <a href="blocks/posts.html">Posts</a>
+            </nav>
+        </div>
+        <div class="container-site py-12">
+            <h1 class="heading-lg">40 blocks</h1>
+            <p class="lead mt-4 max-w-3xl">Click a category to open it, then drag a block to your page. The bar at the top takes you
+                to another category or back here. Blocks use the project’s design and component styles, so they match every page.</p>
+                <div class="pg-lib-hover-menu lib-pass mt-10">
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        <a href="blocks/headers-footers.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Headers and footers</span>
+                            <span class="ref mt-2 block">5 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">drawing, simple, title block, columns, big</span>
+                        </a>
+                        <a href="blocks/heroes.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Heroes</span>
+                            <span class="ref mt-2 block">6 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">callouts, statement, split, cover with card, cover, portrait</span>
+                        </a>
+                        <a href="blocks/services-pricing.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Services and pricing</span>
+                            <span class="ref mt-2 block">6 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">schedule, rows with images, cards, grid, tiers, price list</span>
+                        </a>
+                        <a href="blocks/work.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Work</span>
+                            <span class="ref mt-2 block">4 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">case files, index, gallery, names</span>
+                        </a>
+                        <a href="blocks/story-team.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Story and team</span>
+                            <span class="ref mt-2 block">8 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">wide image, text and image, grid, list, time line, numbered steps, band, Sample board</span>
+                        </a>
+                        <a href="blocks/testimonials.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Testimonials</span>
+                            <span class="ref mt-2 block">2 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">notes, large</span>
+                        </a>
+                        <a href="blocks/contact-calls-to-action.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Contact and calls to action</span>
+                            <span class="ref mt-2 block">7 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">band, with image, Newsletter sign-up, form, simple, Opening hours and location, FAQ</span>
+                        </a>
+                        <a href="blocks/posts.html" class="lib-card block border border-ink bg-surface p-6">
+                            <span class="font-display text-2xl font-semibold">Posts</span>
+                            <span class="ref mt-2 block">2 blocks</span>
+                            <span class="mt-4 block text-sm text-muted">selected, all (blog page)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

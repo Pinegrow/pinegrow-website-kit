@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Contact and calls to action | Block library</title>
+        <meta name="description" content="Block library: contact and calls to action. Drag blocks into your pages.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+        <style>
+            .lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+            z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+            .lib-nav.lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; }
+            .lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+            .lib-pass.pg-lib-hover-menu a:hover, .lib-pass.pg-lib-hover-menu .lib-current { text-decoration: underline; text-underline-offset: 4px; }
+            html body .lib-pass.pg-lib-hover-menu, html body .lib-pass.pg-lib-hover-menu *, html body .lib-pass.pg-lib-hover-menu *:hover {
+            cursor: pointer !important; transform: none !important; box-shadow: none !important; }
+        </style>
+        <script>
+            /* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+            pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+            the whole block instead, and keeps clicks inside blocks from picking inner elements. Runs only in the Insert panel:
+            editor pages load with pgedit=1. */
+            if (!/[?&]pgedit=1/.test(location.search)) {
+            (function() {
+            var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+            };
+            document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+            return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+            el.removeAttribute("pg-draggable");
+            el.removeAttribute("draggable");
+            el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+            block.setAttribute("pg-draggable", "true");
+            block.setAttribute("draggable", "true");
+            block.classList.add("pg-lib-item");
+            }
+            }, true);
+            ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+            if (e.target.closest && e.target.closest(".lib-pass")) {
+            return;
+            }
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            }, true);
+            });
+            })();
+            }
+        </script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased lib-page">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <div class="pg-lib-hover-menu lib-pass lib-nav">
+            <nav class="flex flex-wrap gap-x-5 gap-y-1 bg-ink px-5 py-3 font-mono text-xs tracking-wider text-page uppercase" aria-label="Block library">
+                <a href="blocks/kit-blocks.html" class="font-semibold">All blocks</a>
+                <a href="blocks/headers-footers.html">Headers and footers</a>
+                <a href="blocks/heroes.html">Heroes</a>
+                <a href="blocks/services-pricing.html">Services and pricing</a>
+                <a href="blocks/work.html">Work</a>
+                <a href="blocks/story-team.html">Story and team</a>
+                <a href="blocks/testimonials.html">Testimonials</a>
+                <a href="blocks/contact-calls-to-action.html" class="lib-current">Contact and calls to action</a>
+                <a href="blocks/posts.html">Posts</a>
+            </nav>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Call to action · band</p>
+            <section class="section-cta" data-pg-name="Call to action (band)" cms-block="cta-band" cms-block-title="Call to action (band)" cms-block-description="A closing invitation on the band color" data-pg-content-group="Call to action (band)">
+                <div class="container-site grid gap-10 lg:grid-cols-12 lg:items-end">
+                    <h2 class="cta-title lg:col-span-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Send us a photo of the room that bothers you most.</h2>
+                    <div class="lg:col-span-4">
+                        <p class="opacity-80" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We reply within two working days with a first idea and a date for a site visit.</p>
+                        <a href="contact.html" class="btn-on-band mt-6" cms-block-field="button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Request a site visit</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Call to action · with image</p>
+            <section id="studio" class="section bg-surface" data-pg-name="Call to action (with image)" cms-block="cta-split" cms-block-title="Call to action (with image)" cms-block-description="An image next to a heading and a button" data-pg-content-group="Call to action (with image)">
+                <div class="container-site grid items-center gap-10 lg:grid-cols-2">
+                    <img src="images/agency-team.webp" alt="Four people working around a large table in a bright studio" width="1400" height="1000" class="img-frame aspect-[7/5] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                    <div>
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">The studio</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Four people, one room, no account managers.</h2>
+                        <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">You talk directly to the people who design and build your site.</p>
+                        <a href="#contact" class="btn-primary mt-8" cms-block-field="button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Meet us for a coffee</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Newsletter sign-up</p>
+            <section class="section" data-pg-name="Newsletter sign-up" cms-block="newsletter" cms-block-title="Newsletter sign-up" cms-block-description="An email sign-up form" data-pg-content-group="Newsletter sign-up">
+                <div class="container-site">
+                    <div class="newsletter-box">
+                        <div>
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Newsletter</p>
+                            <h2 class="heading-lg mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The Thursday bake</h2>
+                            <p class="mt-4 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">One short email a week: what’s coming out of the oven, and the odd recipe.</p>
+                        </div>
+                        <form class="flex w-full flex-col gap-2 sm:flex-row" name="newsletter" method="POST" data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website" cms-form="newsletter_form" cms-form-send-email="true" cms-form-subject="New newsletter sign-up" cms-form-success-element="[data-form-success]" cms-form-error-element="[data-form-error]">
+                            <input type="hidden" name="form-name" value="newsletter">
+                            <p class="hidden" aria-hidden="true"><label>Leave this field empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+                            <label class="sr-only" for="newsletter-email">Email address</label>
+                            <input id="newsletter-email" class="field mt-0 flex-1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                            <button type="submit" class="btn-primary" data-pg-content-label="Button">Sign up</button>
+                            <p class="form-message hidden sm:basis-full" role="status" data-form-success data-pg-content-label="Thank you message">Thanks, you are on the list.</p>
+                            <p class="form-message hidden sm:basis-full" role="alert" data-form-error data-pg-content-label="Error message">Sorry, that didn’t work. Please try again later.</p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Contact · form</p>
+            <section class="section-hero grid-paper" data-pg-name="Contact (form)" cms-block="contact-form" cms-block-title="Contact (form)" cms-block-description="Contact details with a contact form" data-pg-content-group="Contact (form)">
+                <div class="container-site grid gap-12 lg:grid-cols-12">
+                    <div class="lg:col-span-5">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet C-00 · Contact</p>
+                        <h1 class="heading-xl mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Request a site visit.</h1>
+                        <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Tell us about the space. We reply within two working days to arrange a visit.</p>
+                        <dl class="title-block mt-10">
+                            <div>
+                                <dt cms-block-field="detail_1_label" cms-block-field-type="content" cms-block-field-title="Detail 1 label" data-pg-content-label="Detail 1 label">Email</dt>
+                                <dd cms-block-field="detail_1_value" cms-block-field-type="content" cms-block-field-title="Detail 1 value" data-pg-content-label="Detail 1 value">hello@northlight.studio</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="detail_2_label" cms-block-field-type="content" cms-block-field-title="Detail 2 label" data-pg-content-label="Detail 2 label">Phone</dt>
+                                <dd cms-block-field="detail_2_value" cms-block-field-type="content" cms-block-field-title="Detail 2 value" data-pg-content-label="Detail 2 value">+1 503 555 0142</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="detail_3_label" cms-block-field-type="content" cms-block-field-title="Detail 3 label" data-pg-content-label="Detail 3 label">Studio hours</dt>
+                                <dd cms-block-field="detail_3_value" cms-block-field-type="content" cms-block-field-title="Detail 3 value" data-pg-content-label="Detail 3 value">Mon–Fri, 9:00–17:00</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="detail_4_label" cms-block-field-type="content" cms-block-field-title="Detail 4 label" data-pg-content-label="Detail 4 label">Address</dt>
+                                <dd cms-block-field="detail_4_value" cms-block-field-type="content" cms-block-field-title="Detail 4 value" data-pg-content-label="Detail 4 value">48 Alder Street, Portland</dd>
+                            </div>
+                        </dl>
+                        <img src="images/contact.webp" alt="The green front door of the studio on Alder Street" width="1200" height="900" class="img-frame mt-10 aspect-[4/3] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                    </div>
+                    <div class="lg:col-span-6 lg:col-start-7">
+                        <form class="grid gap-6 border border-ink bg-page p-6 sm:grid-cols-2 md:p-8" name="contact" method="POST" action="contact.html" data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website" cms-form="contact_form" cms-form-send-email="true" cms-form-subject="New message from your website" cms-form-success-element="[data-form-success]" cms-form-error-element="[data-form-error]" data-pg-name="Contact form">
+                            <p class="ref sm:col-span-2" data-pg-content-label="Form label">Form F-01 · Site visit request</p>
+                            <input type="hidden" name="form-name" value="contact">
+                            <p class="hidden" aria-hidden="true"><label>Leave this field empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+                            <label class="field-label">Your name <input class="field" type="text" name="name" autocomplete="name" required></label>
+                            <label class="field-label">Email <input class="field" type="email" name="email" autocomplete="email" required></label>
+                            <label class="field-label">Phone (optional) <input class="field" type="tel" name="phone" autocomplete="tel"></label>
+                            <label class="field-label">Service
+                                <select class="field" name="service">
+                                    <option>Site consultation</option>
+                                    <option>Room plan</option>
+                                    <option>Full project</option>
+                                    <option>Small workplace</option>
+                                    <option>Not sure yet</option>
+                                </select>
+                            </label>
+                            <label class="field-label sm:col-span-2">Which room, and what bothers you about it? <textarea class="field min-h-36" name="message" rows="5" required></textarea></label>
+                            <div class="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+                                <p class="caption" data-pg-content-label="Privacy note">We only use your details to reply to you.</p>
+                                <button type="submit" class="btn-primary" data-pg-content-label="Send button">Send request</button>
+                            </div>
+                            <p class="form-message hidden sm:col-span-2" role="status" data-form-success data-pg-content-label="Thank you message">Thank you. Your message is on its way; we will reply within two working days.</p>
+                            <p class="form-message hidden sm:col-span-2" role="alert" data-form-error data-pg-content-label="Error message">Sorry, the message could not be sent. Please email us instead.</p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Contact · simple</p>
+            <section id="contact" class="section" data-pg-name="Contact (simple)" cms-block="contact-simple" cms-block-title="Contact (simple)" cms-block-description="A large email address with a few details" data-pg-content-group="Contact (simple)">
+                <div class="container-site">
+                    <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Contact</p>
+                    <h2 class="heading-lg mt-8 max-w-3xl" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Tell me about your story, your deadline and your budget.</h2>
+                    <a href="mailto:studio@anaruiz.photo" class="footer-email mt-8" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">studio@anaruiz.photo</a>
+                    <dl class="title-block mt-12 md:grid-cols-4">
+                        <div>
+                            <dt cms-block-field="detail_1_label" cms-block-field-type="content" cms-block-field-title="Detail 1 label" data-pg-content-label="Detail 1 label">Based in</dt>
+                            <dd cms-block-field="detail_1_value" cms-block-field-type="content" cms-block-field-title="Detail 1 value" data-pg-content-label="Detail 1 value">Lisbon, Portugal</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_2_label" cms-block-field-type="content" cms-block-field-title="Detail 2 label" data-pg-content-label="Detail 2 label">Travel</dt>
+                            <dd cms-block-field="detail_2_value" cms-block-field-type="content" cms-block-field-title="Detail 2 value" data-pg-content-label="Detail 2 value">Europe and beyond</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_3_label" cms-block-field-type="content" cms-block-field-title="Detail 3 label" data-pg-content-label="Detail 3 label">Booking</dt>
+                            <dd cms-block-field="detail_3_value" cms-block-field-type="content" cms-block-field-title="Detail 3 value" data-pg-content-label="Detail 3 value">Autumn 2027</dd>
+                        </div>
+                        <div>
+                            <dt cms-block-field="detail_4_label" cms-block-field-type="content" cms-block-field-title="Detail 4 label" data-pg-content-label="Detail 4 label">Agent</dt>
+                            <dd cms-block-field="detail_4_value" cms-block-field-type="content" cms-block-field-title="Detail 4 value" data-pg-content-label="Detail 4 value">Unrepresented</dd>
+                        </div>
+                    </dl>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Opening hours and location</p>
+            <section id="visit" class="section" data-pg-name="Opening hours and location" cms-block="hours-location" cms-block-title="Opening hours and location" cms-block-description="Opening hours with the address and a map link" data-pg-content-group="Opening hours and location">
+                <div class="container-site grid gap-12 lg:grid-cols-12">
+                    <div class="lg:col-span-5">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Visit</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">By the water in Leith</h2>
+                        <p class="mt-6 text-lg" cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">7 Harbour Row<br>Leith, Edinburgh EH6 6JR</p>
+                        <a href="https://maps.google.com/" class="link-arrow mt-6" cms-block-field="map_link" cms-block-field-type="link" cms-block-field-title="Map link link" cms-block-field-2="map_label" cms-block-field-type-2="content" cms-block-field-title-2="Map link label" data-pg-content-label="Map link">Open in maps</a>
+                    </div>
+                    <div class="lg:col-span-6 lg:col-start-7">
+                        <dl class="hours">
+                            <div>
+                                <dt cms-block-field="day_1" cms-block-field-type="content" cms-block-field-title="Days 1" data-pg-content-label="Days 1">Monday–Friday</dt>
+                                <dd cms-block-field="hours_1" cms-block-field-type="content" cms-block-field-title="Hours 1" data-pg-content-label="Hours 1">7:30 – 17:00</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="day_2" cms-block-field-type="content" cms-block-field-title="Days 2" data-pg-content-label="Days 2">Saturday</dt>
+                                <dd cms-block-field="hours_2" cms-block-field-type="content" cms-block-field-title="Hours 2" data-pg-content-label="Hours 2">8:00 – 17:00</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="day_3" cms-block-field-type="content" cms-block-field-title="Days 3" data-pg-content-label="Days 3">Sunday</dt>
+                                <dd cms-block-field="hours_3" cms-block-field-type="content" cms-block-field-title="Hours 3" data-pg-content-label="Hours 3">9:00 – 15:00</dd>
+                            </div>
+                        </dl>
+                        <p class="ref mt-4" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Dogs welcome · Laptop-free tables at the weekend</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="pg-lib-section">
+            <p class="pg-lib-section-title lib-title">Questions · FAQ</p>
+            <section class="section bg-surface" data-pg-name="Questions (FAQ)" cms-block="faq-list" cms-block-title="Questions (FAQ)" cms-block-description="Frequently asked questions" data-pg-content-group="Questions (FAQ)">
+                <div class="container-site grid gap-12 lg:grid-cols-12">
+                    <div class="lg:col-span-4">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-06</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">General notes</h2>
+                    </div>
+                    <div class="border-t border-ink lg:col-span-8" cms-block-inner-content cms-block-inner-content-allowed="faq-item" data-pg-content-collection="Questions">
+                        <details class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                            <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Do you work outside Portland?</summary>
+                            <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Yes. For projects more than an hour away we plan site visits around the key moments and work online in between.</p>
+                        </details>
+                        <details class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                            <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Can we keep some of our furniture?</summary>
+                            <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Usually most of it. We measure what you love first and design around it.</p>
+                        </details>
+                        <details class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                            <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Do you work with our builder?</summary>
+                            <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Gladly. Our drawings are made for builders. We can also recommend builders we trust and compare quotes with you.</p>
+                        </details>
+                        <details class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                            <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">What does a site visit cost?</summary>
+                            <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">A site consultation is €240. If you go on to a room plan, we take it off the fee.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

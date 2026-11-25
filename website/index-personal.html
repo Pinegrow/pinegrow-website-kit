@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sam Rivera | Writer and developer</title>
+        <meta name="description" content="Essays about calm software and small, useful tools.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <header class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
+            <div class="container-site flex h-20 items-center justify-between gap-6">
+                <a href="#" class="wordmark-small" aria-label="Sam Rivera home"><span cms-site-name data-pg-content-label="Site name">Sam Rivera</span></a>
+                <nav class="hidden lg:block" aria-label="Main">
+                    <ul class="flex items-center gap-8" cms-menu="primary">
+                        <li><a href="#writing" class="nav-link-plain">Writing</a></li>
+                        <li><a href="#projects" class="nav-link-plain">Projects</a></li>
+                        <li><a href="#newsletter" class="nav-link-plain">Newsletter</a></li>
+                    </ul>
+                </nav>
+                <div class="flex items-center gap-2">
+                    <a href="mailto:sam@samrivera.dev" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Say hello</a>
+                    <details class="mobile-menu lg:hidden">
+                        <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
+                        <div class="mobile-menu-panel">
+                            <a href="#writing" class="nav-link-plain text-xl">Writing</a>
+                            <a href="#projects" class="nav-link-plain text-xl">Projects</a>
+                            <a href="#newsletter" class="nav-link-plain text-xl">Newsletter</a>
+                            <a href="mailto:sam@samrivera.dev" class="btn-primary mt-2">Say hello</a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </header>
+        <main id="main">
+            <section class="section-hero" data-pg-name="Hero (portrait)" cms-block="hero-portrait" cms-block-title="Hero (portrait)" cms-block-description="Your name, a short introduction, a portrait and a few facts" data-pg-content-group="Hero (portrait)">
+                <div class="container-site grid gap-12 lg:grid-cols-12 lg:items-end">
+                    <div class="lg:col-span-8">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Writer · developer</p>
+                        <h1 class="statement mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Sam Rivera</h1>
+                        <p class="lead mt-8 max-w-2xl" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Introduction" data-pg-content-label="Introduction">I write about software that respects people’s time, and I build small, useful tools on the side.</p>
+                        <div class="mt-8 flex flex-wrap gap-2">
+                            <a href="#writing" class="btn-primary" cms-block-field="primary_link" cms-block-field-type="link" cms-block-field-title="Primary button link" cms-block-field-2="primary_label" cms-block-field-type-2="content" cms-block-field-title-2="Primary button label" data-pg-content-label="Primary button">Read the writing</a>
+                            <a href="#newsletter" class="btn-secondary" cms-block-field="secondary_link" cms-block-field-type="link" cms-block-field-title="Secondary button link" cms-block-field-2="secondary_label" cms-block-field-type-2="content" cms-block-field-title-2="Secondary button label" data-pg-content-label="Secondary button">Get the newsletter</a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4">
+                        <img src="images/sam-portrait.webp" alt="Portrait of Sam Rivera" width="800" height="1000" class="portrait max-w-80" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Portrait" data-pg-content-label="Portrait">
+                        <dl class="spec mt-6">
+                            <div>
+                                <dt cms-block-field="fact_1_label" cms-block-field-type="content" cms-block-field-title="Fact 1 label" data-pg-content-label="Fact 1 label">Now</dt>
+                                <dd cms-block-field="fact_1_value" cms-block-field-type="content" cms-block-field-title="Fact 1 value" data-pg-content-label="Fact 1 value">Writing a book about calm software</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="fact_2_label" cms-block-field-type="content" cms-block-field-title="Fact 2 label" data-pg-content-label="Fact 2 label">Before</dt>
+                                <dd cms-block-field="fact_2_value" cms-block-field-type="content" cms-block-field-title="Fact 2 value" data-pg-content-label="Fact 2 value">Product engineer at Lantern</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="fact_3_label" cms-block-field-type="content" cms-block-field-title="Fact 3 label" data-pg-content-label="Fact 3 label">Based in</dt>
+                                <dd cms-block-field="fact_3_value" cms-block-field-type="content" cms-block-field-title="Fact 3 value" data-pg-content-label="Fact 3 value">Montréal</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <section id="writing" class="section" data-pg-name="Posts (selected)" cms-block="posts-latest" cms-block-title="Posts (selected)" cms-block-description="Three selected posts" data-pg-content-group="Posts (selected)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Writing</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Recent essays</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">About once a month. Never about productivity hacks.</p>
+                    </div>
+                    <div class="grid gap-x-8 gap-y-14 md:grid-cols-3">
+                        <article class="post-card" cms-post="block" cms-post-loop-block-attribute="posts" cms-post-loop-block-attribute-title="Posts" cms-post-loop-block-attribute-type="post">
+                            <p class="ref"><span cms-tags="category" cms-tags-display="this">Essay</span> · <span cms-post-date>Nov 3, 2026</span></p>
+                            <a href="#" class="mt-4 block" cms-post-link><img src="images/sam-post-1.webp" alt="A notebook and a cup of coffee on a wooden desk" width="1200" height="800" class="img-frame aspect-[3/2] w-full" cms-post-image="large"></a>
+                            <h3 class="heading-md mt-5"><a href="#" cms-post-title cms-post-link>Software that leaves you alone</a></h3>
+                            <p class="mt-3 text-muted" cms-post-excerpt>Notifications, streaks and red dots: what happens when we take them away.</p>
+                        </article>
+                        <article class="post-card" cms-no-export>
+                            <p class="ref"><span>Essay</span> · <span>Oct 1, 2026</span></p>
+                            <a href="#" class="mt-4 block"><img src="images/sam-post-2.webp" alt="A small brass bell on a white table" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h3 class="heading-md mt-5"><a href="#">The quiet power of a good default</a></h3>
+                            <p class="mt-3 text-muted">Most people never change a setting. That makes defaults a moral choice.</p>
+                        </article>
+                        <article class="post-card" cms-no-export>
+                            <p class="ref"><span>Notes</span> · <span>Sep 2, 2026</span></p>
+                            <a href="#" class="mt-4 block"><img src="images/sam-post-3.webp" alt="A city street in Montréal in the snow" width="1200" height="800" class="img-frame aspect-[3/2] w-full"></a>
+                            <h3 class="heading-md mt-5"><a href="#">Building tools for one person</a></h3>
+                            <p class="mt-3 text-muted">Why I write software for exactly one user, and what it taught me.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="section" data-pg-name="Work (index)" cms-block="work-index" cms-block-title="Work (index)" cms-block-description="A list of projects with year, client and discipline" data-pg-content-group="Work (index)">
+                <div class="container-site">
+                    <div class="section-head">
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Projects</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Things I’ve made</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Small tools and experiments, mostly open source.</p>
+                    </div>
+                    <div class="project-head" aria-hidden="true"><span>Year</span><span>Project</span><span>Client</span><span>Discipline</span></div>
+                    <div class="" cms-block-inner-content cms-block-inner-content-allowed="project-row" data-pg-content-collection="Projects">
+                        <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2026</span>
+                            <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Hush, a notification budget for your phone</span>
+                            <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Open source</span>
+                            <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">App</span>
+                        </a>
+                        <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2025</span>
+                            <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Plainfeed, a reader without algorithms</span>
+                            <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Side project</span>
+                            <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Web app</span>
+                        </a>
+                        <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2024</span>
+                            <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Calm Patterns, a catalogue of humane design</span>
+                            <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Website</span>
+                            <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Writing · Design</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="newsletter" class="section" data-pg-name="Newsletter sign-up" cms-block="newsletter" cms-block-title="Newsletter sign-up" cms-block-description="An email sign-up form" data-pg-content-group="Newsletter sign-up">
+                <div class="container-site">
+                    <div class="newsletter-box">
+                        <div>
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Newsletter</p>
+                            <h2 class="heading-lg mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Get the next essay</h2>
+                            <p class="mt-4 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">One email when something new is published. No tracking, unsubscribe any time.</p>
+                        </div>
+                        <form class="flex w-full flex-col gap-2 sm:flex-row" name="newsletter" method="POST" data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website" cms-form="newsletter_form" cms-form-send-email="true" cms-form-subject="New newsletter sign-up" cms-form-success-element="[data-form-success]" cms-form-error-element="[data-form-error]">
+                            <input type="hidden" name="form-name" value="newsletter">
+                            <p class="hidden" aria-hidden="true"><label>Leave this field empty <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+                            <label class="sr-only" for="newsletter-email">Email address</label>
+                            <input id="newsletter-email" class="field mt-0 flex-1" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                            <button type="submit" class="btn-primary" data-pg-content-label="Button">Subscribe</button>
+                            <p class="form-message hidden sm:basis-full" role="status" data-form-success data-pg-content-label="Thank you message">Thanks, you are on the list.</p>
+                            <p class="form-message hidden sm:basis-full" role="alert" data-form-error data-pg-content-label="Error message">Sorry, that didn’t work. Please try again later.</p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer-big" data-pg-name="Footer (big)" cms-block="footer-big" cms-block-title="Footer (big)" cms-block-description="A closing line with a large email link" data-pg-content-group="Footer (big)">
+            <div class="container-site">
+                <p class="ref" cms-block-field="eyebrow" cms-block-field-type="content" cms-block-field-title="Eyebrow" data-pg-content-label="Eyebrow">Get in touch</p>
+                <p class="footer-statement mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Working on something interesting? I’d love to hear about it.</p>
+                <a href="mailto:sam@samrivera.dev" class="footer-email mt-8" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">sam@samrivera.dev</a>
+                <div class="mt-16 flex flex-col gap-4 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+                    <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Sam Rivera</span></p>
+                    <p class="flex gap-6"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a> <a href="https://www.linkedin.com/" class="footer-link" cms-block-field="linkedin_link" cms-block-field-type="link" cms-block-field-title="LinkedIn link" cms-block-field-2="linkedin_label" cms-block-field-type-2="content" cms-block-field-title-2="LinkedIn label" data-pg-content-label="LinkedIn">LinkedIn</a></p>
+                    <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
