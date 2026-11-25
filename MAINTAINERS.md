@@ -5,7 +5,8 @@ five more starter home pages and a library of 40 blocks (42 WordPress blocks wit
 
 ## Folders
 
-This folder is its own git repository (the workspace repository ignores `lab/`). `README.md` is for users and goes
+This folder is its own git repository, public at https://github.com/pinegrow/pinegrow-website-kit under the MIT
+license (the workspace repository ignores `lab/`). `README.md` is for users and goes
 into the download; this file is for us.
 
 - `website/`: the Pinegrow project (Tailwind CSS 4, compiled by Pinegrow). In the download.
@@ -22,7 +23,7 @@ into the download; this file is for us.
 
 - `.gitignore` keeps Pinegrow's backups (`website/_pgbackup/`) and logs out of the repository.
 - `.gitattributes` marks `tools/`, `notes/`, `source/`, this file and the packaging files `export-ignore`, so the zip
-  holds only `README.md`, `website/` and `kit-builder/`. GitHub's release "Source code (zip)" follows the same rules.
+  holds only `README.md`, `LICENSE`, `website/` and `kit-builder/`. GitHub's release "Source code (zip)" follows the same rules.
 - `./package.sh 1.0` makes `~/Documents/PinegrowDist/pinegrow-website-kit-1.0.zip` from the last commit, so commit
   first. To leave the skill out of a release, add `kit-builder/ export-ignore` to `.gitattributes`.
 

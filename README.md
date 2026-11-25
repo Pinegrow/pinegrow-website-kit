@@ -76,3 +76,7 @@ Copy the `kit-builder` folder into your agent's skills folder, or tell your agen
 > Read kit-builder/SKILL.md and build me a website kit for <your business>.
 
 Open the kit it makes in Pinegrow to compile the CSS and finish it visually.
+
+## License
+
+MIT, see `LICENSE`. Use the kit, its code and its images in your own and your clients' projects.
