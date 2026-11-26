@@ -8,7 +8,8 @@ DIR is a copy of the download (README.md, LICENSE, website/, kit-builder/), neve
 package.sh runs this on copies made with git archive.
 
 static:    removes the WordPress block attributes (cms-* and wp-*) from every page and library page, the WordPress
-           templates (website/templates/) and wp-blocks.html, and their entries in pinegrow.json. The Pinegrow
+           templates (website/templates/), wp-blocks.html and the block editor stylesheets in tailwind_theme/, and
+           their entries in pinegrow.json. The Pinegrow
            parts (data-pg-content-*, data-pg-name, component styles, the block library) stay.
 wordpress: keeps everything.
 
@@ -88,6 +89,11 @@ def main():
     if os.path.exists(wp_blocks):
         os.remove(wp_blocks)
         pages -= 1
+    # The block editor stylesheets that the WordPress theme settings add.
+    for name in ("wp-editor.css", "tailwind_for_wp_editor.css"):
+        css = os.path.join(web, "tailwind_theme", name)
+        if os.path.exists(css):
+            os.remove(css)
 
     pj_path = os.path.join(web, "pinegrow.json")
     with open(pj_path, encoding="utf-8") as f:
@@ -98,7 +104,7 @@ def main():
     pj["publish-excludes"] = [u for u in pj.get("publish-excludes", []) if u not in ("templates", "wp-blocks.html")]
     with open(pj_path, "w", encoding="utf-8") as f:
         json.dump(pj, f)
-    print(f"static: removed {removed} WordPress attributes from {pages} pages, templates/ and wp-blocks.html")
+    print(f"static: removed {removed} WordPress attributes from {pages} pages, templates/, wp-blocks.html and the block editor stylesheets")
 
 
 if __name__ == "__main__":
