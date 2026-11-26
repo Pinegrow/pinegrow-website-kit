@@ -4,6 +4,10 @@ A client-ready website kit for Pinegrow 10.1 and later: a complete site, six sta
 drag-and-drop blocks and four saved designs, all built with Tailwind CSS. Use it as it is, or as the start of your own
 client sites.
 
+It needs Pinegrow 10.1 or later: [download Pinegrow](https://pinegrow.com/download/download-pinegrow-web-editor/),
+which starts with a free trial. The [website kit guide](https://cactorial.page/g/pinegrow/website-kit) has short
+video lessons for every part, and for building your own kits with an AI agent.
+
 <!-- repo -->
 ![The kit's complete site and two of its starter home pages](promo/readme-banner.png)
 
