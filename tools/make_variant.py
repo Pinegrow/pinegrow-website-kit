@@ -26,9 +26,14 @@ WP_ATTR = re.compile(r'\s(?:cms|wp)-[a-z0-9-]+(?:="[^"]*")?(?=[\s/>])')
 TAG = re.compile(r"<([a-zA-Z][a-zA-Z0-9-]*)\b")
 
 
+# The header and footer components keep cms-no-export on their instances through an editable field named WordPress.
+WP_FIELD = re.compile(r'\s(?:data-pgc-edit="WordPress\[cms-no-export,no_content\]"|data-pgc-field="WordPress")')
+
+
 def strip_page(path):
     with open(path, encoding="utf-8") as f:
         text = f.read()
+    text = WP_FIELD.sub("", text)
     before = TAG.findall(text)
     out, n = WP_ATTR.subn("", text)
     after = TAG.findall(out)

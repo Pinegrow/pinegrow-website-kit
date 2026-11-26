@@ -5,7 +5,8 @@ pages and in the block library (website/blocks/), so they never drift apart.
 
 Each block carries:
 - WordPress block attributes (cms-block, cms-block-field...). Every block variant has its own block id, so blocks from
-  different variants never clash in a WordPress export. Repeated items are sub-blocks inside cms-block-inner-content.
+  different variants never clash in a WordPress export. Repeated items are sub-blocks inside cms-block-inner-content;
+  only the first item defines the sub-block, the others have cms-no-export.
 - Content panel annotations (data-pg-content-group / -label / -collection / -item).
 - Only design colors (page, surface, ink, muted, line, primary, on-primary, band, on-band), the three design fonts
   (sans, display, mono) and component styles from projectdb.pgml, so every design and every style change applies.
@@ -13,6 +14,8 @@ Each block carries:
 Leaf elements are written on one line and containers open and close on their own lines; build_kit.indent() relies on
 that to indent the output.
 """
+import re
+
 
 
 # Field helpers
@@ -61,6 +64,9 @@ def block(tag, bid, title, desc, cls, body, sid=None, extra=""):
 
 
 def items(tag, cls, allowed, collection, parts):
+    """A collection of sub-blocks. Only the first item defines the sub-block for WordPress; the others are copies with
+    cms-no-export. The parent block's default content still has as many items as the page."""
+    parts = parts[:1] + [re.sub(r"^(<[a-z]+)", lambda m: m.group(1) + " cms-no-export", p, count=1) for p in parts[1:]]
     return (f'<{tag} class="{cls}" cms-block-inner-content cms-block-inner-content-allowed="{allowed}" '
             f'data-pg-content-collection="{collection}">\n' + "\n".join(parts) + f"\n</{tag}>")
 

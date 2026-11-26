@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Story and team | Block library</title>
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+<style>
+/* Library chrome: plain CSS, so it works with every design. */
+.kit-lib-bar { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 4px 20px;
+    padding: 12px 20px; background: #111; color: #fff; font: 600 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-title { margin: 0; padding: 8px 20px; background: #222; color: #ddd; font: 500 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-home { padding: 40px 20px; font: 16px/1.5 system-ui, sans-serif; color: #111; background: #fff; }
+.kit-lib-home h1 { margin: 0 0 8px; font-size: 32px; }
+.kit-lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+.kit-lib-card { display: block; padding: 20px; border: 1px solid #ccc; background: #fafafa; }
+.kit-lib-card strong { display: block; font-size: 20px; }
+.kit-lib-card span { display: block; margin-top: 6px; color: #555; font-size: 14px; }
+/* Pinegrow styles .pg-lib-hover-menu as a small badge. Two classes outrank its one-class rules. */
+.kit-lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+    z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+.kit-lib-bar.kit-lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; padding: 12px 20px; background: #111;
+    font-size: 12px; text-transform: uppercase; }
+.kit-lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+.kit-lib-pass.pg-lib-hover-menu a:hover, .kit-lib-pass.pg-lib-hover-menu .kit-lib-current { text-decoration: underline;
+    text-underline-offset: 4px; }
+html body .kit-lib-pass.pg-lib-hover-menu, html body .kit-lib-pass.pg-lib-hover-menu *,
+html body .kit-lib-pass.pg-lib-hover-menu *:hover { cursor: pointer !important; transform: none !important;
+    box-shadow: none !important; }
+</style>
+<script>
+/* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+   pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+   the whole block instead, and keeps clicks inside blocks from picking inner elements. Links in .kit-lib-pass (the
+   bar and the cards) still open pages: Pinegrow lets clicks inside .pg-lib-hover-menu through. Runs only in the
+   Insert panel: pages open in the editor load with pgedit=1. */
+if (!/[?&]pgedit=1/.test(location.search)) {
+    (function() {
+        var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+        };
+        document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+                return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+                el.removeAttribute("pg-draggable");
+                el.removeAttribute("draggable");
+                el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+                block.setAttribute("pg-draggable", "true");
+                block.setAttribute("draggable", "true");
+                block.classList.add("pg-lib-item");
+            }
+        }, true);
+        ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+                if (e.target.closest && e.target.closest(".kit-lib-pass")) {
+                    return;
+                }
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }, true);
+        });
+    })();
+}
+</script>
+    </head>
+    <body class="antialiased bg-page font-sans text-ink kit-lib-page">
+<nav class="pg-lib-hover-menu kit-lib-pass kit-lib-bar" aria-label="Block library">
+<a href="blocks/kit-blocks.html">All blocks</a>
+<a href="blocks/headers-and-footers.html">Headers and footers</a>
+<a href="blocks/heroes.html">Heroes</a>
+<a href="blocks/classes.html">Classes</a>
+<a href="blocks/timetable-and-prices.html">Timetable and prices</a>
+<a href="blocks/story-and-team.html" class="kit-lib-current">Story and team</a>
+<a href="blocks/quotes-and-calls-to-action.html">Quotes and calls to action</a>
+<a href="blocks/contact.html">Contact</a>
+</nav>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Story (split)</p>
+<section class="section" data-pg-name="Story (split)" data-pg-content-group="Story">
+    <div class="container-site grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+            <img src="images/story-maja.jpg" alt="A woman sitting on a floor cushion in a bright studio, writing in a notebook" width="1000" height="1250" class="photo aspect-[4/5]" data-pg-content-label="Photo">
+            <p class="mono-meta mt-3" data-pg-content-label="Caption">Maja in the studio, spring 2025</p>
+        </div>
+        <div class="md:col-span-6 md:col-start-7">
+            <p class="eyebrow" data-pg-content-label="Label">How it started</p>
+            <h2 class="heading-lg mt-4" data-pg-content-label="Title">I wanted a class where the teacher knows your name.</h2>
+            <div class="body-text mt-8" data-pg-content-label="Story">
+                <p>After ten years of teaching in gyms with forty people to a room, I started to recognise backs better than faces. In 2019 I found an old bookbinder's workshop on the Trnovo embankment with room for exactly twelve mats, and that became the rule.</p>
+                <p>Today four of us teach here. We plan our classes together, talk about the people who come, and keep the room the way it was on the first day: wooden floor, river light, no mirrors.</p>
+            </div>
+            <p class="mt-8 font-display text-2xl text-ink" data-pg-content-label="Signature">Maja Kos, founder</p>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Teachers</p>
+<section id="teachers" class="section" data-pg-name="Teachers" data-pg-content-group="Teachers">
+    <div class="container-site">
+        <div class="grid gap-6 pb-10 md:grid-cols-12 md:items-end">
+            <div class="md:col-span-7">
+                <p class="eyebrow" data-pg-content-label="Label">The teachers</p>
+                <h2 class="heading-lg mt-4" data-pg-content-label="Title">Four teachers, one register</h2>
+            </div>
+            <p class="lead md:col-span-5" data-pg-content-label="Introduction">Each of us teaches at least four classes a week here, so you will see the same faces at the front of the room.</p>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4" data-pg-content-collection="Teachers">
+            <article class="card-teacher" data-pg-content-item="Teacher">
+                <img src="images/teacher-maja.jpg" alt="A woman in a white t-shirt with her arms raised in eagle pose in a bright studio" width="800" height="1000" class="photo aspect-[4/5]" data-pg-content-label="Photo">
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Name">Maja Kos</h3>
+                    <p class="eyebrow mt-2" data-pg-content-label="Classes">Vinyasa · Slow flow</p>
+                </div>
+                <p class="body-text" data-pg-content-label="Bio">Founded Still Water in 2019. Twelve years of teaching, 500-hour training in Mysore and Ljubljana. Her classes are strong and unhurried.</p>
+            </article>
+            <article class="card-teacher" data-pg-content-item="Teacher">
+                <img src="images/teacher-tine.jpg" alt="A man with a short beard in a white t-shirt sitting cross-legged on a mat, dark wall behind him" width="800" height="1000" class="photo aspect-[4/5]" data-pg-content-label="Photo">
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Name">Tine Zupan</h3>
+                    <p class="eyebrow mt-2" data-pg-content-label="Classes">Yin · Slow flow</p>
+                </div>
+                <p class="body-text" data-pg-content-label="Bio">A former rower who came to yoga with a bad back. Teaches the evening yin classes and anyone who says they are not flexible.</p>
+            </article>
+            <article class="card-teacher" data-pg-content-item="Teacher">
+                <img src="images/teacher-nika.jpg" alt="A smiling woman with short curly hair in a grey top, a rolled mat over her shoulder" width="800" height="1000" class="photo aspect-[4/5]" data-pg-content-label="Photo">
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Name">Nika Horvat</h3>
+                    <p class="eyebrow mt-2" data-pg-content-label="Classes">Prenatal · Private sessions</p>
+                </div>
+                <p class="body-text" data-pg-content-label="Bio">Trained in prenatal and postnatal yoga, mother of two. Her Tuesday class ends with tea and twenty minutes of questions.</p>
+            </article>
+            <article class="card-teacher" data-pg-content-item="Teacher">
+                <img src="images/teacher-jure.jpg" alt="A smiling man in a black t-shirt with his arms folded, a light wall behind him" width="800" height="1000" class="photo aspect-[4/5]" data-pg-content-label="Photo">
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Name">Jure Kranjc</h3>
+                    <p class="eyebrow mt-2" data-pg-content-label="Classes">Vinyasa · Slow flow</p>
+                </div>
+                <p class="body-text" data-pg-content-label="Bio">Physiotherapist by day. Brings an eye for alignment and plenty of options for knees, wrists and shoulders.</p>
+            </article>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">First class (steps)</p>
+<section class="section-surface" data-pg-name="First class (steps)" data-pg-content-group="First class">
+    <div class="container-site grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-4">
+            <p class="eyebrow" data-pg-content-label="Label">Your first class</p>
+            <h2 class="heading-lg mt-4" data-pg-content-label="Title">What happens when you come</h2>
+            <a href="contact.html" class="link-arrow mt-8" data-pg-content-label="Link">Ask us anything first →</a>
+        </div>
+        <ol class="ledger md:col-span-8" data-pg-content-collection="Steps">
+            <li class="step-row" data-pg-content-item="Step">
+                <span class="ledger-number">01</span>
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Title">Book a mat</h3>
+                    <p class="body-text mt-2" data-pg-content-label="Description">Write or call and tell us which class. We hold your mat until five minutes before the start.</p>
+                </div>
+            </li>
+            <li class="step-row" data-pg-content-item="Step">
+                <span class="ledger-number">02</span>
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Title">Come fifteen minutes early</h3>
+                    <p class="body-text mt-2" data-pg-content-label="Description">There are changing rooms and a shelf for shoes and phones. Tell the teacher about injuries or a pregnancy.</p>
+                </div>
+            </li>
+            <li class="step-row" data-pg-content-item="Step">
+                <span class="ledger-number">03</span>
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Title">Practise at your pace</h3>
+                    <p class="body-text mt-2" data-pg-content-label="Description">With twelve people in the room the teacher offers you an easier or a stronger version of every pose.</p>
+                </div>
+            </li>
+            <li class="step-row" data-pg-content-item="Step">
+                <span class="ledger-number">04</span>
+                <div>
+                    <h3 class="heading-md" data-pg-content-label="Title">Stay for tea</h3>
+                    <p class="body-text mt-2" data-pg-content-label="Description">There is always a pot on after class. Your first class is €12, whichever one you choose.</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+</div>
+    </body>
+</html>

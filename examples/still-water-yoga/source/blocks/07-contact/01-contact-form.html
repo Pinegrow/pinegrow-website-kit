@@ -1,0 +1,44 @@
+<section id="book" class="section" data-pg-name="Contact (form and details)" data-pg-content-group="Contact">
+    <div class="container-site grid gap-12 md:grid-cols-12">
+        <div class="md:col-span-5">
+            <p class="eyebrow" data-pg-content-label="Label">Book a mat · ask a question</p>
+            <h2 class="heading-lg mt-4" data-pg-content-label="Title">Write to the front desk</h2>
+            <p class="lead mt-6" data-pg-content-label="Introduction">Tell us which class and day. We reply within one working day, usually the same evening.</p>
+            <dl class="mt-10 grid gap-6 border-t border-ink pt-6">
+                <div>
+                    <dt class="eyebrow">Studio</dt>
+                    <dd class="mt-2 text-ink" data-pg-content-label="Address">Trnovski pristan 14, 1000 Ljubljana</dd>
+                </div>
+                <div>
+                    <dt class="eyebrow">Email</dt>
+                    <dd class="mt-2" data-pg-content-label="Email"><a href="mailto:hello@stillwateryoga.si" class="link-arrow">hello@stillwateryoga.si</a></dd>
+                </div>
+                <div>
+                    <dt class="eyebrow">Phone</dt>
+                    <dd class="mt-2" data-pg-content-label="Phone"><a href="tel:+38640123456" class="link-arrow">+386 40 123 456</a></dd>
+                </div>
+            </dl>
+        </div>
+        <form class="contact-form md:col-span-6 md:col-start-7" name="contact" method="POST" action="contact.html"
+              data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <label class="field-label">Your name <input class="field" type="text" name="name" autocomplete="name" required></label>
+            <label class="field-label">Email <input class="field" type="email" name="email" autocomplete="email" required></label>
+            <label class="field-label">Phone (optional) <input class="field" type="tel" name="phone" autocomplete="tel"></label>
+            <label class="field-label">Class <select class="field" name="service">
+                <option>Vinyasa</option>
+                <option>Slow flow</option>
+                <option>Yin</option>
+                <option>Prenatal</option>
+                <option>Private session</option>
+                <option>Just a question</option>
+            </select></label>
+            <label class="field-label">Message <textarea class="field" name="message" rows="5" required placeholder="Which day, and anything we should know (injuries, pregnancy, first class)"></textarea></label>
+            <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">Send the message</button>
+            <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thank you. We'll reply within one working day.</p>
+            <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Sorry, the message couldn't be sent. Please email us at hello@stillwateryoga.si or call +386 40 123 456.</p>
+        </form>
+    </div>
+</section>

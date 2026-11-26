@@ -1,0 +1,17 @@
+{
+ "active": "river",
+ "designs": [
+  {"id": "river", "name": "River",
+   "colors": {"page": "#eef0eb", "surface": "#e1e5de", "ink": "#16201c", "muted": "#505b55", "line": "#c5ccc4",
+              "primary": "#1d5a4e", "on-primary": "#f1f4ef", "band": "#16201c", "on-band": "#e7ebe4"},
+   "fonts": {"sans": "Instrument Sans", "display": "Newsreader", "mono": "IBM Plex Mono"}},
+  {"id": "oxide", "name": "Oxide",
+   "colors": {"page": "#fbfaf7", "surface": "#f0ede6", "ink": "#221c19", "muted": "#625953", "line": "#dcd5ca",
+              "primary": "#9c3f25", "on-primary": "#fff8f3", "band": "#25364a", "on-band": "#f0ede6"},
+   "fonts": {"sans": "Manrope", "display": "Manrope", "mono": "DM Mono"}},
+  {"id": "lamp", "name": "Lamp",
+   "colors": {"page": "#121514", "surface": "#1b1f1d", "ink": "#e7e9e3", "muted": "#a2aaa3", "line": "#2f3532",
+              "primary": "#dca35c", "on-primary": "#141210", "band": "#dca35c", "on-band": "#141210"},
+   "fonts": {"sans": "Figtree", "display": "Cormorant Garamond", "mono": "IBM Plex Mono"}}
+ ]
+}

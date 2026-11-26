@@ -1,0 +1,59 @@
+# Pinegrow component styles. Colours and fonts come from the active design.
+.container-site: mx-auto w-full max-w-[92rem] px-5 sm:px-8 xl:px-14
+.section-page: bg-page py-14 sm:py-18 lg:py-24
+.section-surface: border-y border-line bg-surface py-14 sm:py-18 lg:py-24
+.section-band: bg-band py-14 text-on-band sm:py-18 lg:py-24
+.eyebrow: font-mono text-xs leading-relaxed font-medium tracking-[0.14em] uppercase sm:text-sm
+.heading-hero: font-display text-[clamp(2.25rem,13.3cqw,7.4rem)] leading-[0.83] font-black tracking-[-0.035em] wrap-break-word uppercase
+.heading-page: font-display text-[clamp(2.4rem,10vw,7.2rem)] leading-[0.88] font-black tracking-[-0.035em] wrap-break-word uppercase
+.heading-section: font-display text-[clamp(2.15rem,9vw,4rem)] leading-[0.88] font-black tracking-[-0.025em] wrap-break-word uppercase
+ sm:text-[clamp(2.6rem,6vw,5rem)]
+.heading-item: font-display text-2xl leading-tight font-bold tracking-tight sm:text-3xl
+.lead: max-w-[35rem] text-lg leading-relaxed sm:text-xl
+.prose-copy: max-w-[40rem] text-base leading-relaxed sm:text-lg
+.btn-primary: inline-flex min-h-12 max-w-full items-center justify-center gap-3 border border-transparent bg-primary px-5 py-3.5 text-base leading-tight font-bold
+ text-on-primary transition hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current disabled:opacity-60
+.btn-outline: inline-flex min-h-12 max-w-full items-center justify-center gap-3 border border-current px-5 py-3.5 text-base leading-tight font-bold
+ transition hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current
+.text-link: inline-flex min-h-11 items-center gap-2 py-1 font-bold underline decoration-1 underline-offset-4 hover:decoration-2
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current
+.skip-link: sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-primary focus:px-4 focus:py-3 focus:font-bold focus:text-on-primary
+.site-header: relative z-20 border-b border-line bg-page text-ink
+.nav-bar: flex min-h-20 items-center justify-between gap-4
+.wordmark: inline-flex shrink-0 flex-col items-start self-center font-display text-[2.65rem] leading-[0.72] font-black tracking-[-0.065em] uppercase
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current
+.wordmark-small: mt-1 font-mono text-[0.6rem] leading-none font-medium tracking-[0.32em]
+.nav-link: inline-flex min-h-11 items-center py-1 text-sm font-bold hover:underline hover:underline-offset-4
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current
+.mobile-menu-button: flex min-h-11 cursor-pointer list-none items-center gap-2 border border-line px-3.5 py-2 text-sm font-bold
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current [&::-webkit-details-marker]:hidden
+.mobile-menu-panel: absolute inset-x-0 top-full grid border-b border-line bg-page px-5 py-4 sm:px-8
+.hero-layout: grid lg:grid-cols-[minmax(0,0.91fr)_minmax(0,1.09fr)]
+.hero-copy: @container flex min-w-0 flex-col justify-center px-5 pt-14 pb-12 sm:px-8 sm:pt-17 sm:pb-15 xl:px-14 xl:py-18
+.hero-photo: h-full w-full object-cover
+.headline-strip: relative z-0 mt-[0.1em] inline-block max-w-full isolate px-[0.10em] py-[0.07em] text-on-primary
+ before:absolute before:inset-0 before:-z-10 before:-rotate-2 before:bg-primary before:content-['']
+.page-hero: border-b border-line bg-page py-14 sm:py-18 lg:py-22
+.photo-block: block h-full w-full bg-surface object-cover
+.split-section: grid items-center gap-8 md:grid-cols-2 lg:gap-16
+.route-link: grid min-h-28 grid-cols-[1fr_auto] content-center gap-x-2 gap-y-1 border-line py-4 text-ink transition
+ hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-current
+.route-arrow: self-center font-mono text-2xl leading-none
+.step-card: border-t border-line py-5 sm:pt-6
+.step-number: inline-grid size-10 place-content-center bg-primary font-mono text-sm font-medium text-on-primary
+.board: w-full border-collapse text-left
+.board-head: border-y border-line bg-surface font-mono text-xs font-medium tracking-[0.11em] uppercase
+.board-row: border-b border-line
+.board-cell: px-3 py-4 align-top sm:px-6 sm:py-5
+.board-note: mt-1 block max-w-[38rem] text-sm leading-relaxed font-normal text-muted sm:text-base
+.board-value: w-[1%] min-w-[11ch] px-3 py-4 text-right align-top font-mono text-lg leading-tight font-medium tabular-nums sm:px-6 sm:py-5 sm:text-2xl
+.board-unit: mt-1 block text-xs leading-snug font-normal text-muted sm:text-sm
+.detail-row: border-b border-line py-4
+.detail-summary: flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 py-1 text-lg font-bold
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current [&::-webkit-details-marker]:hidden
+.field-label: grid gap-2 text-sm leading-snug font-bold
+.field: w-full min-w-0 border border-line bg-page px-3.5 py-3 text-base leading-normal font-normal text-ink
+ focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
+.form-message: border-l-4 border-current pl-3 text-base leading-relaxed
+.footer-logo: inline-block font-display text-[clamp(4.5rem,13vw,11rem)] leading-[0.72] font-black tracking-[-0.045em] uppercase
+ focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current

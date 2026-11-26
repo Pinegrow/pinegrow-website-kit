@@ -1,0 +1,38 @@
+<section id="enquire" class="section-page" data-pg-name="Lesson enquiry form" data-pg-content-group="Send an enquiry.">
+    <div class="container-site grid items-start gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">Send an enquiry.</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Introduction">Tell us which lesson you’re interested in, the swimmer’s experience and the days that suit you. You can also ask about pool access.</p>
+        </div>
+        <form class="grid min-w-0 gap-4" name="lesson-enquiry" method="POST" action="/"
+              data-form data-form-endpoint="netlify" data-netlify="true" netlify-honeypot="company_website">
+            <input type="hidden" name="form-name" value="lesson-enquiry">
+            <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <label class="field-label"><span data-pg-content-label="Field label">Your name</span>
+                    <input class="field" type="text" name="name" autocomplete="name" required></label>
+                <label class="field-label"><span data-pg-content-label="Field label">Email address</span>
+                    <input class="field" type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label class="field-label"><span data-pg-content-label="Field label">What are you asking about?</span>
+                <select class="field" name="topic" required>
+                    <option value="">Choose a topic</option>
+                    <option>Babies and parents</option>
+                    <option>Kids’ lessons</option>
+                    <option>Adult lessons</option>
+                    <option>Private lessons or vouchers</option>
+                    <option>Travel and access</option>
+                    <option>Something else</option>
+                </select>
+            </label>
+            <label class="field-label"><span data-pg-content-label="Field label">Message</span>
+                <textarea class="field" name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">
+                Send enquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thanks for your message. We’ll get back to you by email.</p>
+            <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Your message couldn’t be sent. Please try again in a moment.</p>
+        </form>
+    </div>
+</section>

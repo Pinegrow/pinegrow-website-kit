@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Heroes | Block library</title>
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+<style>
+/* Library chrome: plain CSS, so it works with every design. */
+.kit-lib-bar { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 4px 20px;
+    padding: 12px 20px; background: #111; color: #fff; font: 600 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-title { margin: 0; padding: 8px 20px; background: #222; color: #ddd; font: 500 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-home { padding: 40px 20px; font: 16px/1.5 system-ui, sans-serif; color: #111; background: #fff; }
+.kit-lib-home h1 { margin: 0 0 8px; font-size: 32px; }
+.kit-lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+.kit-lib-card { display: block; padding: 20px; border: 1px solid #ccc; background: #fafafa; }
+.kit-lib-card strong { display: block; font-size: 20px; }
+.kit-lib-card span { display: block; margin-top: 6px; color: #555; font-size: 14px; }
+/* Pinegrow styles .pg-lib-hover-menu as a small badge. Two classes outrank its one-class rules. */
+.kit-lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+    z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+.kit-lib-bar.kit-lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; padding: 12px 20px; background: #111;
+    font-size: 12px; text-transform: uppercase; }
+.kit-lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+.kit-lib-pass.pg-lib-hover-menu a:hover, .kit-lib-pass.pg-lib-hover-menu .kit-lib-current { text-decoration: underline;
+    text-underline-offset: 4px; }
+html body .kit-lib-pass.pg-lib-hover-menu, html body .kit-lib-pass.pg-lib-hover-menu *,
+html body .kit-lib-pass.pg-lib-hover-menu *:hover { cursor: pointer !important; transform: none !important;
+    box-shadow: none !important; }
+</style>
+<script>
+/* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+   pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+   the whole block instead, and keeps clicks inside blocks from picking inner elements. Links in .kit-lib-pass (the
+   bar and the cards) still open pages: Pinegrow lets clicks inside .pg-lib-hover-menu through. Runs only in the
+   Insert panel: pages open in the editor load with pgedit=1. */
+if (!/[?&]pgedit=1/.test(location.search)) {
+    (function() {
+        var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+        };
+        document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+                return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+                el.removeAttribute("pg-draggable");
+                el.removeAttribute("draggable");
+                el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+                block.setAttribute("pg-draggable", "true");
+                block.setAttribute("draggable", "true");
+                block.classList.add("pg-lib-item");
+            }
+        }, true);
+        ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+                if (e.target.closest && e.target.closest(".kit-lib-pass")) {
+                    return;
+                }
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }, true);
+        });
+    })();
+}
+</script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased kit-lib-page">
+<nav class="pg-lib-hover-menu kit-lib-pass kit-lib-bar" aria-label="Block library">
+<a href="blocks/kit-blocks.html">All blocks</a>
+<a href="blocks/site.html">Site</a>
+<a href="blocks/heroes.html" class="kit-lib-current">Heroes</a>
+<a href="blocks/climbing.html">Climbing</a>
+<a href="blocks/session-boards.html">Session boards</a>
+<a href="blocks/visit-and-enquiry.html">Visit and enquiry</a>
+</nav>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Home photo hero</p>
+<section class="border-b border-line bg-page" data-pg-name="Home photo hero" data-pg-content-group="Home hero">
+    <div class="hero-layout mx-auto max-w-[92rem] lg:min-h-[38rem] xl:min-h-[41rem]">
+        <div class="hero-copy">
+            <p class="eyebrow mb-5 text-muted sm:mb-7" data-pg-content-label="Page label">Indoor bouldering · Leeds</p>
+            <h1 class="heading-hero">
+                <span class="block" data-pg-content-label="Headline first line">Make your</span>
+                <span class="headline-strip" data-pg-content-label="Headline on the colour strip">first move.</span>
+            </h1>
+            <p class="lead mt-7 sm:mt-8" data-pg-content-label="Introduction">Climb short walls above padded mats, without ropes. Come for a first go, bring the kids or make Crux your regular spot.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 sm:mt-8">
+                <a href="climbing.html#first-visit" class="btn-primary" data-pg-content-label="Main button">Plan your first visit <span aria-hidden="true">↗</span></a>
+                <a href="prices.html" class="text-link" data-pg-content-label="Second button">See prices</a>
+            </div>
+        </div>
+        <div class="relative min-w-0 overflow-hidden border-t border-line bg-surface lg:border-t-0 lg:border-l">
+            <img src="images/hero-wall.webp" width="1600" height="1400" alt="A climber in a rust-red top stretches across a slate wall towards a yellow hold" class="hero-photo aspect-[6/5] sm:aspect-[3/2] lg:absolute lg:inset-0 lg:aspect-auto object-top" fetchpriority="high" decoding="async" data-pg-content-label="Photo">
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Photo hero</p>
+<section class="border-b border-line bg-page" data-pg-name="Photo hero" data-pg-content-group="Page hero">
+    <div class="hero-layout mx-auto max-w-[92rem] lg:min-h-[30rem] xl:min-h-[34rem]">
+        <div class="hero-copy">
+            <p class="eyebrow mb-5 text-muted sm:mb-7" data-pg-content-label="Page label">Climbing and classes</p>
+            <h1 class="heading-hero">
+                <span class="block" data-pg-content-label="Headline first line">Get a grip.</span>
+                <span class="headline-strip" data-pg-content-label="Headline on the colour strip">Give it a go.</span>
+            </h1>
+            <p class="lead mt-7 sm:mt-8" data-pg-content-label="Introduction">There’s a wall for your first try and plenty to come back for. Start with a visit or ask about a coached session.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 sm:mt-8">
+                <a href="#first-visit" class="btn-primary" data-pg-content-label="Main button">What to expect <span aria-hidden="true">↓</span></a>
+                <a href="#classes" class="text-link" data-pg-content-label="Second button">See classes <span aria-hidden="true">↓</span></a>
+            </div>
+        </div>
+        <div class="relative min-w-0 overflow-hidden border-t border-line bg-surface lg:border-t-0 lg:border-l">
+            <img src="images/first-session.webp" width="1500" height="1000" alt="A coach points out a hold to a beginner on a low plywood wall" class="hero-photo aspect-[6/5] sm:aspect-[3/2] lg:absolute lg:inset-0 lg:aspect-auto" fetchpriority="high" decoding="async" data-pg-content-label="Photo">
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Session board hero</p>
+<section class="page-hero" data-pg-name="Session board hero" data-pg-content-group="Page hero">
+    <div class="container-site">
+        <p class="eyebrow mb-5 text-muted" data-pg-content-label="Page label">Prices and memberships</p>
+        <h1 class="heading-page max-w-[62rem]" data-pg-content-label="Title">Straight-up prices.</h1>
+        <p class="lead mt-5 text-muted sm:mt-6" data-pg-content-label="Introduction">Pay for a single visit or pick a pass if you climb more often. Here’s what each option covers.</p>
+        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-1">
+            <a href="#entry" class="text-link" data-pg-content-label="Link">Entry and hire <span aria-hidden="true">↓</span></a>
+            <a href="#memberships" class="text-link" data-pg-content-label="Link">Passes and memberships <span aria-hidden="true">↓</span></a>
+        </div>
+    </div>
+</section>
+</div>
+    </body>
+</html>

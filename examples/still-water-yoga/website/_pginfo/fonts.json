@@ -1,0 +1,184 @@
+{
+ "activated": [
+  {
+   "type": "google",
+   "family": "Instrument Sans",
+   "weights": [
+    "400",
+    "500",
+    "600",
+    "700"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    },
+    {
+     "weight": "600"
+    },
+    {
+     "weight": "700"
+    }
+   ],
+   "category": "sans",
+   "url": "https://fonts.googleapis.com/css?family=Instrument+Sans:400,500,600,700",
+   "usage": "all",
+   "fallback": "system-ui, -apple-system, sans-serif"
+  },
+  {
+   "type": "google",
+   "family": "Newsreader",
+   "weights": [
+    "400",
+    "500",
+    "600",
+    "700"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    },
+    {
+     "weight": "600"
+    },
+    {
+     "weight": "700"
+    }
+   ],
+   "category": "sans",
+   "url": "https://fonts.googleapis.com/css?family=Newsreader:400,500,600,700",
+   "usage": "all",
+   "fallback": "system-ui, -apple-system, sans-serif"
+  },
+  {
+   "type": "google",
+   "family": "IBM Plex Mono",
+   "weights": [
+    "400",
+    "500"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    }
+   ],
+   "category": "monospace",
+   "url": "https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500",
+   "usage": "all",
+   "fallback": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+  },
+  {
+   "type": "google",
+   "family": "Manrope",
+   "weights": [
+    "400",
+    "500",
+    "600",
+    "700"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    },
+    {
+     "weight": "600"
+    },
+    {
+     "weight": "700"
+    }
+   ],
+   "category": "sans",
+   "url": "https://fonts.googleapis.com/css?family=Manrope:400,500,600,700",
+   "usage": "all",
+   "fallback": "system-ui, -apple-system, sans-serif"
+  },
+  {
+   "type": "google",
+   "family": "DM Mono",
+   "weights": [
+    "400",
+    "500"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    }
+   ],
+   "category": "monospace",
+   "url": "https://fonts.googleapis.com/css?family=DM+Mono:400,500",
+   "usage": "all",
+   "fallback": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+  },
+  {
+   "type": "google",
+   "family": "Figtree",
+   "weights": [
+    "400",
+    "500",
+    "600",
+    "700"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    },
+    {
+     "weight": "600"
+    },
+    {
+     "weight": "700"
+    }
+   ],
+   "category": "sans",
+   "url": "https://fonts.googleapis.com/css?family=Figtree:400,500,600,700",
+   "usage": "all",
+   "fallback": "system-ui, -apple-system, sans-serif"
+  },
+  {
+   "type": "google",
+   "family": "Cormorant Garamond",
+   "weights": [
+    "400",
+    "500",
+    "600",
+    "700"
+   ],
+   "styles": [
+    {
+     "weight": "400"
+    },
+    {
+     "weight": "500"
+    },
+    {
+     "weight": "600"
+    },
+    {
+     "weight": "700"
+    }
+   ],
+   "category": "sans",
+   "url": "https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500,600,700",
+   "usage": "all",
+   "fallback": "system-ui, -apple-system, sans-serif"
+  }
+ ]
+}

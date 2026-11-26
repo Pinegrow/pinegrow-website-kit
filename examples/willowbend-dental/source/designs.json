@@ -1,0 +1,38 @@
+{
+  "active": "willow",
+  "designs": [
+    {
+      "id": "willow",
+      "name": "Willow",
+      "colors": {
+        "page": "#F7F5ED", "surface": "#ECEDE0", "ink": "#23372D", "muted": "#4F5D50",
+        "line": "#CBCEC0", "primary": "#345743", "on-primary": "#FDFCF5", "band": "#273E33", "on-band": "#F7F5ED"
+      },
+      "fonts": {
+        "sans": "DM Sans", "display": "Manrope", "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "harbor",
+      "name": "Harbor",
+      "colors": {
+        "page": "#F5FAFA", "surface": "#E3F1F0", "ink": "#12383C", "muted": "#3D5B61",
+        "line": "#BCD4D6", "primary": "#125D63", "on-primary": "#F3FFFF", "band": "#154148", "on-band": "#ECFAFA"
+      },
+      "fonts": {
+        "sans": "Instrument Sans", "display": {"family": "Lora", "category": "serif"}, "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "dusk",
+      "name": "Dusk",
+      "colors": {
+        "page": "#261F28", "surface": "#332935", "ink": "#F8EEEC", "muted": "#D1BEC6",
+        "line": "#655664", "primary": "#F1AEA6", "on-primary": "#301F2A", "band": "#EABAB0", "on-band": "#30232F"
+      },
+      "fonts": {
+        "sans": "Outfit", "display": {"family": "Playfair Display", "category": "serif"}, "mono": "IBM Plex Mono"
+      }
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Lessons | Block library</title>
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+<style>
+/* Library chrome: plain CSS, so it works with every design. */
+.kit-lib-bar { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 4px 20px;
+    padding: 12px 20px; background: #111; color: #fff; font: 600 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-title { margin: 0; padding: 8px 20px; background: #222; color: #ddd; font: 500 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-home { padding: 40px 20px; font: 16px/1.5 system-ui, sans-serif; color: #111; background: #fff; }
+.kit-lib-home h1 { margin: 0 0 8px; font-size: 32px; }
+.kit-lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+.kit-lib-card { display: block; padding: 20px; border: 1px solid #ccc; background: #fafafa; }
+.kit-lib-card strong { display: block; font-size: 20px; }
+.kit-lib-card span { display: block; margin-top: 6px; color: #555; font-size: 14px; }
+/* Pinegrow styles .pg-lib-hover-menu as a small badge. Two classes outrank its one-class rules. */
+.kit-lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+    z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+.kit-lib-bar.kit-lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; padding: 12px 20px; background: #111;
+    font-size: 12px; text-transform: uppercase; }
+.kit-lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+.kit-lib-pass.pg-lib-hover-menu a:hover, .kit-lib-pass.pg-lib-hover-menu .kit-lib-current { text-decoration: underline;
+    text-underline-offset: 4px; }
+html body .kit-lib-pass.pg-lib-hover-menu, html body .kit-lib-pass.pg-lib-hover-menu *,
+html body .kit-lib-pass.pg-lib-hover-menu *:hover { cursor: pointer !important; transform: none !important;
+    box-shadow: none !important; }
+</style>
+<script>
+/* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+   pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+   the whole block instead, and keeps clicks inside blocks from picking inner elements. Links in .kit-lib-pass (the
+   bar and the cards) still open pages: Pinegrow lets clicks inside .pg-lib-hover-menu through. Runs only in the
+   Insert panel: pages open in the editor load with pgedit=1. */
+if (!/[?&]pgedit=1/.test(location.search)) {
+    (function() {
+        var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+        };
+        document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+                return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+                el.removeAttribute("pg-draggable");
+                el.removeAttribute("draggable");
+                el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+                block.setAttribute("pg-draggable", "true");
+                block.setAttribute("draggable", "true");
+                block.classList.add("pg-lib-item");
+            }
+        }, true);
+        ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+                if (e.target.closest && e.target.closest(".kit-lib-pass")) {
+                    return;
+                }
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }, true);
+        });
+    })();
+}
+</script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased kit-lib-page">
+<nav class="pg-lib-hover-menu kit-lib-pass kit-lib-bar" aria-label="Block library">
+<a href="blocks/kit-blocks.html">All blocks</a>
+<a href="blocks/site.html">Site</a>
+<a href="blocks/heroes.html">Heroes</a>
+<a href="blocks/lessons.html" class="kit-lib-current">Lessons</a>
+<a href="blocks/prices-and-timetable.html">Prices and timetable</a>
+<a href="blocks/contact-and-enquiries.html">Contact and enquiries</a>
+</nav>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Lesson routes</p>
+<section class="border-b border-line bg-surface py-2 md:py-0" data-pg-name="Lesson routes" data-pg-content-group="Find your lesson">
+    <div class="container-site">
+        <div class="grid md:grid-cols-3" data-pg-content-collection="Lesson routes">
+            <a href="lessons.html#babies" data-pg-content-item="Lesson route" class="route-link md:border-r md:pr-5" data-pg-content-label="Page link">
+                <h2 class="heading-item" data-pg-content-label="Title">Babies &amp; parents</h2>
+                <span class="route-arrow row-span-2" aria-hidden="true">↗</span>
+                <p class="text-sm leading-relaxed text-muted" data-pg-content-label="Description">Songs, splashes and time in the water together.</p>
+            </a>
+            <a href="lessons.html#kids" data-pg-content-item="Lesson route" class="route-link border-t md:border-t-0 md:border-r md:px-5" data-pg-content-label="Page link">
+                <h2 class="heading-item" data-pg-content-label="Title">Kids’ lessons</h2>
+                <span class="route-arrow row-span-2" aria-hidden="true">↗</span>
+                <p class="text-sm leading-relaxed text-muted" data-pg-content-label="Description">From first floats to stronger strokes.</p>
+            </a>
+            <a href="lessons.html#adults" data-pg-content-item="Lesson route" class="route-link border-t md:border-t-0 md:pl-5" data-pg-content-label="Page link">
+                <h2 class="heading-item" data-pg-content-label="Title">Adult lessons</h2>
+                <span class="route-arrow row-span-2" aria-hidden="true">↗</span>
+                <p class="text-sm leading-relaxed text-muted" data-pg-content-label="Description">Start from scratch or get more from every length.</p>
+            </a>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Three steps</p>
+<section id="first-lesson" class="section-page" data-pg-name="Three steps" data-pg-content-group="Your first lesson">
+    <div class="container-site">
+        <h2 class="heading-section" data-pg-content-label="Title">Your first lesson</h2>
+        <p class="prose-copy mt-5 text-muted" data-pg-content-label="Introduction">A little preparation helps everyone settle in. Here’s what to expect at the pool.</p>
+        <ol class="mt-7 grid gap-x-9 gap-y-3 sm:mt-10 md:grid-cols-3" data-pg-content-collection="Steps">
+            <li class="step-card" data-pg-content-item="Step">
+                <span class="step-number" data-pg-content-label="Step number">01</span>
+                <h3 class="heading-item mt-4" data-pg-content-label="Title">Pack your swim kit</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted" data-pg-content-label="Description">Bring swimwear and a towel. If you’re joining a baby class, pack a swim nappy and swimwear for the adult getting in.</p>
+            </li>
+            <li class="step-card" data-pg-content-item="Step">
+                <span class="step-number" data-pg-content-label="Step number">02</span>
+                <h3 class="heading-item mt-4" data-pg-content-label="Title">Meet your teacher</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted" data-pg-content-label="Description">Check your confirmation for arrival and changing details. Tell the teacher how you feel in the water and what you’d like help with.</p>
+            </li>
+            <li class="step-card" data-pg-content-item="Step">
+                <span class="step-number" data-pg-content-label="Step number">03</span>
+                <h3 class="heading-item mt-4" data-pg-content-label="Title">Start at your level</h3>
+                <p class="mt-2 text-base leading-relaxed text-muted" data-pg-content-label="Description">Your teacher will explain the pool routine and give you an activity that suits your experience. You can take a pause whenever you need one.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Photo and copy</p>
+<section class="section-page" data-pg-name="Photo and copy" data-pg-content-group="A first for every swimmer">
+    <div class="container-site split-section">
+        <div class="overflow-hidden rounded-2xl border border-line">
+            <img src="images/splash-adults.webp" width="1500" height="1000" alt="An adult swimmer holds a yellow kickboard as they talk with an instructor" class="photo-block aspect-[3/2]" loading="lazy" decoding="async" data-pg-content-label="Photo">
+        </div>
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">A first for every swimmer</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Description">Some swimmers are learning to put their face in the water. Others are working on their breathing or building up to a full length. We’ll help you find a group that fits.</p>
+            <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 sm:mt-7">
+                <a href="lessons.html#lesson-guide" class="btn-outline" data-pg-content-label="Button">Compare lessons <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+    </body>
+</html>

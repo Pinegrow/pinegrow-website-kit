@@ -18,26 +18,28 @@
                 </div>
             </div>
             <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Header · simple</p>
-                <header class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
-                    <div class="container-site flex h-20 items-center justify-between gap-6">
-                        <a href="#" class="wordmark-small" aria-label="Ember & Oat home"><span cms-site-name data-pg-content-label="Site name">Ember & Oat</span></a>
+                <p class="pg-lib-section-title lib-title">Header · drawing</p>
+                <header class="site-header" data-pg-name="Header (drawing)" cms-block="header-drawing" cms-block-title="Header (drawing)" cms-block-description="Logo mark, technical menu and a button" data-pg-content-group="Header (drawing)">
+                    <div class="container-site flex h-16 items-center justify-between gap-6">
+                        <a href="index.html" class="brand" aria-label="Northlight Interiors home"><span class="brand-mark" aria-hidden="true">NL</span> <span cms-site-name data-pg-content-label="Site name">Northlight Interiors</span></a>
                         <nav class="hidden lg:block" aria-label="Main">
                             <ul class="flex items-center gap-8" cms-menu="primary">
-                                <li><a href="#menu" class="nav-link-plain">Menu</a></li>
-                                <li><a href="#story" class="nav-link-plain">Our story</a></li>
-                                <li><a href="#visit" class="nav-link-plain">Visit</a></li>
+                                <li><a href="#schedule" class="nav-link">Services</a></li>
+                                <li><a href="#cases" class="nav-link">Case files</a></li>
+                                <li><a href="#process" class="nav-link">Process</a></li>
+                                <li><a href="#questions" class="nav-link">Questions</a></li>
                             </ul>
                         </nav>
                         <div class="flex items-center gap-2">
-                            <a href="#visit" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Find us</a>
+                            <a href="#contact" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Request a site visit</a>
                             <details class="mobile-menu lg:hidden">
                                 <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
                                 <div class="mobile-menu-panel">
-                                    <a href="#menu" class="nav-link-plain text-xl">Menu</a>
-                                    <a href="#story" class="nav-link-plain text-xl">Our story</a>
-                                    <a href="#visit" class="nav-link-plain text-xl">Visit</a>
-                                    <a href="#visit" class="btn-primary mt-2">Find us</a>
+                                    <a href="#schedule" class="nav-link">Services</a>
+                                    <a href="#cases" class="nav-link">Case files</a>
+                                    <a href="#process" class="nav-link">Process</a>
+                                    <a href="#questions" class="nav-link">Questions</a>
+                                    <a href="#contact" class="btn-primary mt-2">Request a site visit</a>
                                 </div>
                             </details>
                         </div>
@@ -45,29 +47,35 @@
                 </header>
             </div>
             <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Footer · columns</p>
-                <footer class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
-                    <div class="container-site grid gap-12 md:grid-cols-12">
-                        <div class="md:col-span-4">
-                            <p class="wordmark-small"><span cms-site-name>Movewell Physio</span></p>
-                            <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Physiotherapy for sport, work and everyday life.</p>
-                        </div>
-                        <div class="md:col-span-3">
-                            <p class="ref" cms-block-field="visit_label" cms-block-field-type="content" cms-block-field-title="Visit label" data-pg-content-label="Visit label">Visit</p>
-                            <p class="mt-3" cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">Unit 3, 12 Mill Lane<br>Bristol BS1 6QA</p>
-                        </div>
-                        <div class="md:col-span-3">
-                            <p class="ref" cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</p>
-                            <p class="mt-3"><a href="mailto:hello@movewellphysio.co.uk" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@movewellphysio.co.uk</a><br><a href="tel:01174960321" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">0117 496 0321</a></p>
-                        </div>
-                        <div class="md:col-span-2">
-                            <p class="ref" cms-block-field="follow_label" cms-block-field-type="content" cms-block-field-title="Follow label" data-pg-content-label="Follow label">Follow</p>
-                            <p class="mt-3"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a></p>
-                        </div>
-                    </div>
-                    <div class="container-site mt-16 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
-                        <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Movewell Physio</span></p>
-                        <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
+                <p class="pg-lib-section-title lib-title">Footer · title block</p>
+                <footer class="site-footer" data-pg-name="Footer (title block)" cms-block="footer-titleblock" cms-block-title="Footer (title block)" cms-block-description="Details laid out like a drawing title block" data-pg-content-group="Footer (title block)">
+                    <div class="container-site">
+                        <dl class="footer-block">
+                            <div class="md:col-span-2">
+                                <dt>Studio</dt>
+                                <dd><span cms-site-name class="font-display text-2xl font-semibold tracking-tight">Northlight Interiors</span><span class="mt-2 block text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Interior design for homes and small workplaces.</span></dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="address_label" cms-block-field-type="content" cms-block-field-title="Address label" data-pg-content-label="Address label">Address</dt>
+                                <dd cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">48 Alder Street<br>Portland, OR 97205</dd>
+                            </div>
+                            <div>
+                                <dt cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</dt>
+                                <dd><a href="mailto:hello@northlight.studio" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@northlight.studio</a><br><a href="tel:+15035550142" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">+1 503 555 0142</a></dd>
+                            </div>
+                            <div>
+                                <dt>Follow</dt>
+                                <dd><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a><br><a href="https://www.pinterest.com/" class="footer-link" cms-block-field="pinterest_link" cms-block-field-type="link" cms-block-field-title="Pinterest link" cms-block-field-2="pinterest_label" cms-block-field-type-2="content" cms-block-field-title-2="Pinterest label" data-pg-content-label="Pinterest">Pinterest</a></dd>
+                            </div>
+                            <div>
+                                <dt>Drawing</dt>
+                                <dd>NL-<span cms-function="current_year" cms-function-type="content">2026</span> · Rev. 3</dd>
+                            </div>
+                            <div class="md:col-span-6">
+                                <dt>Notes</dt>
+                                <dd cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">© Northlight Interiors. Made with Pinegrow.</dd>
+                            </div>
+                        </dl>
                     </div>
                 </footer>
             </div>
@@ -85,6 +93,58 @@
                         </div>
                     </div>
                 </footer>
+            </div>
+            <div class="pg-lib-section">
+                <p class="pg-lib-section-title lib-title">Hero · callouts</p>
+                <section class="section-hero grid-paper" data-pg-name="Hero (callouts)" cms-block="hero-callouts" cms-block-title="Hero (callouts)" cms-block-description="Headline with facts and a photo with numbered callouts" data-pg-content-group="Hero (callouts)">
+                    <div class="container-site grid gap-10 lg:grid-cols-12 lg:gap-12">
+                        <div class="flex flex-col justify-between gap-10 lg:col-span-5">
+                            <div>
+                                <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-00 · Introduction</p>
+                                <h1 class="heading-display mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Rooms that work as well as they look.</h1>
+                                <p class="lead mt-6 max-w-md" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We plan homes and small workplaces down to the last shelf, hinge and lamp, then stay on site until it’s built.</p>
+                                <div class="mt-8 flex flex-wrap gap-2">
+                                    <a href="#contact" class="btn-primary" cms-block-field="primary_link" cms-block-field-type="link" cms-block-field-title="Primary button link" cms-block-field-2="primary_label" cms-block-field-type-2="content" cms-block-field-title-2="Primary button label" data-pg-content-label="Primary button">Request a site visit</a>
+                                    <a href="#cases" class="btn-secondary" cms-block-field="secondary_link" cms-block-field-type="link" cms-block-field-title="Secondary button link" cms-block-field-2="secondary_label" cms-block-field-type-2="content" cms-block-field-title-2="Secondary button label" data-pg-content-label="Secondary button">Open the case files</a>
+                                </div>
+                            </div>
+                            <dl class="title-block">
+                                <div>
+                                    <dt cms-block-field="tb_1_label" cms-block-field-type="content" cms-block-field-title="Fact 1 label" data-pg-content-label="Fact 1 label">Practice</dt>
+                                    <dd cms-block-field="tb_1_value" cms-block-field-type="content" cms-block-field-title="Fact 1 value" data-pg-content-label="Fact 1 value">Homes and small workplaces</dd>
+                                </div>
+                                <div>
+                                    <dt cms-block-field="tb_2_label" cms-block-field-type="content" cms-block-field-title="Fact 2 label" data-pg-content-label="Fact 2 label">Based in</dt>
+                                    <dd cms-block-field="tb_2_value" cms-block-field-type="content" cms-block-field-title="Fact 2 value" data-pg-content-label="Fact 2 value">Portland, Oregon</dd>
+                                </div>
+                                <div>
+                                    <dt cms-block-field="tb_3_label" cms-block-field-type="content" cms-block-field-title="Fact 3 label" data-pg-content-label="Fact 3 label">Since</dt>
+                                    <dd cms-block-field="tb_3_value" cms-block-field-type="content" cms-block-field-title="Fact 3 value" data-pg-content-label="Fact 3 value">2014 · 140+ rooms</dd>
+                                </div>
+                                <div>
+                                    <dt cms-block-field="tb_4_label" cms-block-field-type="content" cms-block-field-title="Fact 4 label" data-pg-content-label="Fact 4 label">Now booking</dt>
+                                    <dd cms-block-field="tb_4_value" cms-block-field-type="content" cms-block-field-title="Fact 4 value" data-pg-content-label="Fact 4 value">Spring 2027</dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <figure class="lg:col-span-7">
+                            <div class="relative">
+                                <img src="images/hero.webp" alt="A calm living room with built-in oak shelving, a linen sofa and lime-washed walls" width="1600" height="1100" class="img-frame aspect-[16/11] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <span class="hotspot" style="left: 17%; top: 36%;" aria-hidden="true">1</span>
+                                <span class="hotspot" style="left: 50%; top: 72%;" aria-hidden="true">2</span>
+                                <span class="hotspot" style="left: 82%; top: 28%;" aria-hidden="true">3</span>
+                            </div>
+                            <figcaption class="legend">
+                                <p class="legend-title" cms-block-field="legend_title" cms-block-field-type="content" cms-block-field-title="Legend title" data-pg-content-label="Legend title">Harbour House · living room · 24 m²</p>
+                                <ol>
+                                    <li><span cms-block-field="callout_1" cms-block-field-type="content" cms-block-field-title="Callout 1" data-pg-content-label="Callout 1">Built-in oak shelving, 4.2 m wall to wall</span></li>
+                                    <li><span cms-block-field="callout_2" cms-block-field-type="content" cms-block-field-title="Callout 2" data-pg-content-label="Callout 2">The client’s own sofa, re-covered in linen</span></li>
+                                    <li><span cms-block-field="callout_3" cms-block-field-type="content" cms-block-field-title="Callout 3" data-pg-content-label="Callout 3">Lime-wash walls that soften the north light</span></li>
+                                </ol>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </section>
             </div>
             <div class="pg-lib-section">
                 <p class="pg-lib-section-title lib-title">Hero · statement</p>
@@ -112,24 +172,6 @@
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Hero · split</p>
-                <section class="split-hero" data-pg-name="Hero (split)" cms-block="hero-split" cms-block-title="Hero (split)" cms-block-description="Text on one side and a tall photo on the other" data-pg-content-group="Hero (split)">
-                    <div class="split-hero-text">
-                        <div class="max-w-xl">
-                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Physiotherapy · Bristol</p>
-                            <h1 class="heading-display mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Move without thinking about it.</h1>
-                            <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Hands-on treatment and a clear plan for back pain, sports injuries and recovery after surgery.</p>
-                            <div class="mt-8 flex flex-wrap gap-2">
-                                <a href="#find-us" class="btn-primary" cms-block-field="primary_link" cms-block-field-type="link" cms-block-field-title="Primary button link" cms-block-field-2="primary_label" cms-block-field-type-2="content" cms-block-field-title-2="Primary button label" data-pg-content-label="Primary button">Book an appointment</a>
-                                <a href="#treatments" class="btn-secondary" cms-block-field="secondary_link" cms-block-field-type="link" cms-block-field-title="Secondary button link" cms-block-field-2="secondary_label" cms-block-field-type-2="content" cms-block-field-title-2="Secondary button label" data-pg-content-label="Secondary button">See treatments</a>
-                            </div>
-                            <p class="ref mt-10 border-t border-line pt-4" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Same-week appointments · Direct billing with most insurers</p>
-                        </div>
-                    </div>
-                    <img src="images/physio-hero.webp" alt="A physiotherapist guiding a patient through a shoulder exercise in a bright clinic" width="1200" height="1400" class="split-hero-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                 </section>
             </div>
             <div class="pg-lib-section">
@@ -217,6 +259,61 @@
                 </section>
             </div>
             <div class="pg-lib-section">
+                <p class="pg-lib-section-title lib-title">Services · schedule</p>
+                <section id="schedule" class="section" data-pg-name="Services (schedule)" cms-block="services-schedule" cms-block-title="Services (schedule)" cms-block-description="Services with what is included, time and fee" data-pg-content-group="Services (schedule)">
+                    <div class="container-site">
+                        <div class="section-head">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-01</p>
+                            <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Schedule of services</h2>
+                            <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Four ways to work with us, with the fee agreed before we start.</p>
+                        </div>
+                        <div class="schedule-head" aria-hidden="true"><span>Ref</span><span>Service</span><span>Includes</span><span>Time</span><span>Fee</span></div>
+                        <div class="" cms-block-inner-content cms-block-inner-content-allowed="service-row" data-pg-content-collection="Services">
+                            <article class="schedule-row" cms-block="service-row" cms-block-title="Service" cms-block-parent="services-schedule" data-pg-content-item="Service">
+                                <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">S-01</p>
+                                <div>
+                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Site consultation</h3>
+                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Two hours in your space with a designer and a tape measure.</p>
+                                </div>
+                                <p class="text-sm" cms-block-field="includes" cms-block-field-type="content" cms-block-field-title="Includes" data-pg-content-label="Includes">Walk-through, layout and colour advice, written notes the next day</p>
+                                <p class="cell-time" cms-block-field="time" cms-block-field-type="content" cms-block-field-title="Time" data-pg-content-label="Time">1 day</p>
+                                <p class="cell-fee" cms-block-field="fee" cms-block-field-type="content" cms-block-field-title="Fee" data-pg-content-label="Fee">€240</p>
+                            </article>
+                            <article cms-no-export class="schedule-row" cms-block="service-row" cms-block-title="Service" cms-block-parent="services-schedule" data-pg-content-item="Service">
+                                <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">S-02</p>
+                                <div>
+                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Room plan</h3>
+                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Everything you need to finish one room yourself.</p>
+                                </div>
+                                <p class="text-sm" cms-block-field="includes" cms-block-field-type="content" cms-block-field-title="Includes" data-pg-content-label="Includes">Measured plan, lighting plan, material board, shopping list with links</p>
+                                <p class="cell-time" cms-block-field="time" cms-block-field-type="content" cms-block-field-title="Time" data-pg-content-label="Time">3 weeks</p>
+                                <p class="cell-fee" cms-block-field="fee" cms-block-field-type="content" cms-block-field-title="Fee" data-pg-content-label="Fee">€1,450</p>
+                            </article>
+                            <article cms-no-export class="schedule-row" cms-block="service-row" cms-block-title="Service" cms-block-parent="services-schedule" data-pg-content-item="Service">
+                                <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">S-03</p>
+                                <div>
+                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Full project</h3>
+                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Design and site management for a whole home.</p>
+                                </div>
+                                <p class="text-sm" cms-block-field="includes" cms-block-field-type="content" cms-block-field-title="Includes" data-pg-content-label="Includes">Technical drawings, builder selection, weekly site visits, final styling</p>
+                                <p class="cell-time" cms-block-field="time" cms-block-field-type="content" cms-block-field-title="Time" data-pg-content-label="Time">3–6 months</p>
+                                <p class="cell-fee" cms-block-field="fee" cms-block-field-type="content" cms-block-field-title="Fee" data-pg-content-label="Fee">from €9,800</p>
+                            </article>
+                            <article cms-no-export class="schedule-row" cms-block="service-row" cms-block-title="Service" cms-block-parent="services-schedule" data-pg-content-item="Service">
+                                <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">S-04</p>
+                                <div>
+                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Small workplace</h3>
+                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Studios, practices and shops people enjoy working in.</p>
+                                </div>
+                                <p class="text-sm" cms-block-field="includes" cms-block-field-type="content" cms-block-field-title="Includes" data-pg-content-label="Includes">Workflow study, layout, acoustics, lighting, furniture plan</p>
+                                <p class="cell-time" cms-block-field="time" cms-block-field-type="content" cms-block-field-title="Time" data-pg-content-label="Time">6–10 weeks</p>
+                                <p class="cell-fee" cms-block-field="fee" cms-block-field-type="content" cms-block-field-title="Fee" data-pg-content-label="Fee">from €4,200</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="pg-lib-section">
                 <p class="pg-lib-section-title lib-title">Services · rows with images</p>
                 <section id="treatments" class="section" data-pg-name="Services (rows with images)" cms-block="services-rows" cms-block-title="Services (rows with images)" cms-block-description="A list of services with small images, duration and price" data-pg-content-group="Services (rows with images)">
                     <div class="container-site grid gap-12 lg:grid-cols-12">
@@ -236,7 +333,7 @@
                                 </div>
                                 <p class="treatment-meta" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Duration and price" data-pg-content-label="Duration and price">45 min · £65</p>
                             </article>
-                            <article class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
+                            <article cms-no-export class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
                                 <img src="images/physio-treat-2.webp" alt="A physio treating a patient’s lower back" width="240" height="240" class="treatment-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <div>
                                     <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Back and neck pain</h3>
@@ -244,7 +341,7 @@
                                 </div>
                                 <p class="treatment-meta" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Duration and price" data-pg-content-label="Duration and price">45 min · £65</p>
                             </article>
-                            <article class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
+                            <article cms-no-export class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
                                 <img src="images/physio-treat-3.webp" alt="A patient doing a supported squat after knee surgery" width="240" height="240" class="treatment-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <div>
                                     <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Recovery after surgery</h3>
@@ -252,45 +349,13 @@
                                 </div>
                                 <p class="treatment-meta" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Duration and price" data-pg-content-label="Duration and price">60 min · £80</p>
                             </article>
-                            <article class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
+                            <article cms-no-export class="treatment-row" cms-block="treatment-row" cms-block-title="Treatment" cms-block-parent="services-rows" data-pg-content-item="Treatment">
                                 <img src="images/physio-treat-4.webp" alt="A small Pilates class on reformer machines" width="240" height="240" class="treatment-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <div>
                                     <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Rehab Pilates classes</h3>
                                     <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Small classes of four, led by a physiotherapist.</p>
                                 </div>
                                 <p class="treatment-meta" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Duration and price" data-pg-content-label="Duration and price">55 min · £22</p>
-                            </article>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Services · cards</p>
-                <section class="section" data-pg-name="Services (cards)" cms-block="services-cards" cms-block-title="Services (cards)" cms-block-description="Section heading with service cards and icons" data-pg-content-group="Services (cards)">
-                    <div class="container-site">
-                        <div class="section-head">
-                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Services</p>
-                            <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">How we can help</h2>
-                            <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Pick one, or combine them.</p>
-                        </div>
-                        <div class="grid gap-px border border-ink bg-ink md:grid-cols-3" cms-block-inner-content cms-block-inner-content-allowed="service-card" data-pg-content-collection="Services">
-                            <article class="service-card" cms-block="service-card" cms-block-title="Service" cms-block-parent="services-cards" data-pg-content-item="Service">
-                                <span class="icon-tile"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" cms-block-field="icon" cms-block-field-type="image" cms-block-field-title="Icon"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg></span>
-                                <h3 class="heading-md mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Full home design</h3>
-                                <p class="mt-3 flex-1 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Layouts, lighting, materials and furniture for a whole home.</p>
-                                <a href="#" class="link-arrow mt-8 self-start" cms-block-field="link_link" cms-block-field-type="link" cms-block-field-title="Link link" cms-block-field-2="link_label" cms-block-field-type-2="content" cms-block-field-title-2="Link label" data-pg-content-label="Link">Plan a project</a>
-                            </article>
-                            <article class="service-card" cms-block="service-card" cms-block-title="Service" cms-block-parent="services-cards" data-pg-content-item="Service">
-                                <span class="icon-tile"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" cms-block-field="icon" cms-block-field-type="image" cms-block-field-title="Icon"><path d="M4 4h16v16H4zM4 10h7v10M11 14h9"/></svg></span>
-                                <h3 class="heading-md mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Room plans</h3>
-                                <p class="mt-3 flex-1 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">A clear plan for one room, ready in three weeks.</p>
-                                <a href="#" class="link-arrow mt-8 self-start" cms-block-field="link_link" cms-block-field-type="link" cms-block-field-title="Link link" cms-block-field-2="link_label" cms-block-field-type-2="content" cms-block-field-title-2="Link label" data-pg-content-label="Link">Start a room</a>
-                            </article>
-                            <article class="service-card" cms-block="service-card" cms-block-title="Service" cms-block-parent="services-cards" data-pg-content-item="Service">
-                                <span class="icon-tile"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" cms-block-field="icon" cms-block-field-type="image" cms-block-field-title="Icon"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5V16h8v-2.5A6 6 0 0 0 12 3z"/></svg></span>
-                                <h3 class="heading-md mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Lighting design</h3>
-                                <p class="mt-3 flex-1 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Layered light for evenings that feel calm.</p>
-                                <a href="#" class="link-arrow mt-8 self-start" cms-block-field="link_link" cms-block-field-type="link" cms-block-field-title="Link link" cms-block-field-2="link_label" cms-block-field-type-2="content" cms-block-field-title-2="Link label" data-pg-content-label="Link">Light a room</a>
                             </article>
                         </div>
                     </div>
@@ -311,27 +376,27 @@
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Research</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Interviews, analytics and a clear picture of who your visitors are.</p>
                             </div>
-                            <div class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
+                            <div cms-no-export class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
                                 <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">02</p>
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Content design</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Words and structure that answer real questions.</p>
                             </div>
-                            <div class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
+                            <div cms-no-export class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
                                 <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">03</p>
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Visual design</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">A look that fits your brand and works on every screen.</p>
                             </div>
-                            <div class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
+                            <div cms-no-export class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
                                 <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">04</p>
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Web development</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Clean HTML and CSS, fast pages, no lock-in.</p>
                             </div>
-                            <div class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
+                            <div cms-no-export class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
                                 <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">05</p>
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Accessibility</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Checked against WCAG 2.2 AA before every launch.</p>
                             </div>
-                            <div class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
+                            <div cms-no-export class="feature-cell" cms-block="feature-cell" cms-block-title="Feature" cms-block-parent="features-grid" data-pg-content-item="Feature">
                                 <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">06</p>
                                 <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Care plans</h3>
                                 <p class="mt-3 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Updates, small changes and monthly reports.</p>
@@ -359,7 +424,7 @@
                                 </ul>
                                 <a href="#contact" class="btn-secondary mt-10 w-full" cms-block-field="button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Start with Launch</a>
                             </div>
-                            <div class="tier tier-featured" cms-block="pricing-tier" cms-block-title="Plan" cms-block-parent="pricing-tiers" data-pg-content-item="Plan" cms-block-field="featured" cms-block-field-type="class" cms-block-field-title="Featured" cms-block-field-control="toggle" cms-block-field-checkbox-value="tier-featured">
+                            <div cms-no-export class="tier tier-featured" cms-block="pricing-tier" cms-block-title="Plan" cms-block-parent="pricing-tiers" data-pg-content-item="Plan" cms-block-field="featured" cms-block-field-type="class" cms-block-field-title="Featured" cms-block-field-control="toggle" cms-block-field-checkbox-value="tier-featured">
                                 <p class="ref" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Grow</p>
                                 <p class="tier-price mt-6"><span cms-block-field="price" cms-block-field-type="content" cms-block-field-title="Price" data-pg-content-label="Price">€12,000</span><span class="tier-period" cms-block-field="period" cms-block-field-type="content" cms-block-field-title="Period" data-pg-content-label="Period"> once</span></p>
                                 <p class="mt-4 text-muted" cms-block-field="summary" cms-block-field-type="content" cms-block-field-title="Summary" data-pg-content-label="Summary">A larger site with research and a content plan.</p>
@@ -368,7 +433,7 @@
                                 </ul>
                                 <a href="#contact" class="btn-secondary mt-10 w-full" cms-block-field="button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Start with Grow</a>
                             </div>
-                            <div class="tier" cms-block="pricing-tier" cms-block-title="Plan" cms-block-parent="pricing-tiers" data-pg-content-item="Plan" cms-block-field="featured" cms-block-field-type="class" cms-block-field-title="Featured" cms-block-field-control="toggle" cms-block-field-checkbox-value="tier-featured">
+                            <div cms-no-export class="tier" cms-block="pricing-tier" cms-block-title="Plan" cms-block-parent="pricing-tiers" data-pg-content-item="Plan" cms-block-field="featured" cms-block-field-type="class" cms-block-field-title="Featured" cms-block-field-control="toggle" cms-block-field-checkbox-value="tier-featured">
                                 <p class="ref" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Care</p>
                                 <p class="tier-price mt-6"><span cms-block-field="price" cms-block-field-type="content" cms-block-field-title="Price" data-pg-content-label="Price">€400</span><span class="tier-period" cms-block-field="period" cms-block-field-type="content" cms-block-field-title="Period" data-pg-content-label="Period"> / month</span></p>
                                 <p class="mt-4 text-muted" cms-block-field="summary" cms-block-field-type="content" cms-block-field-title="Summary" data-pg-content-label="Summary">We look after your site so you don’t have to.</p>
@@ -397,18 +462,110 @@
                                     <li><span>Espresso</span><span>2.60</span></li><li><span>Flat white</span><span>3.60</span></li><li><span>Filter</span><span>3.40</span></li><li><span>Oat latte</span><span>3.90</span></li><li><span>Hot chocolate</span><span>3.80</span></li>
                                 </ul>
                             </div>
-                            <div class="menu-group" cms-block="menu-group" cms-block-title="Menu group" cms-block-parent="menu-list" data-pg-content-item="Menu group">
+                            <div cms-no-export class="menu-group" cms-block="menu-group" cms-block-title="Menu group" cms-block-parent="menu-list" data-pg-content-item="Menu group">
                                 <h3 class="ref text-ink" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Breakfast</h3>
                                 <ul class="menu-items mt-4" cms-block-field="items" cms-block-field-type="content" cms-block-field-title="Items" cms-block-field-control="richtext" data-pg-content-label="Items">
                                     <li><span>Sourdough toast & butter</span><span>4.50</span></li><li><span>Granola, yoghurt & quince</span><span>7.50</span></li><li><span>Eggs on rye</span><span>9.80</span></li><li><span>Porridge with brown sugar</span><span>6.20</span></li>
                                 </ul>
                             </div>
-                            <div class="menu-group" cms-block="menu-group" cms-block-title="Menu group" cms-block-parent="menu-list" data-pg-content-item="Menu group">
+                            <div cms-no-export class="menu-group" cms-block="menu-group" cms-block-title="Menu group" cms-block-parent="menu-list" data-pg-content-item="Menu group">
                                 <h3 class="ref text-ink" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Bakes</h3>
                                 <ul class="menu-items mt-4" cms-block-field="items" cms-block-field-type="content" cms-block-field-title="Items" cms-block-field-control="richtext" data-pg-content-label="Items">
                                     <li><span>Cardamom bun</span><span>3.80</span></li><li><span>Rye brownie</span><span>3.40</span></li><li><span>Seasonal tart</span><span>4.60</span></li><li><span>Loaf of sourdough</span><span>6.50</span></li>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="pg-lib-section">
+                <p class="pg-lib-section-title lib-title">Work · case files</p>
+                <section id="cases" class="section bg-surface" data-pg-name="Work (case files)" cms-block="work-case-files" cms-block-title="Work (case files)" cms-block-description="Projects with a photo, a short story and a spec sheet" data-pg-content-group="Work (case files)">
+                    <div class="container-site">
+                        <div class="section-head">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-02</p>
+                            <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Case files</h2>
+                            <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three recent projects, and what we changed in each.</p>
+                        </div>
+                        <div class="cases" cms-block-inner-content cms-block-inner-content-allowed="case-file" data-pg-content-collection="Projects">
+                            <article class="case" cms-block="case-file" cms-block-title="Case file" cms-block-parent="work-case-files" data-pg-content-item="Case file">
+                                <img src="images/work-1.webp" alt="Kitchen with sage green cabinets, brass handles and a long oak table" width="1500" height="1000" class="case-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <div class="case-body">
+                                    <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">P-12</p>
+                                    <h3 class="heading-lg mt-3" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The Green Kitchen</h3>
+                                    <p class="mt-4 text-muted" cms-block-field="story" cms-block-field-type="content" cms-block-field-title="Story" data-pg-content-label="Story">A dark galley kitchen opened to the garden. We moved one wall, kept the old floor and built a table long enough for the whole family.</p>
+                                    <dl class="spec mt-8">
+                                        <div>
+                                            <dt>Location</dt>
+                                            <dd cms-block-field="location" cms-block-field-type="content" cms-block-field-title="Location" data-pg-content-label="Location">Sellwood, Portland</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Area</dt>
+                                            <dd cms-block-field="area" cms-block-field-type="content" cms-block-field-title="Area" data-pg-content-label="Area">31 m²</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Scope</dt>
+                                            <dd cms-block-field="scope" cms-block-field-type="content" cms-block-field-title="Scope" data-pg-content-label="Scope">Full project</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Completed</dt>
+                                            <dd cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Completed" data-pg-content-label="Completed">2026</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </article>
+                            <article cms-no-export class="case" cms-block="case-file" cms-block-title="Case file" cms-block-parent="work-case-files" data-pg-content-item="Case file">
+                                <img src="images/work-2.webp" alt="Bedroom with lime-plaster walls, a low wooden bed and morning light" width="1500" height="1000" class="case-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <div class="case-body">
+                                    <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">P-09</p>
+                                    <h3 class="heading-lg mt-3" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Quiet Morning Suite</h3>
+                                    <p class="mt-4 text-muted" cms-block-field="story" cms-block-field-type="content" cms-block-field-title="Story" data-pg-content-label="Story">A bedroom that faced a busy street. Heavy curtains, a new window seat and plaster walls made it the quietest room in the house.</p>
+                                    <dl class="spec mt-8">
+                                        <div>
+                                            <dt>Location</dt>
+                                            <dd cms-block-field="location" cms-block-field-type="content" cms-block-field-title="Location" data-pg-content-label="Location">Pearl District</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Area</dt>
+                                            <dd cms-block-field="area" cms-block-field-type="content" cms-block-field-title="Area" data-pg-content-label="Area">18 m²</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Scope</dt>
+                                            <dd cms-block-field="scope" cms-block-field-type="content" cms-block-field-title="Scope" data-pg-content-label="Scope">Room plan</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Completed</dt>
+                                            <dd cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Completed" data-pg-content-label="Completed">2025</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </article>
+                            <article cms-no-export class="case" cms-block="case-file" cms-block-title="Case file" cms-block-parent="work-case-files" data-pg-content-item="Case file">
+                                <img src="images/work-3.webp" alt="Small architecture studio with long desks, plants and pinned drawings" width="1500" height="1000" class="case-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <div class="case-body">
+                                    <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">P-07</p>
+                                    <h3 class="heading-lg mt-3" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Atelier Brandt</h3>
+                                    <p class="mt-4 text-muted" cms-block-field="story" cms-block-field-type="content" cms-block-field-title="Story" data-pg-content-label="Story">Eight architects in a former print shop. Long shared desks, a wall of pin-up boards and acoustic panels hidden in the ceiling.</p>
+                                    <dl class="spec mt-8">
+                                        <div>
+                                            <dt>Location</dt>
+                                            <dd cms-block-field="location" cms-block-field-type="content" cms-block-field-title="Location" data-pg-content-label="Location">Central Eastside</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Area</dt>
+                                            <dd cms-block-field="area" cms-block-field-type="content" cms-block-field-title="Area" data-pg-content-label="Area">140 m²</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Scope</dt>
+                                            <dd cms-block-field="scope" cms-block-field-type="content" cms-block-field-title="Scope" data-pg-content-label="Scope">Small workplace</dd>
+                                        </div>
+                                        <div>
+                                            <dt>Completed</dt>
+                                            <dd cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Completed" data-pg-content-label="Completed">2025</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </section>
@@ -430,25 +587,25 @@
                                 <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Lumen Labs</span>
                                 <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Design · Build</span>
                             </a>
-                            <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <a cms-no-export class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
                                 <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2026</span>
                                 <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">A timetable you can read on a bike</span>
                                 <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Northern Rail Trust</span>
                                 <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Research · Design</span>
                             </a>
-                            <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <a cms-no-export class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
                                 <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2025</span>
                                 <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">An online shop for small-batch coffee</span>
                                 <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Fieldwork Coffee</span>
                                 <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Design · Build · Care</span>
                             </a>
-                            <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <a cms-no-export class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
                                 <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2025</span>
                                 <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Every book, every event, one calendar</span>
                                 <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Oakline Books</span>
                                 <span class="ref md:text-right" cms-block-field="discipline" cms-block-field-type="content" cms-block-field-title="Discipline" data-pg-content-label="Discipline">Content · Build</span>
                             </a>
-                            <a class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
+                            <a cms-no-export class="project-row" cms-block="project-row" cms-block-title="Project" cms-block-parent="work-index" data-pg-content-item="Project" href="#" cms-block-field="link" cms-block-field-type="attr" cms-block-field-attribute="href" cms-block-field-title="Link">
                                 <span class="ref" cms-block-field="year" cms-block-field-type="content" cms-block-field-title="Year" data-pg-content-label="Year">2024</span>
                                 <span class="project-title" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">A brand new site in six weeks</span>
                                 <span class="text-muted" cms-block-field="client" cms-block-field-type="content" cms-block-field-title="Client" data-pg-content-label="Client">Kettle & Crane</span>
@@ -472,23 +629,23 @@
                                 <img src="images/photo-2.webp" alt="A ceramicist at work in her studio" width="1500" height="1000" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The Ceramicist</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Kinfolk</span></figcaption>
                             </figure>
-                            <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <figure cms-no-export class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
                                 <img src="images/photo-3.webp" alt="A white stair winding up through a house" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Casa Branca</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Architect: Ala Studio</span></figcaption>
                             </figure>
-                            <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <figure cms-no-export class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
                                 <img src="images/photo-4.webp" alt="Fishermen mending nets on a beach at dawn" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Nazaré, 6 a.m.</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Personal</span></figcaption>
                             </figure>
-                            <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <figure cms-no-export class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
                                 <img src="images/photo-5.webp" alt="A chef plating a dish in a small kitchen" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Taberna do Mar</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Monocle</span></figcaption>
                             </figure>
-                            <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <figure cms-no-export class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
                                 <img src="images/photo-6.webp" alt="Laundry drying between old houses in Alfama" width="900" height="1200" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Alfama</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">Personal</span></figcaption>
                             </figure>
-                            <figure class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
+                            <figure cms-no-export class="gallery-item" cms-block="gallery-item" cms-block-title="Gallery image" cms-block-parent="work-gallery" data-pg-content-item="Gallery image">
                                 <img src="images/photo-7.webp" alt="A portrait of an old man in a flat cap" width="1500" height="1000" class="gallery-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                                 <figcaption class="mt-3 flex justify-between gap-4"><span cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Senhor Augusto</span><span class="ref" cms-block-field="meta" cms-block-field-type="content" cms-block-field-title="Meta" data-pg-content-label="Meta">The Gentlewoman</span></figcaption>
                             </figure>
@@ -497,69 +654,34 @@
                 </section>
             </div>
             <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Logos · names</p>
-                <section class="bg-page py-10" data-pg-name="Logos (names)" cms-block="logos-row" cms-block-title="Logos (names)" cms-block-description="A row of client or publication names" data-pg-content-group="Logos (names)">
+                <p class="pg-lib-section-title lib-title">Process · time line</p>
+                <section id="process" class="section" data-pg-name="Process (time line)" cms-block="process-timeline" cms-block-title="Process (time line)" cms-block-description="Steps along a time line" data-pg-content-group="Process (time line)">
                     <div class="container-site">
-                        <div class="flex flex-col gap-6 border-y border-ink py-8 md:flex-row md:items-baseline md:gap-12">
-                            <p class="ref shrink-0" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Trusted by</p>
-                            <ul class="flex flex-wrap items-baseline gap-x-10 gap-y-3" cms-block-inner-content cms-block-inner-content-allowed="logo-name" data-pg-content-collection="Names">
-                                <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
-                                    <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Kettle & Crane</span>
-                                </li>
-                                <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
-                                    <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Northern Rail Trust</span>
-                                </li>
-                                <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
-                                    <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Lumen Labs</span>
-                                </li>
-                                <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
-                                    <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Fieldwork Coffee</span>
-                                </li>
-                                <li class="logo-word" cms-block="logo-name" cms-block-title="Name" cms-block-parent="logos-row" data-pg-content-item="Name">
-                                    <span cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Oakline Books</span>
-                                </li>
-                            </ul>
+                        <div class="section-head">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-03</p>
+                            <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">How a room plan runs</h2>
+                            <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">From the first visit to a plan your builder can follow, in about three weeks.</p>
                         </div>
-                    </div>
-                </section>
-            </div>
-            <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Process · numbered steps</p>
-                <section id="first-visit" class="section bg-surface" data-pg-name="Process (numbered steps)" cms-block="process-steps" cms-block-title="Process (numbered steps)" cms-block-description="Heading with large numbered steps" data-pg-content-group="Process (numbered steps)">
-                    <div class="container-site grid gap-12 lg:grid-cols-12">
-                        <div class="lg:col-span-5">
-                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Your first visit</p>
-                            <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">What happens at your first appointment</h2>
-                            <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Wear comfortable clothes. Everything else we’ll sort out together.</p>
-                        </div>
-                        <ol class="border-t border-ink lg:col-span-7" cms-block-inner-content cms-block-inner-content-allowed="process-step" data-pg-content-collection="Steps">
-                            <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
-                                <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">1</span>
-                                <div>
-                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We listen</h3>
-                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">What happened, what hurts and what you want to get back to.</p>
-                                </div>
+                        <ol class="timeline" cms-block-inner-content cms-block-inner-content-allowed="timeline-step" data-pg-content-collection="Steps">
+                            <li class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                                <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Day 1</span>
+                                <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Measure</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We visit, listen, measure every wall and photograph the light.</p>
                             </li>
-                            <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
-                                <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">2</span>
-                                <div>
-                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We assess</h3>
-                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Movement, strength and a clear explanation of what’s going on.</p>
-                                </div>
+                            <li cms-no-export class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                                <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 1</span>
+                                <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Two directions</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Two layouts with samples you can touch and a budget for each.</p>
                             </li>
-                            <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
-                                <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">3</span>
-                                <div>
-                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We treat</h3>
-                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Hands-on treatment in the same session, so you leave feeling better.</p>
-                                </div>
+                            <li cms-no-export class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                                <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 2</span>
+                                <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Detail</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Drawings, lighting and a shopping list with every product linked.</p>
                             </li>
-                            <li class="big-step" cms-block="process-step" cms-block-title="Step" cms-block-parent="process-steps" data-pg-content-item="Step">
-                                <span class="big-step-number" cms-block-field="number" cms-block-field-type="content" cms-block-field-title="Number" data-pg-content-label="Number">4</span>
-                                <div>
-                                    <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">You get a plan</h3>
-                                    <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">A few exercises on your phone and a date to check progress.</p>
-                                </div>
+                            <li cms-no-export class="milestone" cms-block="timeline-step" cms-block-title="Step" cms-block-parent="process-timeline" data-pg-content-item="Step">
+                                <span class="milestone-mark" cms-block-field="when" cms-block-field-type="content" cms-block-field-title="When" data-pg-content-label="When">Week 3</span>
+                                <h3 class="heading-md mt-6" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Hand over</h3>
+                                <p class="mt-2 text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We walk you and your builder through the plan, on site.</p>
                             </li>
                         </ol>
                     </div>
@@ -575,15 +697,15 @@
                                 <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">12</p>
                                 <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">years building for the web</p>
                             </div>
-                            <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <div cms-no-export class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
                                 <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">80+</p>
                                 <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">sites launched</p>
                             </div>
-                            <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <div cms-no-export class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
                                 <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">98</p>
                                 <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">average Lighthouse score</p>
                             </div>
-                            <div class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
+                            <div cms-no-export class="stat" cms-block="stat" cms-block-title="Number" cms-block-parent="stats-band" data-pg-content-item="Number">
                                 <p class="stat-value" cms-block-field="value" cms-block-field-type="content" cms-block-field-title="Value" data-pg-content-label="Value">4</p>
                                 <p class="mt-3 opacity-80" cms-block-field="label" cms-block-field-type="content" cms-block-field-title="Label" data-pg-content-label="Label">people, no account managers</p>
                             </div>
@@ -592,14 +714,57 @@
                 </section>
             </div>
             <div class="pg-lib-section">
-                <p class="pg-lib-section-title lib-title">Testimonial · large</p>
-                <section class="section" data-pg-name="Testimonial (large)" cms-block="quote-large" cms-block-title="Testimonial (large)" cms-block-description="One large quote with a name and photo" data-pg-content-group="Testimonial (large)">
-                    <div class="container-site grid gap-10 lg:grid-cols-12">
-                        <p class="sheet-label lg:col-span-3" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Patient story</p>
-                        <figure class="lg:col-span-9">
-                            <blockquote class="quote-xl" cms-block-field="quote" cms-block-field-type="content" cms-block-field-title="Quote" data-pg-content-label="Quote">After two years of knee pain I ran my first half marathon in October. Priya explained everything and never let me rush.</blockquote>
-                            <figcaption class="mt-10 flex items-center gap-4"><img src="images/physio-patient.webp" alt="Portrait of James Whitfield" width="160" height="160" class="h-14 w-14 object-cover" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo"><span><span class="block font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">James Whitfield</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Runner, 41</span></span></figcaption>
-                        </figure>
+                <p class="pg-lib-section-title lib-title">Sample board</p>
+                <section class="section bg-surface" data-pg-name="Sample board" cms-block="samples-board" cms-block-title="Sample board" cms-block-description="A board of materials or products with names" data-pg-content-group="Sample board">
+                    <div class="container-site grid gap-12 lg:grid-cols-12">
+                        <div class="lg:col-span-4">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-04</p>
+                            <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">On our sample board</h2>
+                            <p class="lead mt-6" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Honest materials that get better with use. We order samples for every project so you can see them in your own light.</p>
+                        </div>
+                        <ul class="sample-board lg:col-span-8" cms-block-inner-content cms-block-inner-content-allowed="sample" data-pg-content-collection="Samples">
+                            <li class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                                <img src="images/sample-oak.webp" alt="Oiled oak board" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Oiled oak</p>
+                                <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Floors, shelving</p>
+                            </li>
+                            <li cms-no-export class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                                <img src="images/sample-linen.webp" alt="Folded natural linen" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Washed linen</p>
+                                <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Curtains, covers</p>
+                            </li>
+                            <li cms-no-export class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                                <img src="images/sample-stone.webp" alt="Honed travertine tile" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Travertine</p>
+                                <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Worktops, sills</p>
+                            </li>
+                            <li cms-no-export class="sample" cms-block="sample" cms-block-title="Sample" cms-block-parent="samples-board" data-pg-content-item="Sample">
+                                <img src="images/sample-plaster.webp" alt="Lime plaster wall texture" width="400" height="400" class="sample-image" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                                <p class="mt-3 font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Lime plaster</p>
+                                <p class="ref mt-1" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Walls, ceilings</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="pg-lib-section">
+                <p class="pg-lib-section-title lib-title">Testimonials · notes</p>
+                <section class="section" data-pg-name="Testimonials (notes)" cms-block="notes-columns" cms-block-title="Testimonials (notes)" cms-block-description="Short client notes in two columns" data-pg-content-group="Testimonials (notes)">
+                    <div class="container-site grid gap-12 lg:grid-cols-12">
+                        <div class="lg:col-span-4">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-05</p>
+                            <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Client notes</h2>
+                        </div>
+                        <div class="grid gap-x-10 gap-y-14 md:grid-cols-2 lg:col-span-8" cms-block-inner-content cms-block-inner-content-allowed="client-note" data-pg-content-collection="Notes">
+                            <figure class="client-note" cms-block="client-note" cms-block-title="Note" cms-block-parent="notes-columns" data-pg-content-item="Note">
+                                <blockquote class="quote" cms-block-field="quote" cms-block-field-type="content" cms-block-field-title="Quote" data-pg-content-label="Quote">They turned our dark flat into the brightest home on the street, and told us the cost of every change before we made it.</blockquote>
+                                <figcaption class="mt-6"><span class="block font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Maya Lindqvist</span><span class="ref mt-1 block" cms-block-field="project" cms-block-field-type="content" cms-block-field-title="Project" data-pg-content-label="Project">Harbour House · P-14</span></figcaption>
+                            </figure>
+                            <figure cms-no-export class="client-note" cms-block="client-note" cms-block-title="Note" cms-block-parent="notes-columns" data-pg-content-item="Note">
+                                <blockquote class="quote" cms-block-field="quote" cms-block-field-type="content" cms-block-field-title="Quote" data-pg-content-label="Quote">Our builder said it was the clearest set of drawings he’d ever been given. The kitchen is where everyone ends up now.</blockquote>
+                                <figcaption class="mt-6"><span class="block font-semibold" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Daniel Okafor</span><span class="ref mt-1 block" cms-block-field="project" cms-block-field-type="content" cms-block-field-title="Project" data-pg-content-label="Project">The Green Kitchen · P-12</span></figcaption>
+                            </figure>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -694,6 +859,35 @@
                                 </div>
                             </dl>
                             <p class="ref mt-4" cms-block-field="note" cms-block-field-type="content" cms-block-field-title="Note" data-pg-content-label="Note">Dogs welcome · Laptop-free tables at the weekend</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="pg-lib-section">
+                <p class="pg-lib-section-title lib-title">Questions · FAQ</p>
+                <section id="questions" class="section bg-surface" data-pg-name="Questions (FAQ)" cms-block="faq-list" cms-block-title="Questions (FAQ)" cms-block-description="Frequently asked questions" data-pg-content-group="Questions (FAQ)">
+                    <div class="container-site grid gap-12 lg:grid-cols-12">
+                        <div class="lg:col-span-4">
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet A-06</p>
+                            <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">General notes</h2>
+                        </div>
+                        <div class="border-t border-ink lg:col-span-8" cms-block-inner-content cms-block-inner-content-allowed="faq-item" data-pg-content-collection="Questions">
+                            <details class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                                <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Do you work outside Portland?</summary>
+                                <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Yes. For projects more than an hour away we plan site visits around the key moments and work online in between.</p>
+                            </details>
+                            <details cms-no-export class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                                <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Can we keep some of our furniture?</summary>
+                                <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Usually most of it. We measure what you love first and design around it.</p>
+                            </details>
+                            <details cms-no-export class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                                <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">Do you work with our builder?</summary>
+                                <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">Gladly. Our drawings are made for builders. We can also recommend builders we trust and compare quotes with you.</p>
+                            </details>
+                            <details cms-no-export class="faq-item" cms-block="faq-item" cms-block-title="Question" cms-block-parent="faq-list" data-pg-content-item="Question">
+                                <summary cms-block-field="question" cms-block-field-type="content" cms-block-field-title="Question" data-pg-content-label="Question">What does a site visit cost?</summary>
+                                <p class="faq-answer" cms-block-field="answer" cms-block-field-type="content" cms-block-field-title="Answer" cms-block-field-control="richtext" data-pg-content-label="Answer">A site consultation is €240. If you go on to a room plan, we take it off the fee.</p>
+                            </details>
                         </div>
                     </div>
                 </section>

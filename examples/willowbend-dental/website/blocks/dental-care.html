@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Dental care | Block library</title>
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+<style>
+/* Library chrome: plain CSS, so it works with every design. */
+.kit-lib-bar { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 4px 20px;
+    padding: 12px 20px; background: #111; color: #fff; font: 600 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-title { margin: 0; padding: 8px 20px; background: #222; color: #ddd; font: 500 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-home { padding: 40px 20px; font: 16px/1.5 system-ui, sans-serif; color: #111; background: #fff; }
+.kit-lib-home h1 { margin: 0 0 8px; font-size: 32px; }
+.kit-lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+.kit-lib-card { display: block; padding: 20px; border: 1px solid #ccc; background: #fafafa; }
+.kit-lib-card strong { display: block; font-size: 20px; }
+.kit-lib-card span { display: block; margin-top: 6px; color: #555; font-size: 14px; }
+/* Pinegrow styles .pg-lib-hover-menu as a small badge. Two classes outrank its one-class rules. */
+.kit-lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+    z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+.kit-lib-bar.kit-lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; padding: 12px 20px; background: #111;
+    font-size: 12px; text-transform: uppercase; }
+.kit-lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+.kit-lib-pass.pg-lib-hover-menu a:hover, .kit-lib-pass.pg-lib-hover-menu .kit-lib-current { text-decoration: underline;
+    text-underline-offset: 4px; }
+html body .kit-lib-pass.pg-lib-hover-menu, html body .kit-lib-pass.pg-lib-hover-menu *,
+html body .kit-lib-pass.pg-lib-hover-menu *:hover { cursor: pointer !important; transform: none !important;
+    box-shadow: none !important; }
+</style>
+<script>
+/* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+   pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+   the whole block instead, and keeps clicks inside blocks from picking inner elements. Links in .kit-lib-pass (the
+   bar and the cards) still open pages: Pinegrow lets clicks inside .pg-lib-hover-menu through. Runs only in the
+   Insert panel: pages open in the editor load with pgedit=1. */
+if (!/[?&]pgedit=1/.test(location.search)) {
+    (function() {
+        var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+        };
+        document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+                return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+                el.removeAttribute("pg-draggable");
+                el.removeAttribute("draggable");
+                el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+                block.setAttribute("pg-draggable", "true");
+                block.setAttribute("draggable", "true");
+                block.classList.add("pg-lib-item");
+            }
+        }, true);
+        ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+                if (e.target.closest && e.target.closest(".kit-lib-pass")) {
+                    return;
+                }
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }, true);
+        });
+    })();
+}
+</script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased kit-lib-page">
+<nav class="pg-lib-hover-menu kit-lib-pass kit-lib-bar" aria-label="Block library">
+<a href="blocks/kit-blocks.html">All blocks</a>
+<a href="blocks/site-chrome.html">Site chrome</a>
+<a href="blocks/heroes.html">Heroes</a>
+<a href="blocks/dental-care.html" class="kit-lib-current">Dental care</a>
+<a href="blocks/practice-and-new-patients.html">Practice and new patients</a>
+<a href="blocks/contact-and-actions.html">Contact and actions</a>
+</nav>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Dental care index</p>
+<section class="section-space bg-page" data-pg-name="Dental care index" data-pg-content-group="Dental care index">
+    <div class="container-site grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+        <div>
+            <p class="eyebrow text-primary" data-pg-content-label="Section label">Dental care</p>
+            <h2 class="heading-section mt-3 max-w-md" data-pg-content-label="Title">Every age. Every stage.</h2>
+            <p class="copy mt-4 max-w-[24rem]" data-pg-content-label="Introduction">One familiar place for your family’s checkups, children’s visits and the repairs that keep you comfortable.</p>
+            <a class="link-arrow mt-4 text-primary" href="services.html" data-pg-content-label="All services link">Explore dental care <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="border-t border-line" data-pg-content-collection="Care options">
+            <article class="care-row" data-pg-content-item="Care option">
+                <h3 class="heading-item"><a href="services.html#preventive" class="underline-offset-4 hover:underline" data-pg-content-label="Service link">Checkups &amp; cleanings</a></h3>
+                <p class="copy" data-pg-content-label="Description">Routine visits with time to talk through changes, habits and next steps.</p>
+            </article>
+            <article class="care-row" data-pg-content-item="Care option">
+                <h3 class="heading-item"><a href="services.html#children" class="underline-offset-4 hover:underline" data-pg-content-label="Service link">Children’s dentistry</a></h3>
+                <p class="copy" data-pg-content-label="Description">Unhurried introductions and age-appropriate care for growing smiles.</p>
+            </article>
+            <article class="care-row" data-pg-content-item="Care option">
+                <h3 class="heading-item"><a href="services.html#restorative" class="underline-offset-4 hover:underline" data-pg-content-label="Service link">Restorative care</a></h3>
+                <p class="copy" data-pg-content-label="Description">Discuss ways to repair damaged teeth and get back to eating comfortably.</p>
+            </article>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Dental care details</p>
+<section class="section-space bg-page" data-pg-name="Dental care details" data-pg-content-group="Care details">
+    <div class="container-site">
+        <h2 class="heading-section mb-8" data-pg-content-label="Title">How we can help</h2>
+        <div class="grid gap-4 sm:gap-5 lg:grid-cols-3" data-pg-content-collection="Services">
+            <article id="preventive" class="info-panel scroll-mt-6" data-pg-content-item="Service">
+                <h3 class="heading-item" data-pg-content-label="Name">Checkups &amp; cleanings</h3>
+                <p class="copy mt-3" data-pg-content-label="Description">We review your dental history, check your teeth and gums, and discuss whether a cleaning or X-rays are appropriate for that visit.</p>
+                <p class="copy mt-3" data-pg-content-label="Common services">Ask about routine exams, professional cleanings and help with brushing or flossing at home.</p>
+            </article>
+            <article id="children" class="info-panel scroll-mt-6" data-pg-content-item="Service">
+                <h3 class="heading-item" data-pg-content-label="Name">Children’s dentistry</h3>
+                <p class="copy mt-3" data-pg-content-label="Description">Children can meet the team, see how the chair works and ask questions before the exam. We adapt the visit to their age and comfort.</p>
+                <p class="copy mt-3" data-pg-content-label="Common services">Ask about first checkups, brushing routines, sealants and planning family appointments.</p>
+            </article>
+            <article id="restorative" class="info-panel scroll-mt-6" data-pg-content-item="Service">
+                <h3 class="heading-item" data-pg-content-label="Name">Restorative care</h3>
+                <p class="copy mt-3" data-pg-content-label="Description">If a tooth is chipped, worn or damaged by decay, we’ll examine it and explain the treatment options, expected visits and costs.</p>
+                <p class="copy mt-3" data-pg-content-label="Common services">Ask about tooth-colored fillings, crowns and follow-up appointments.</p>
+            </article>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Quick care links</p>
+<section class="border-y border-line bg-surface py-12 md:py-16" data-pg-name="Quick care links" data-pg-content-group="Quick care links">
+    <div class="container-site">
+        <h2 class="heading-section mb-6" data-pg-content-label="Title">Find the care you need</h2>
+        <ul class="grid gap-3 sm:grid-cols-3" data-pg-content-collection="Care links">
+            <li data-pg-content-item="Care link"><a class="btn-outline w-full justify-between" href="services.html#preventive" data-pg-content-label="Service link">Checkups &amp; cleanings <span aria-hidden="true">↗</span></a></li>
+            <li data-pg-content-item="Care link"><a class="btn-outline w-full justify-between" href="services.html#children" data-pg-content-label="Service link">Children’s dentistry <span aria-hidden="true">↗</span></a></li>
+            <li data-pg-content-item="Care link"><a class="btn-outline w-full justify-between" href="services.html#restorative" data-pg-content-label="Service link">Restorative care <span aria-hidden="true">↗</span></a></li>
+        </ul>
+    </div>
+</section>
+</div>
+    </body>
+</html>

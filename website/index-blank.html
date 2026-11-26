@@ -3,32 +3,34 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>New page</title>
+        <title>New page | Your Company</title>
         <meta name="description" content="A page with only the header and footer. Add blocks from the Insert panel.">
         <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
         <script src="form/form.js" defer></script>
     </head>
     <body class="bg-page font-sans text-ink antialiased">
         <a href="#main" class="skip-link">Skip to content</a>
-        <header class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
+        <header data-pgc="site-header" data-pgc-field="WordPress" cms-no-export class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
             <div class="container-site flex h-20 items-center justify-between gap-6">
-                <a href="#" class="wordmark-small" aria-label="Your site home"><span cms-site-name data-pg-content-label="Site name">Your site</span></a>
+                <a href="index.html" class="wordmark-small" aria-label="Your Company home"><span cms-site-name data-pg-content-label="Site name">Your Company</span></a>
                 <nav class="hidden lg:block" aria-label="Main">
                     <ul class="flex items-center gap-8" cms-menu="primary">
-                        <li><a href="#" class="nav-link-plain">About</a></li>
-                        <li><a href="#" class="nav-link-plain">Services</a></li>
-                        <li><a href="#" class="nav-link-plain">Contact</a></li>
+                        <li><a href="index.html#services" class="nav-link-plain">Services</a></li>
+                        <li><a href="about.html" class="nav-link-plain">About</a></li>
+                        <li><a href="journal.html" class="nav-link-plain">Journal</a></li>
+                        <li><a href="contact.html" class="nav-link-plain">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="flex items-center gap-2">
-                    <a href="#" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Get in touch</a>
+                    <a href="contact.html" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Get in touch</a>
                     <details class="mobile-menu lg:hidden">
                         <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
                         <div class="mobile-menu-panel">
-                            <a href="#" class="nav-link-plain text-xl">About</a>
-                            <a href="#" class="nav-link-plain text-xl">Services</a>
-                            <a href="#" class="nav-link-plain text-xl">Contact</a>
-                            <a href="#" class="btn-primary mt-2">Get in touch</a>
+                            <a href="index.html#services" class="nav-link-plain text-xl">Services</a>
+                            <a href="about.html" class="nav-link-plain text-xl">About</a>
+                            <a href="journal.html" class="nav-link-plain text-xl">Journal</a>
+                            <a href="contact.html" class="nav-link-plain text-xl">Contact</a>
+                            <a href="contact.html" class="btn-primary mt-2">Get in touch</a>
                         </div>
                     </details>
                 </div>
@@ -37,16 +39,17 @@
         <main id="main">
             <section class="section" data-pg-name="Start here">
                 <div class="container-site">
-                    <p class="sheet-label">Start here</p>
-                    <h1 class="heading-xl mt-8">Add blocks from Insert › block libraries.</h1>
+                    <p class="sheet-label">New page</p>
+                    <h1 class="heading-xl mt-8">Add blocks from Insert › kit-blocks.html.</h1>
+                    <p class="lead mt-6 max-w-2xl">Then delete this section. The header and footer are components: edit them on index.html and every page follows.</p>
                 </div>
             </section>
         </main>
-        <footer class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
+        <footer data-pgc="site-footer" data-pgc-field="WordPress" cms-no-export class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
             <div class="container-site grid gap-12 md:grid-cols-12">
                 <div class="md:col-span-4">
-                    <p class="wordmark-small"><span cms-site-name>Your site</span></p>
-                    <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">One sentence about what you do.</p>
+                    <p class="wordmark-small"><span cms-site-name>Your Company</span></p>
+                    <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">One sentence about what you do and who it is for.</p>
                 </div>
                 <div class="md:col-span-3">
                     <p class="ref" cms-block-field="visit_label" cms-block-field-type="content" cms-block-field-title="Visit label" data-pg-content-label="Visit label">Visit</p>
@@ -62,7 +65,7 @@
                 </div>
             </div>
             <div class="container-site mt-16 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
-                <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Your site</span></p>
+                <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Your Company</span></p>
                 <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
             </div>
         </footer>

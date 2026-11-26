@@ -1,0 +1,83 @@
+{
+  "active": "chalk",
+  "designs": [
+    {
+      "id": "chalk",
+      "name": "Chalk",
+      "colors": {
+        "page": "#f4f0e6",
+        "surface": "#fffcf4",
+        "ink": "#1d211d",
+        "muted": "#51564d",
+        "line": "#a9ab9c",
+        "primary": "#e7ef5b",
+        "on-primary": "#1d211d",
+        "band": "#1d211d",
+        "on-band": "#f4f0e6"
+      },
+      "fonts": {
+        "sans": "DM Sans",
+        "display": {
+          "family": "Barlow Condensed",
+          "weights": [
+            "700",
+            "800",
+            "900"
+          ]
+        },
+        "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "night",
+      "name": "Night",
+      "colors": {
+        "page": "#191b1c",
+        "surface": "#252829",
+        "ink": "#f5f2e9",
+        "muted": "#b7bcb7",
+        "line": "#727975",
+        "primary": "#ff8069",
+        "on-primary": "#211c1a",
+        "band": "#0f1112",
+        "on-band": "#f5f2e9"
+      },
+      "fonts": {
+        "sans": "Inter",
+        "display": {
+          "family": "Archivo Black",
+          "weights": [
+            "400"
+          ]
+        },
+        "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "tape",
+      "name": "Tape",
+      "colors": {
+        "page": "#f1edfe",
+        "surface": "#fcfaff",
+        "ink": "#201b39",
+        "muted": "#574e6a",
+        "line": "#a49ab8",
+        "primary": "#3d36c9",
+        "on-primary": "#ffffff",
+        "band": "#26204d",
+        "on-band": "#f1edfe"
+      },
+      "fonts": {
+        "sans": "Instrument Sans",
+        "display": {
+          "family": "Bricolage Grotesque",
+          "weights": [
+            "700",
+            "800"
+          ]
+        },
+        "mono": "IBM Plex Mono"
+      }
+    }
+  ]
+}

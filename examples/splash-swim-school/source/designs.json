@@ -1,0 +1,71 @@
+{
+  "active": "lido",
+  "designs": [
+    {
+      "id": "lido",
+      "name": "Lido",
+      "colors": {
+        "page": "#F1FAF7",
+        "surface": "#DEF2EE",
+        "ink": "#103039",
+        "muted": "#3E5E65",
+        "line": "#8CB8B4",
+        "primary": "#FFE18B",
+        "on-primary": "#183138",
+        "band": "#103B43",
+        "on-band": "#EFFAF6"
+      },
+      "fonts": {
+        "display": "Bricolage Grotesque",
+        "sans": "DM Sans",
+        "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "deep",
+      "name": "Deep",
+      "colors": {
+        "page": "#101D2F",
+        "surface": "#1C2D43",
+        "ink": "#F4FAFF",
+        "muted": "#B5C8D8",
+        "line": "#617A92",
+        "primary": "#87F2D2",
+        "on-primary": "#102D2C",
+        "band": "#0B1422",
+        "on-band": "#F4FAFF"
+      },
+      "fonts": {
+        "display": "Barlow Semi Condensed",
+        "sans": "Inter",
+        "mono": "IBM Plex Mono"
+      }
+    },
+    {
+      "id": "tide",
+      "name": "Tide",
+      "colors": {
+        "page": "#FFF8EC",
+        "surface": "#F0E9FE",
+        "ink": "#29214A",
+        "muted": "#5D5078",
+        "line": "#B2A5CB",
+        "primary": "#4B37A2",
+        "on-primary": "#FFFFFF",
+        "band": "#342467",
+        "on-band": "#FFF8EC"
+      },
+      "fonts": {
+        "display": {
+          "family": "DM Serif Text",
+          "category": "serif",
+          "weights": [
+            "400"
+          ]
+        },
+        "sans": "Instrument Sans",
+        "mono": "IBM Plex Mono"
+      }
+    }
+  ]
+}

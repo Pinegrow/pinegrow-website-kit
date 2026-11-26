@@ -1,12 +1,12 @@
 /*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
-@import url('https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900|Space+Grotesk:300,400,500,600,700|Space+Mono:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hanken+Grotesk:100,200,300,400,500,600,700,800,900|Hanken+Grotesk:100,200,300,400,500,600,700,800,900|IBM+Plex+Mono:100,200,300,400,500,600,700&display=swap');
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
     --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: 'Space Mono', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', system-ui, -apple-system, sans-serif;
     --color-red-50: oklch(0.971 0.013 17.38);
     --color-red-100: oklch(0.936 0.032 17.717);
     --color-red-200: oklch(0.885 0.062 18.334);
@@ -413,16 +413,16 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-page: #101010;
-    --color-surface: #191919;
-    --color-ink: #edede8;
-    --color-muted: #9b9b95;
-    --color-line: #2b2b2b;
-    --color-primary: #ff6a2b;
-    --color-on-primary: #101010;
-    --color-band: #ff6a2b;
-    --color-on-band: #101010;
-    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --color-page: #f2eee5;
+    --color-surface: #e8e2d4;
+    --color-ink: #1e1c19;
+    --color-muted: #6a645a;
+    --color-line: #d5cdbb;
+    --color-primary: #c2462b;
+    --color-on-primary: #fff8f1;
+    --color-band: #1e1c19;
+    --color-on-band: #f2eee5;
+    --font-display: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
   }
 }
 @layer base {
@@ -1071,7 +1071,7 @@
     color: var(--color-on-band);
   }
   .text-on-band\/70 {
-    color: color-mix(in srgb, #101010 70%, transparent);
+    color: color-mix(in srgb, #f2eee5 70%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-on-band) 70%, transparent);
     }
@@ -1442,7 +1442,7 @@ body, html {
     }
   }
   .grid-paper {
-    background-image: linear-gradient(to right,color-mix(in srgb,#2b2b2b 55%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in srgb,#2b2b2b 55%,transparent) 1px,transparent 1px);
+    background-image: linear-gradient(to right,color-mix(in srgb,#d5cdbb 55%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in srgb,#d5cdbb 55%,transparent) 1px,transparent 1px);
     @supports (color: color-mix(in lab, red, red)) {
       background-image: linear-gradient(to right,color-mix(in oklab,var(--color-line) 55%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in oklab,var(--color-line) 55%,transparent) 1px,transparent 1px);
     }
@@ -2503,7 +2503,7 @@ body, html {
       outline-width: 2px;
     }
     &:focus {
-      outline-color: color-mix(in srgb, #ff6a2b 30%, transparent);
+      outline-color: color-mix(in srgb, #c2462b 30%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         outline-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
       }
@@ -2597,7 +2597,7 @@ body, html {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
     border-color: var(--color-line);
-    background-color: color-mix(in srgb, #101010 95%, transparent);
+    background-color: color-mix(in srgb, #f2eee5 95%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-page) 95%, transparent);
     }
@@ -2774,7 +2774,7 @@ body, html {
     width: fit-content;
     border-style: var(--tw-border-style);
     border-width: 1px;
-    border-color: color-mix(in srgb, #101010 60%, transparent);
+    border-color: color-mix(in srgb, #f2eee5 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-on-band) 60%, transparent);
     }
@@ -2955,13 +2955,13 @@ body, html {
       color: var(--color-on-band);
     }
     & .ref {
-      color: color-mix(in srgb, #101010 70%, transparent);
+      color: color-mix(in srgb, #f2eee5 70%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         color: color-mix(in oklab, var(--color-on-band) 70%, transparent);
       }
     }
     & .text-muted {
-      color: color-mix(in srgb, #101010 80%, transparent);
+      color: color-mix(in srgb, #f2eee5 80%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         color: color-mix(in oklab, var(--color-on-band) 80%, transparent);
       }
@@ -3195,7 +3195,7 @@ body, html {
     gap: calc(var(--spacing) * 10);
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
-    border-color: color-mix(in srgb, #101010 30%, transparent);
+    border-color: color-mix(in srgb, #f2eee5 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-on-band) 30%, transparent);
     }

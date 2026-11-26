@@ -1,6 +1,9 @@
 # Pinegrow backups and logs
-website/_pgbackup/
-website/_pginfo/logs/
+_pgbackup/
+**/_pginfo/logs/
+# Promo screenshots: only the composed images in promo/ are kept (tools/promo_shots.mjs remakes the rest)
+promo/shots/
+promo/compose/
 # macOS
 .DS_Store
 # Python

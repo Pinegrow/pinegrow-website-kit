@@ -1,10 +1,59 @@
 # Pinegrow website kit
 
-A client-ready website kit for Pinegrow 10.1 and later: a complete site, five more starter home pages, a library of 40
+A client-ready website kit for Pinegrow 10.1 and later: a complete site, six starter home pages, a library of 40
 drag-and-drop blocks and four saved designs, all built with Tailwind CSS. Use it as it is, or as the start of your own
 client sites.
 
 <!-- repo -->
+![The kit's complete site and two of its starter home pages](promo/readme-banner.png)
+
+**[Open the live demo](https://pinegrow.github.io/pinegrow-website-kit/website/)**: the complete site, the starter
+home pages
+([interior design](https://pinegrow.github.io/pinegrow-website-kit/website/index-architecture.html),
+[agency](https://pinegrow.github.io/pinegrow-website-kit/website/index-agency.html),
+[physio](https://pinegrow.github.io/pinegrow-website-kit/website/index-physio.html),
+[café](https://pinegrow.github.io/pinegrow-website-kit/website/index-cafe.html),
+[photographer](https://pinegrow.github.io/pinegrow-website-kit/website/index-portfolio.html),
+[writer](https://pinegrow.github.io/pinegrow-website-kit/website/index-personal.html))
+and the [block library](https://pinegrow.github.io/pinegrow-website-kit/website/blocks/kit-blocks.html), exactly as
+they are in the download. The contact form doesn't send on the demo.
+
+### Six starter home pages
+
+Each is a different business, built from the same blocks: an interior design studio, a web agency, a physiotherapy
+clinic, a café, a photographer and a writer.
+
+![The six starter home pages](promo/starters-grid.png)
+
+### Four saved designs
+
+One click in Pinegrow's Design panel switches the colors and fonts of every page and block: Linen, Clear, Night and
+Pine.
+
+![The same page in the four designs](promo/designs.png)
+
+### 40 drag-and-drop blocks
+
+Headers and footers, heroes, services and pricing, work, story and team, testimonials, contact and posts, all in a
+block library in Pinegrow's Insert panel.
+
+![Blocks from the block library](promo/blocks-mosaic.png)
+
+### Kits built by an AI agent
+
+The `kit-builder` skill in this repository teaches your AI agent to build kits like this one for your own clients
+(see "Build your own kits" below). These four were built with it by an AI agent and finished in Pinegrow, each from a
+short brief: own designs, component styles, blocks, block library and pages. Their folders in
+[`examples/`](examples/) hold the brief (`KIT-BRIEF.md`) and the Pinegrow project.
+
+![Four website kits built by an AI agent with the kit-builder skill](promo/examples-grid.png)
+
+Live demos:
+[Crux Climbing](https://pinegrow.github.io/pinegrow-website-kit/examples/crux-climbing/website/) (a bouldering gym),
+[Splash Swim School](https://pinegrow.github.io/pinegrow-website-kit/examples/splash-swim-school/website/),
+[Willowbend Family Dental](https://pinegrow.github.io/pinegrow-website-kit/examples/willowbend-dental/website/)
+and [Still Water Yoga](https://pinegrow.github.io/pinegrow-website-kit/examples/still-water-yoga/website/).
+
 ## Downloads
 
 Get the kit from [Releases](https://github.com/Pinegrow/pinegrow-website-kit/releases) in one of two versions:
@@ -33,17 +82,24 @@ WordPress block theme. If you only need a static site, the static version is the
 
 ### Pages
 
-- **Northlight Interiors**, a complete site for an interior design studio: `index.html`, `about.html`, `contact.html`,
-  `journal.html`, `post.html` and `404.html`.
-- **Starter home pages** for other kinds of business, built from the same blocks:
+- **A complete site** for any small business: `index.html`, `about.html`, `contact.html`, `journal.html`, `post.html`
+  and `404.html`. The placeholder text says what to write where.
+- `index-blank.html`: only the header and footer. Start new pages from it.
+- **Starter home pages** for different kinds of business, built from the same blocks:
+  - `index-architecture.html`: an interior design studio;
   - `index-agency.html`: a web agency;
   - `index-physio.html`: a physiotherapy clinic;
   - `index-cafe.html`: a café and bakery;
   - `index-portfolio.html`: a photographer's portfolio;
   - `index-personal.html`: a personal site for a writer.
-- `blank.html`: only the header and footer, to build a page from blocks.
 
-To start a site from a starter, save it as `index.html` and delete the starters you don't need.
+To start a site from a starter instead, save it as `index.html` and delete the starters you don't need.
+
+### Header and footer
+
+On the complete site, the header and footer are components. Edit them on `index.html`, then choose Components ›
+Update the whole project (⇧⌘U) and File › Save all: every page that uses them changes, including new pages made from
+`index-blank.html`.
 
 ### Designs
 
@@ -78,9 +134,15 @@ as Formspree or Web3Forms on any other host. `website/form/README.md` explains t
 <!-- wordpress -->
 ### WordPress
 
-The Northlight pages and `wp-blocks.html` define WordPress blocks, and `website/templates/` holds the block theme
-templates (theme slug `northlight`). Export the project as a WordPress block theme with Pinegrow's WordPress
-features, and every block can be used in the Site Editor.
+The pages of the complete site and `wp-blocks.html` define WordPress blocks, and `website/templates/` holds the
+block theme templates. Use any theme slug in Pinegrow's WordPress theme settings, for example your client's name:
+Pinegrow fills it in when it exports the templates. Export the project as a WordPress block theme with Pinegrow's
+WordPress features, and every block can be used in the Site Editor.
+
+So that the blocks look the same in the WordPress editor, add two stylesheets in the theme settings, under Blocks
+editor stylesheets: `tailwind_theme/tailwind_for_wp_editor.css` (Pinegrow's Tailwind CSS for the editor; Pinegrow
+updates it whenever it saves the Tailwind CSS) and `tailwind_theme/wp-editor.css` (the kit's font, colours and link
+styles, which come from the page's `<body>` classes on the site).
 <!-- /wordpress -->
 
 ### Images

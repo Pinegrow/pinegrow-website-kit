@@ -1,0 +1,28 @@
+<section id="private-lesson-enquiry" class="section-surface" data-pg-name="Private lesson enquiry form" data-pg-content-group="Ask about a private lesson.">
+    <div class="container-site grid items-start gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">Ask about a private lesson.</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Introduction">Tell us the swimmer’s age group, their experience in the water and what they’d like to practise. Include a date that suits you if you have one.</p>
+        </div>
+        <form class="grid min-w-0 gap-4" name="private-lesson-enquiry" method="POST" action="/"
+              data-form data-form-endpoint="netlify" data-netlify="true" netlify-honeypot="company_website">
+            <input type="hidden" name="form-name" value="private-lesson-enquiry">
+            <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <label class="field-label"><span data-pg-content-label="Field label">Your name</span>
+                    <input class="field" type="text" name="name" autocomplete="name" required></label>
+                <label class="field-label"><span data-pg-content-label="Field label">Email address</span>
+                    <input class="field" type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label class="field-label"><span data-pg-content-label="Field label">Preferred date (optional)</span><input class="field" type="date" name="preferred_date"></label>
+            <label class="field-label"><span data-pg-content-label="Field label">Message</span>
+                <textarea class="field" name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">
+                Send enquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thanks for your message. We’ll get back to you by email.</p>
+            <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Your message couldn’t be sent. Please try again in a moment.</p>
+        </form>
+    </div>
+</section>

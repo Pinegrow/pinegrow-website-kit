@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-pt-24">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Contact and booking | Still Water Yoga</title>
+        <meta name="description" content="Book a mat or ask about a private session at Still Water Yoga, Trnovski pristan 14, Ljubljana.">
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+        <script src="form/form.js" defer></script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased">
+        <a href="#main" class="skip-link">Skip to content</a>
+        <header class="site-header" data-pg-name="Header (bar)" data-pg-content-group="Header">
+            <div class="header-bar">
+                <a href="index.html" class="brand" data-pg-content-label="Studio name">Still Water</a>
+                <nav class="nav-main" aria-label="Main">
+                    <a href="classes.html" class="nav-link">Classes and timetable</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link" aria-current="page">Contact</a>
+                    <a href="classes.html#timetable" class="btn-primary" data-pg-content-label="Button">Book a mat</a>
+                </nav>
+                <details class="lg:hidden">
+                    <summary class="mobile-menu-button">Menu</summary>
+                    <nav class="mobile-menu-panel" aria-label="Main (mobile)">
+                        <a href="index.html">Home</a>
+                        <a href="classes.html">Classes and timetable</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="classes.html#timetable">Book a mat</a>
+                    </nav>
+                </details>
+            </div>
+        </header>
+        <main id="main">
+            <section class="bg-page pt-12 pb-12 md:pt-20 md:pb-16" data-pg-name="Page title" data-pg-content-group="Page title">
+                <div class="container-site grid gap-8 border-b border-ink pb-10 md:grid-cols-12 md:items-end">
+                    <div class="md:col-span-7">
+                        <p class="eyebrow" data-pg-content-label="Label">Contact</p>
+                        <h1 class="heading-xl mt-6" data-pg-content-label="Title">Come and find us by the river.</h1>
+                    </div>
+                    <p class="lead md:col-span-5" data-pg-content-label="Introduction">Book a mat, put your name on the waiting list or ask about a private session. A person answers, usually the same day.</p>
+                </div>
+            </section>
+            <section id="book" class="section" data-pg-name="Contact (form and details)" data-pg-content-group="Contact">
+                <div class="container-site grid gap-12 md:grid-cols-12">
+                    <div class="md:col-span-5">
+                        <p class="eyebrow" data-pg-content-label="Label">Book a mat · ask a question</p>
+                        <h2 class="heading-lg mt-4" data-pg-content-label="Title">Write to the front desk</h2>
+                        <p class="lead mt-6" data-pg-content-label="Introduction">Tell us which class and day. We reply within one working day, usually the same evening.</p>
+                        <dl class="mt-10 grid gap-6 border-t border-ink pt-6">
+                            <div>
+                                <dt class="eyebrow">Studio</dt>
+                                <dd class="mt-2 text-ink" data-pg-content-label="Address">Trnovski pristan 14, 1000 Ljubljana</dd>
+                            </div>
+                            <div>
+                                <dt class="eyebrow">Email</dt>
+                                <dd class="mt-2" data-pg-content-label="Email">
+                                    <a href="mailto:hello@stillwateryoga.si" class="link-arrow">hello@stillwateryoga.si</a>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="eyebrow">Phone</dt>
+                                <dd class="mt-2" data-pg-content-label="Phone">
+                                    <a href="tel:+38640123456" class="link-arrow">+386 40 123 456</a>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <form class="contact-form md:col-span-6 md:col-start-7" name="contact" method="POST" action="contact.html" data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+                        <label class="field-label">Your name <input class="field" type="text" name="name" autocomplete="name" required></label>
+                        <label class="field-label">Email <input class="field" type="email" name="email" autocomplete="email" required></label>
+                        <label class="field-label">Phone (optional) <input class="field" type="tel" name="phone" autocomplete="tel"></label>
+                        <label class="field-label">Class <select class="field" name="service">
+                                <option>Vinyasa</option>
+                                <option>Slow flow</option>
+                                <option>Yin</option>
+                                <option>Prenatal</option>
+                                <option>Private session</option>
+                                <option>Just a question</option>
+                            </select></label>
+                        <label class="field-label">Message <textarea class="field" name="message" rows="5" required placeholder="Which day, and anything we should know (injuries, pregnancy, first class)"></textarea></label>
+                        <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">Send the message</button>
+                        <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thank you. We'll reply within one working day.</p>
+                        <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Sorry, the message couldn't be sent. Please email us at hello@stillwateryoga.si or call +386 40 123 456.</p>
+                    </form>
+                </div>
+            </section>
+            <section class="section" data-pg-name="Getting here" data-pg-content-group="Getting here">
+                <div class="container-site grid gap-10 md:grid-cols-12">
+                    <div class="md:col-span-6">
+                        <img src="images/studio-entrance.jpg" alt="Old houses with red roofs along the Ljubljanica, autumn trees on the river wall" width="1200" height="800" class="photo aspect-[3/2]" data-pg-content-label="Photo">
+                    </div>
+                    <div class="md:col-span-5 md:col-start-8">
+                        <p class="eyebrow" data-pg-content-label="Label">Getting here</p>
+                        <h2 class="heading-lg mt-4" data-pg-content-label="Title">On the river, ten minutes from Prešeren Square</h2>
+                        <dl class="mt-8 border-t border-ink" data-pg-content-collection="Directions">
+                            <div class="direction-row" data-pg-content-item="Direction">
+                                <dt class="eyebrow pt-1" data-pg-content-label="Way">On foot</dt>
+                                <dd class="text-ink" data-pg-content-label="Directions">Follow the Ljubljanica upstream past the Trnovo bridge. The green door is next to the bakery.</dd>
+                            </div>
+                            <div class="direction-row" data-pg-content-item="Direction">
+                                <dt class="eyebrow pt-1" data-pg-content-label="Way">By bike</dt>
+                                <dd class="text-ink" data-pg-content-label="Directions">BicikeLJ station Trnovo is two minutes away. There are racks along the river wall.</dd>
+                            </div>
+                            <div class="direction-row" data-pg-content-item="Direction">
+                                <dt class="eyebrow pt-1" data-pg-content-label="Way">By bus</dt>
+                                <dd class="text-ink" data-pg-content-label="Directions">Lines 9 and 19, stop Trnovo, then three minutes on foot.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <section class="section-surface" data-pg-name="Questions (FAQ)" data-pg-content-group="Questions">
+                <div class="container-site grid gap-10 md:grid-cols-12">
+                    <div class="md:col-span-4">
+                        <p class="eyebrow" data-pg-content-label="Label">Before you come</p>
+                        <h2 class="heading-lg mt-4" data-pg-content-label="Title">Questions people ask</h2>
+                    </div>
+                    <div class="faq md:col-span-8" data-pg-content-collection="Questions">
+                        <details class="faq-item" data-pg-content-item="Question">
+                            <summary class="faq-question">
+                                <span data-pg-content-label="Question">I have never done yoga. Which class should I take?</span><span class="font-mono text-sm text-primary" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="faq-answer" data-pg-content-label="Answer">Slow flow or yin. Both are taught for beginners, and with twelve people the teacher will show you every pose. Tell us it is your first class when you book.</p>
+                        </details>
+                        <details class="faq-item" data-pg-content-item="Question">
+                            <summary class="faq-question">
+                                <span data-pg-content-label="Question">What do I need to bring?</span><span class="font-mono text-sm text-primary" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="faq-answer" data-pg-content-label="Answer">Comfortable clothes and a bottle of water. Mats, blocks, straps, bolsters and blankets are at the studio and are cleaned after every class.</p>
+                        </details>
+                        <details class="faq-item" data-pg-content-item="Question">
+                            <summary class="faq-question">
+                                <span data-pg-content-label="Question">What if the class is full?</span><span class="font-mono text-sm text-primary" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="faq-answer" data-pg-content-label="Answer">Ask to go on the waiting list. When someone cancels we write to the first person on the list.</p>
+                        </details>
+                        <details class="faq-item" data-pg-content-item="Question">
+                            <summary class="faq-question">
+                                <span data-pg-content-label="Question">How late can I cancel?</span><span class="font-mono text-sm text-primary" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="faq-answer" data-pg-content-label="Answer">Up to six hours before the class. Later than that, the class is counted from your card, because the mat stayed empty.</p>
+                        </details>
+                        <details class="faq-item" data-pg-content-item="Question">
+                            <summary class="faq-question">
+                                <span data-pg-content-label="Question">When can I start prenatal yoga?</span><span class="font-mono text-sm text-primary" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="faq-answer" data-pg-content-label="Answer">From the 14th week of pregnancy, once your doctor or midwife says it is fine. You can keep coming until the week you give birth.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-band py-16 text-on-band" data-pg-name="Footer (register)" data-pg-content-group="Footer">
+            <div class="container-site">
+                <div class="grid gap-12 border-b border-on-band/20 pb-12 md:grid-cols-12">
+                    <div class="md:col-span-5">
+                        <p class="font-display text-4xl leading-tight" data-pg-content-label="Studio name">Still Water Yoga</p>
+                        <p class="mt-4 max-w-sm text-sm leading-relaxed opacity-80" data-pg-content-label="Description">Small yoga classes on the Ljubljanica. Twelve mats, every class.</p>
+                        <p class="mat-note mt-6"><span class="mat-count-on-band" aria-hidden="true"></span> Mats 01-12</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <h2 class="footer-heading" data-pg-content-label="Address title">Studio</h2>
+                        <address class="text-sm leading-relaxed not-italic" data-pg-content-label="Address">Trnovski pristan 14<br>1000 Ljubljana, Slovenia</address>
+                        <p class="mt-4 text-sm" data-pg-content-label="Email"><a href="mailto:hello@stillwateryoga.si" class="underline underline-offset-4">hello@stillwateryoga.si</a></p>
+                        <p class="mt-1 text-sm" data-pg-content-label="Phone"><a href="tel:+38640123456" class="underline underline-offset-4">+386 40 123 456</a></p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="footer-heading">Visit</h2>
+                        <nav class="footer-links" aria-label="Footer">
+                            <a href="classes.html">Classes</a>
+                            <a href="classes.html#timetable">Timetable</a>
+                            <a href="about.html">Teachers</a>
+                            <a href="contact.html">Contact</a>
+                        </nav>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="footer-heading" data-pg-content-label="Hours title">Front desk</h2>
+                        <p class="text-sm leading-relaxed" data-pg-content-label="Hours">Open 30 min before each class</p>
+                    </div>
+                </div>
+                <p class="pt-6 font-mono text-xs opacity-70" data-pg-content-label="Copyright">© 2026 Still Water Yoga, Ljubljana</p>
+            </div>
+        </footer>
+    </body>
+</html>

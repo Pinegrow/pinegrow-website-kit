@@ -1,0 +1,48 @@
+<section class="section-space bg-page" data-pg-name="Appointment request and office hours" data-pg-content-group="Appointments and hours">
+    <div class="container-site grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div id="hours" class="scroll-mt-6">
+            <h2 class="heading-section" data-pg-content-label="Hours title">Office hours</h2>
+            <dl class="mt-5 border-t border-line" data-pg-content-collection="Office hours">
+                <div class="grid grid-cols-[1fr_auto] gap-3 border-b border-line py-3" data-pg-content-item="Hours row">
+                    <dt class="font-semibold" data-pg-content-label="Days">Monday–Thursday</dt>
+                    <dd class="text-right font-mono text-sm" data-pg-content-label="Hours">8 am–5 pm</dd>
+                </div>
+                <div class="grid grid-cols-[1fr_auto] gap-3 border-b border-line py-3" data-pg-content-item="Hours row">
+                    <dt class="font-semibold" data-pg-content-label="Days">Friday</dt>
+                    <dd class="text-right font-mono text-sm" data-pg-content-label="Hours">8 am–1 pm</dd>
+                </div>
+                <div class="grid grid-cols-[1fr_auto] gap-3 border-b border-line py-3" data-pg-content-item="Hours row">
+                    <dt class="font-semibold" data-pg-content-label="Days">Saturday–Sunday</dt>
+                    <dd class="text-right font-mono text-sm" data-pg-content-label="Hours">Closed</dd>
+                </div>
+            </dl>
+            <h3 class="heading-item mt-8" data-pg-content-label="Location title">Find the practice</h3>
+            <address class="copy mt-2 not-italic" data-pg-content-label="Practice address">28 Willow Lane, Suite 100<br>Maplewood, MN 55109</address>
+            <a class="link-arrow mt-2 text-primary" href="tel:+16515550148" data-pg-content-label="Office phone">(651) 555-0148 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div id="request" class="info-panel scroll-mt-6">
+            <h2 class="heading-section" data-pg-content-label="Form title">Request a visit</h2>
+            <p id="request-details" class="copy mt-3" data-pg-content-label="Request instructions">Share your contact details and preferred time. The office will reach out to confirm availability. For urgent dental concerns, call the office.</p>
+            <p class="copy mt-2" data-pg-content-label="Form guidance">Please keep medical and insurance details for your conversation with the team.</p>
+            <form class="contact-form mt-6" name="contact" method="POST" action="contact.html" data-form data-form-endpoint="" data-netlify="true" netlify-honeypot="company_website" aria-describedby="request-details">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden" aria-hidden="true"><label>Leave this field empty<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+                <label class="field-label">Your name <input class="field" type="text" name="name" autocomplete="name" maxlength="120" required></label>
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <label class="field-label">Email <input class="field" type="email" name="email" autocomplete="email" maxlength="160" required></label>
+                    <label class="field-label">Phone (optional) <input class="field" type="tel" name="phone" autocomplete="tel" maxlength="32"></label>
+                </div>
+                <label class="field-label">Preferred time
+                    <select class="field" name="preferred_time">
+                        <option value="">Any time</option>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                    </select>
+                </label>
+                <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">Send request <span aria-hidden="true">↗</span></button>
+                <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Request received message">Thanks for getting in touch. We’ll contact you to discuss appointment times.</p>
+                <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Request error message">Your request couldn’t be sent. Please call <a class="underline" href="tel:+16515550148">(651) 555-0148</a> to arrange a visit.</p>
+            </form>
+        </div>
+    </div>
+</section>

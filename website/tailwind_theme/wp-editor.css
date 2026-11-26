@@ -1,0 +1,19 @@
+/* Editor stylesheet for the WordPress block editor.
+   On the site, the <body> classes (bg-page font-sans text-ink antialiased) set the kit's font and colours, and
+   tailwind.css resets links. The block editor has no such <body>, and WordPress's own admin styles there are not
+   in a CSS layer, so they win over the kit's Tailwind layers. WordPress scopes this file to the editor
+   (body becomes .editor-styles-wrapper). Add it in Pinegrow's WordPress theme settings, Blocks editor stylesheets,
+   after tailwind_theme/tailwind_for_wp_editor.css. */
+body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-page);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links and buttons take the kit's own colours from its layers again. */
+a {
+    color: revert-layer;
+    text-decoration: revert-layer;
+}

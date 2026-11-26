@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href="../">
+        <title>Visit and enquiry | Block library</title>
+        <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
+<style>
+/* Library chrome: plain CSS, so it works with every design. */
+.kit-lib-bar { position: sticky; top: 0; z-index: 50; display: flex; flex-wrap: wrap; gap: 4px 20px;
+    padding: 12px 20px; background: #111; color: #fff; font: 600 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-title { margin: 0; padding: 8px 20px; background: #222; color: #ddd; font: 500 12px/1.4 system-ui, sans-serif;
+    letter-spacing: .06em; text-transform: uppercase; }
+.kit-lib-home { padding: 40px 20px; font: 16px/1.5 system-ui, sans-serif; color: #111; background: #fff; }
+.kit-lib-home h1 { margin: 0 0 8px; font-size: 32px; }
+.kit-lib-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+.kit-lib-card { display: block; padding: 20px; border: 1px solid #ccc; background: #fafafa; }
+.kit-lib-card strong { display: block; font-size: 20px; }
+.kit-lib-card span { display: block; margin-top: 6px; color: #555; font-size: 14px; }
+/* Pinegrow styles .pg-lib-hover-menu as a small badge. Two classes outrank its one-class rules. */
+.kit-lib-pass.pg-lib-hover-menu { position: static; top: auto; right: auto; height: auto; padding: 0; background: none;
+    z-index: auto; white-space: normal; font-size: inherit; text-transform: none; transform: none; cursor: auto; }
+.kit-lib-bar.kit-lib-pass.pg-lib-hover-menu { position: sticky; top: 0; z-index: 50; padding: 12px 20px; background: #111;
+    font-size: 12px; text-transform: uppercase; }
+.kit-lib-pass.pg-lib-hover-menu a { color: inherit; text-decoration: none; }
+.kit-lib-pass.pg-lib-hover-menu a:hover, .kit-lib-pass.pg-lib-hover-menu .kit-lib-current { text-decoration: underline;
+    text-underline-offset: 4px; }
+html body .kit-lib-pass.pg-lib-hover-menu, html body .kit-lib-pass.pg-lib-hover-menu *,
+html body .kit-lib-pass.pg-lib-hover-menu *:hover { cursor: pointer !important; transform: none !important;
+    box-shadow: none !important; }
+</style>
+<script>
+/* Only whole blocks can be dragged from the library. Pinegrow 10.1 lets you drag any element from a library added in
+   pinegrow.json (its selector is "*"), marking the element under the mouse with pg-draggable on mouseover. This marks
+   the whole block instead, and keeps clicks inside blocks from picking inner elements. Links in .kit-lib-pass (the
+   bar and the cards) still open pages: Pinegrow lets clicks inside .pg-lib-hover-menu through. Runs only in the
+   Insert panel: pages open in the editor load with pgedit=1. */
+if (!/[?&]pgedit=1/.test(location.search)) {
+    (function() {
+        var blockOf = function(el) {
+            return el && el.closest ? el.closest(".pg-lib-section > :not(.pg-lib-section-title)") : null;
+        };
+        document.addEventListener("mouseover", function(e) {
+            e.stopImmediatePropagation();
+            var block = blockOf(e.target);
+            if (block && block.hasAttribute("pg-draggable")) {
+                return;
+            }
+            document.querySelectorAll("[pg-draggable]").forEach(function(el) {
+                el.removeAttribute("pg-draggable");
+                el.removeAttribute("draggable");
+                el.classList.remove("pg-lib-item");
+            });
+            if (block) {
+                block.setAttribute("pg-draggable", "true");
+                block.setAttribute("draggable", "true");
+                block.classList.add("pg-lib-item");
+            }
+        }, true);
+        ["click", "dblclick"].forEach(function(type) {
+            document.addEventListener(type, function(e) {
+                if (e.target.closest && e.target.closest(".kit-lib-pass")) {
+                    return;
+                }
+                e.stopImmediatePropagation();
+                e.preventDefault();
+            }, true);
+        });
+    })();
+}
+</script>
+    </head>
+    <body class="bg-page font-sans text-ink antialiased kit-lib-page">
+<nav class="pg-lib-hover-menu kit-lib-pass kit-lib-bar" aria-label="Block library">
+<a href="blocks/kit-blocks.html">All blocks</a>
+<a href="blocks/site.html">Site</a>
+<a href="blocks/heroes.html">Heroes</a>
+<a href="blocks/climbing.html">Climbing</a>
+<a href="blocks/session-boards.html">Session boards</a>
+<a href="blocks/visit-and-enquiry.html" class="kit-lib-current">Visit and enquiry</a>
+</nav>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Questions and answers</p>
+<section class="section-page" data-pg-name="Questions and answers" data-pg-content-group="First-time questions">
+    <div class="container-site">
+        <h2 class="heading-section" data-pg-content-label="Title">First-time questions</h2>
+                <div class="mt-6 border-t border-line sm:mt-8" data-pg-content-collection="Questions">
+            <details class="detail-row group" data-pg-content-item="Question">
+                <summary class="detail-summary">
+                    <span data-pg-content-label="Question">Do I need to be strong?</span>
+                    <span aria-hidden="true" class="shrink-0 font-mono text-xl group-open:rotate-45">+</span>
+                </summary>
+                <p class="prose-copy pb-2 text-muted" data-pg-content-label="Answer">No. Start with an easy wall and take breaks when you want. Your legs do more of the work than you might expect.</p>
+            </details>
+            <details class="detail-row group" data-pg-content-item="Question">
+                <summary class="detail-summary">
+                    <span data-pg-content-label="Question">What should I wear?</span>
+                    <span aria-hidden="true" class="shrink-0 font-mono text-xl group-open:rotate-45">+</span>
+                </summary>
+                <p class="prose-copy pb-2 text-muted" data-pg-content-label="Answer">Wear comfortable clothes you can move in. Bring socks if you plan to hire shoes, and tie long hair back.</p>
+            </details>
+            <details class="detail-row group" data-pg-content-item="Question">
+                <summary class="detail-summary">
+                    <span data-pg-content-label="Question">Do I need to book?</span>
+                    <span aria-hidden="true" class="shrink-0 font-mono text-xl group-open:rotate-45">+</span>
+                </summary>
+                <p class="prose-copy pb-2 text-muted" data-pg-content-label="Answer">Ask the team about first visits and coached sessions before you come, especially if you’re bringing a group.</p>
+            </details>
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Call to action</p>
+<section class="section-band" data-pg-name="Call to action" data-pg-content-group="Ready to get off the ground?">
+    <div class="container-site grid items-center gap-7 md:grid-cols-[1fr_auto]">
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">Ready to get off the ground?</h2>
+            <p class="prose-copy mt-4" data-pg-content-label="Description">Find out when to come, what to bring and how to reach us in Leeds.</p>
+        </div>
+        <a href="visit.html" class="btn-primary justify-self-start md:justify-self-end" data-pg-content-label="Button">Plan a visit <span aria-hidden="true">↗</span></a>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Getting here</p>
+<section id="getting-here" class="section-surface" data-pg-name="Getting here" data-pg-content-group="Getting here">
+    <div class="container-site split-section">
+        <div>
+            <p class="eyebrow mb-4 text-muted" data-pg-content-label="Area">Leeds · West Yorkshire</p>
+            <h2 class="heading-section" data-pg-content-label="Title">Getting here</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Address">Street address and postcode to be confirmed.</p>
+            <div class="mt-6 grid gap-5">
+                <div class="border-t border-line pt-4">
+                    <h3 class="heading-item" data-pg-content-label="Travel heading">By bus, train, bike or car</h3>
+                    <p class="mt-2 leading-relaxed text-muted" data-pg-content-label="Travel details">Ask us for nearby stops, cycle parking and where to park before you set off.</p>
+                </div>
+                <div class="border-t border-line pt-4">
+                    <h3 class="heading-item" data-pg-content-label="Kit heading">What to bring</h3>
+                    <p class="mt-2 leading-relaxed text-muted" data-pg-content-label="Kit details">Wear clothes you can move in and bring a water bottle. Bring socks if you’re hiring climbing shoes.</p>
+                </div>
+                <div class="border-t border-line pt-4">
+                    <h3 class="heading-item" data-pg-content-label="Access heading">Access needs</h3>
+                    <p class="mt-2 leading-relaxed text-muted" data-pg-content-label="Access details">Get in touch to ask about access to the building and what we can do to help with your visit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="overflow-hidden border border-line">
+            <img src="images/crux-front-desk.webp" width="1500" height="1000" alt="A staff member at reception beside shelves of climbing shoes for hire" class="photo-block aspect-[3/2]" loading="lazy" decoding="async" data-pg-content-label="Photo">
+        </div>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Visit enquiry form</p>
+<section id="enquire" class="section-surface" data-pg-name="Visit enquiry form" data-pg-content-group="Ask the Crux team.">
+    <div class="container-site grid items-start gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">Ask the Crux team.</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Introduction">Ask about a first visit, a class, membership or getting here. Tell us what you need and we’ll get back to you.</p>
+        </div>
+        <form class="grid min-w-0 gap-4" name="visit-enquiry" method="POST" action="/"
+              data-form data-form-endpoint="netlify" data-netlify="true" netlify-honeypot="company_website">
+            <input type="hidden" name="form-name" value="visit-enquiry">
+            <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <label class="field-label"><span data-pg-content-label="Field label">Your name</span>
+                    <input class="field" type="text" name="name" autocomplete="name" required></label>
+                <label class="field-label"><span data-pg-content-label="Field label">Email address</span>
+                    <input class="field" type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label class="field-label"><span data-pg-content-label="Field label">What are you asking about?</span>
+                <select class="field" name="topic" required>
+                    <option value="">Choose a topic</option>
+                    <option>First visit</option>
+                    <option>Classes and coaching</option>
+                    <option>Family climbing</option>
+                    <option>Membership</option>
+                    <option>Travel and access</option>
+                    <option>Something else</option>
+                </select>
+            </label>
+            <label class="field-label"><span data-pg-content-label="Field label">Message</span>
+                <textarea class="field" name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">
+                Send enquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thanks for your message. We’ll get back to you by email.</p>
+            <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Your message couldn’t be sent. Please try again in a moment.</p>
+        </form>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Party enquiry form</p>
+<section id="party-enquiry" class="section-surface" data-pg-name="Party enquiry form" data-pg-content-group="Let’s plan a party.">
+    <div class="container-site grid items-start gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+        <div>
+            <h2 class="heading-section" data-pg-content-label="Title">Let’s plan a party.</h2>
+            <p class="prose-copy mt-5 text-muted" data-pg-content-label="Introduction">Send your preferred dates, an estimated number of children and their age range. We’ll get back to you about what’s available.</p>
+        </div>
+        <form class="grid min-w-0 gap-4" name="party-enquiry" method="POST" action="/"
+              data-form data-form-endpoint="netlify" data-netlify="true" netlify-honeypot="company_website">
+            <input type="hidden" name="form-name" value="party-enquiry">
+            <p class="hidden" aria-hidden="true"><label>Leave this field empty
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></p>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <label class="field-label"><span data-pg-content-label="Field label">Your name</span>
+                    <input class="field" type="text" name="name" autocomplete="name" required></label>
+                <label class="field-label"><span data-pg-content-label="Field label">Email address</span>
+                    <input class="field" type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label class="field-label"><span data-pg-content-label="Field label">Preferred date (optional)</span><input class="field" type="date" name="preferred_date"></label>
+            <label class="field-label"><span data-pg-content-label="Field label">Message</span>
+                <textarea class="field" name="message" rows="5" required></textarea></label>
+            <button type="submit" class="btn-primary justify-self-start" data-pg-content-label="Send button">
+                Send enquiry <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-message hidden" role="status" data-form-success data-pg-content-label="Thank you message">Thanks for your message. We’ll get back to you by email.</p>
+            <p class="form-message hidden" role="alert" data-form-error data-pg-content-label="Error message">Your message couldn’t be sent. Please try again in a moment.</p>
+        </form>
+    </div>
+</section>
+</div>
+<div class="pg-lib-section">
+<p class="pg-lib-section-title kit-lib-title">Gift vouchers</p>
+<section class="section-page" data-pg-name="Gift vouchers" data-pg-content-group="Gift vouchers">
+    <div class="container-site">
+        <div class="grid border border-line bg-surface md:grid-cols-[1fr_auto]">
+            <div class="px-3 py-12 sm:px-6 border-line md:border-r">
+                <h2 class="heading-section" data-pg-content-label="Title">Gift vouchers</h2>
+                <p class="prose-copy mt-4 text-muted" data-pg-content-label="Description">Give someone a go on the wall. Ask the Crux team about voucher options for a first climb or a regular session.</p>
+            </div>
+            <div class="flex items-center border-t border-line bg-band px-3 py-3 text-on-band sm:px-6 md:border-t-0">
+                <a href="visit.html#enquire" class="btn-primary" data-pg-content-label="Enquiry button">Ask about gift vouchers <span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+    </body>
+</html>

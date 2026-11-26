@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
-"""Builds the pages of the Northlight website kit from blocks.py and the content below.
+"""Builds the pages of the website kit from blocks.py and the content below.
 
   python3 tools/build_kit.py
 
 Writes, in website/:
-- index.html (interior studio) and its inner pages about, contact, journal, post and 404: the site that is exported to
-  WordPress (these pages have wp-template).
-- index-agency.html, index-physio.html, index-cafe.html, index-portfolio.html, index-personal.html, blank.html: other
-  starter home pages built from the same blocks (no wp-template, so their blocks are not exported twice).
-- wp-blocks.html: defines, for WordPress, every block that the Northlight pages don't use, so that each block is
+- index.html (a general site for "Your Company") and its inner pages about, contact, journal, post and 404: the site
+  that is exported to WordPress (these pages have wp-template). Its header and footer are Pinegrow components
+  (site-header, site-footer) defined on index.html, with instances on the other pages and on index-blank.html (see
+  component()). index-blank.html has only the header and footer.
+- index-architecture.html, index-agency.html, index-physio.html, index-cafe.html, index-portfolio.html,
+  index-personal.html: starter home pages for different businesses, built from the same blocks, with inline headers
+  and footers (no wp-template, so their blocks are not exported twice).
+- wp-blocks.html: defines, for WordPress, every block that the general site's pages don't use, so that each block is
   defined exactly once (check_blocks() stops the build otherwise).
 - blocks/kit-blocks.html and one page per category: the block library. Only kit-blocks.html (the home page) is
   registered as a Pinegrow page library in pinegrow.json (project_resources), so the Insert panel shows one tab; the
@@ -132,6 +135,24 @@ def site(header, sections, footer):
     return header + "\n<main id=\"main\">\n" + "\n".join(sections) + "\n</main>\n" + footer
 
 
+def component(html, cid, name, desc, define):
+    """The general site's header and footer are Pinegrow components, so they stay the same on every page: defined on
+    index.html, instances on the other pages. Instances also have cms-no-export, so WordPress gets each block once.
+    Updating components rebuilds instances from the definition and keeps only editable fields, so cms-no-export is an
+    editable attribute of the root (with no_content, the content always comes from the definition)."""
+    edit = ' data-pgc-edit="WordPress[cms-no-export,no_content]"'
+    if define:
+        attrs = f' data-pgc-define="{cid}" data-pgc-define-name="{name}" data-pgc-define-description="{desc}"' + edit
+    else:
+        attrs = f' data-pgc="{cid}" data-pgc-field="WordPress" cms-no-export'
+    return re.sub(r"^(<(?:header|footer))", lambda m: m.group(1) + attrs, html, count=1)
+
+
+def copy_of(html):
+    """A block that is also used on another WordPress page: WordPress gets the block from that page."""
+    return re.sub(r"^(<[a-z]+)", lambda m: m.group(1) + " cms-no-export", html, count=1)
+
+
 def no_export(html):
     """Copies of the header and footer on other pages: defined once on index.html for WordPress."""
     return re.sub(r'(<(?:header|footer) [^>]*?)( cms-block=")', r'\1 cms-no-export\2', html, count=1)
@@ -141,14 +162,14 @@ def no_export(html):
 # Content: Northlight Interiors (interior studio)
 
 NL = dict(name="Northlight Interiors", mark="NL",
-          nav=[("Services", "index.html#schedule"), ("Case files", "index.html#cases"), ("Studio", "about.html"), ("Journal", "journal.html")],
-          cta=("Request a site visit", "contact.html"),
+          nav=[("Services", "#schedule"), ("Case files", "#cases"), ("Process", "#process"), ("Questions", "#questions")],
+          cta=("Request a site visit", "#contact"),
           about="Interior design for homes and small workplaces.", address="48 Alder Street<br>Portland, OR 97205",
           email="hello@northlight.studio", phone="+1 503 555 0142")
 
 NL_HERO = dict(sheet="Sheet A-00 · Introduction", title="Rooms that work as well as they look.",
                lead="We plan homes and small workplaces down to the last shelf, hinge and lamp, then stay on site until it’s built.",
-               primary=("Request a site visit", "contact.html"), secondary=("Open the case files", "#cases"),
+               primary=("Request a site visit", "#contact"), secondary=("Open the case files", "#cases"),
                facts=[("Practice", "Homes and small workplaces"), ("Based in", "Portland, Oregon"), ("Since", "2014 · 140+ rooms"), ("Now booking", "Spring 2027")],
                image="hero.webp", alt="A calm living room with built-in oak shelving, a linen sofa and lime-washed walls",
                spots=[(17, 36), (50, 72), (82, 28)], legend="Harbour House · living room · 24 m²",
@@ -165,7 +186,7 @@ NL_CASES = dict(id="cases", sheet="Sheet A-02", title="Case files", lead="Three 
                        dict(image="work-2.webp", alt="Bedroom with lime-plaster walls, a low wooden bed and morning light", ref="P-09", title="Quiet Morning Suite", story="A bedroom that faced a busy street. Heavy curtains, a new window seat and plaster walls made it the quietest room in the house.", location="Pearl District", area="18 m²", scope="Room plan", year="2025"),
                        dict(image="work-3.webp", alt="Small architecture studio with long desks, plants and pinned drawings", ref="P-07", title="Atelier Brandt", story="Eight architects in a former print shop. Long shared desks, a wall of pin-up boards and acoustic panels hidden in the ceiling.", location="Central Eastside", area="140 m²", scope="Small workplace", year="2025")])
 
-NL_TIMELINE = dict(sheet="Sheet A-03", title="How a room plan runs", lead="From the first visit to a plan your builder can follow, in about three weeks.",
+NL_TIMELINE = dict(id="process", sheet="Sheet A-03", title="How a room plan runs", lead="From the first visit to a plan your builder can follow, in about three weeks.",
                    items=[dict(when="Day 1", title="Measure", text="We visit, listen, measure every wall and photograph the light."),
                           dict(when="Week 1", title="Two directions", text="Two layouts with samples you can touch and a budget for each."),
                           dict(when="Week 2", title="Detail", text="Drawings, lighting and a shopping list with every product linked."),
@@ -181,13 +202,13 @@ NL_NOTES = dict(sheet="Sheet A-05", title="Client notes",
                 items=[dict(quote="They turned our dark flat into the brightest home on the street, and told us the cost of every change before we made it.", name="Maya Lindqvist", project="Harbour House · P-14"),
                        dict(quote="Our builder said it was the clearest set of drawings he’d ever been given. The kitchen is where everyone ends up now.", name="Daniel Okafor", project="The Green Kitchen · P-12")])
 
-NL_FAQ = dict(sheet="Sheet A-06", title="General notes",
+NL_FAQ = dict(id="questions", sheet="Sheet A-06", title="General notes",
               items=[("Do you work outside Portland?", "Yes. For projects more than an hour away we plan site visits around the key moments and work online in between."),
                      ("Can we keep some of our furniture?", "Usually most of it. We measure what you love first and design around it."),
                      ("Do you work with our builder?", "Gladly. Our drawings are made for builders. We can also recommend builders we trust and compare quotes with you."),
                      ("What does a site visit cost?", "A site consultation is €240. If you go on to a room plan, we take it off the fee.")])
 
-NL_CTA = dict(title="Send us a photo of the room that bothers you most.", lead="We reply within two working days with a first idea and a date for a site visit.", button=("Request a site visit", "contact.html"))
+NL_CTA = dict(title="Send us a photo of the room that bothers you most.", lead="We reply within two working days with a first idea and a date for a site visit.", button=("Request a site visit", "#contact"))
 
 NL_ABOUT = dict(sheet="Sheet B-00 · The studio", title="A small studio that measures twice.",
                 lead="Three designers, one workshop table and a long list of builders we trust. We take on a few projects at a time and see each one through.",
@@ -365,24 +386,99 @@ BLANK = dict(name="Your site", nav=[("About", "#"), ("Services", "#"), ("Contact
              about="One sentence about what you do.", address="Street and number<br>Postcode and town", email="hello@example.com", phone="+1 555 0100")
 
 # ---------------------------------------------------------------------------------------------------------------------
+# Content: the general site (index.html and its inner pages). Placeholder copy that says what goes where, so users can
+# turn it into their own site. This is the site that is exported to WordPress.
+
+GEN = dict(name="Your Company", home="index.html",
+           nav=[("Services", "index.html#services"), ("About", "about.html"), ("Journal", "journal.html"), ("Contact", "contact.html")],
+           cta=("Get in touch", "contact.html"),
+           about="One sentence about what you do and who it is for.", address="Street and number<br>Postcode and town",
+           email="hello@example.com", phone="+1 555 0100")
+
+GEN_HERO = dict(sheet="Your company · Your town", title="Say what you do in one clear sentence.",
+                lead="Add two lines about who you help and how. Visitors decide in a few seconds whether they are in the right place.",
+                primary=("Get in touch", "contact.html"), secondary=("See services", "#services"),
+                note="Your opening hours · Where you work · A short promise", image="about-detail.webp", alt="Hands sketching a plan at a work table")
+GEN_LOGOS = dict(title="Trusted by", items=["Client One", "Client Two", "Client Three", "Client Four", "Client Five"])
+GEN_SERVICES = dict(id="services", sheet="Services", title="What we can do for you", lead="Three services is a good start. Add more cards when you need them.",
+                    items=[dict(icon="pen", title="First service", text="What it is, who it is for and what the client gets at the end.", link="Learn more", href="contact.html"),
+                           dict(icon="chart", title="Second service", text="Keep each card to two lines, so visitors can compare them at a glance.", link="Learn more", href="contact.html"),
+                           dict(icon="heart", title="Third service", text="End with the result, not with the process.", link="Learn more", href="contact.html")])
+GEN_STEPS = dict(id="how-it-works", sheet="How it works", title="Working with us, step by step", lead="Explain what happens after someone gets in touch.",
+                 items=[dict(number="1", title="We talk", text="A short call to understand what you need."),
+                        dict(number="2", title="We propose", text="A clear plan with a fixed price and a date."),
+                        dict(number="3", title="We do the work", text="Regular updates, so there are no surprises."),
+                        dict(number="4", title="You’re all set", text="We hand over and stay available for questions.")])
+GEN_QUOTE = dict(sheet="Client", quote="Put your best client quote here. A specific result works better than general praise.", name="Client name", role="Role, company", image="team-2.webp")
+GEN_CTA = dict(title="Ready to start? Tell us what you need.", lead="We reply within two working days.", button=("Get in touch", "contact.html"))
+
+GEN_ABOUT = dict(sheet="About", title="A sentence about who you are.",
+                 lead="Tell your story in two or three sentences: when you started, what you believe and why clients choose you.",
+                 facts=[("Founded", "Year"), ("Team", "Number of people"), ("Projects", "Number"), ("Based in", "Town")],
+                 image="about-studio.webp", alt="A bright studio with a long work table")
+GEN_STORY = dict(sheet="Our story", title="How it started, and where you are going.", image="work-3.webp", alt="A small studio with long desks and plants",
+                 text="<p>Write a short paragraph about how the company started. Real details make it believable: a place, a year, a first client.</p>\n<p>Then say what you do differently today, and what a client can expect when they work with you.</p>")
+GEN_PRINCIPLES = dict(sheet="Promises", title="What you can count on", lead="Three things clients can rely on every time.",
+                      items=[dict(ref="01", title="First promise", text="A promise you keep on every project, stated plainly."),
+                             dict(ref="02", title="Second promise", text="Something clients worry about, and how you handle it."),
+                             dict(ref="03", title="Third promise", text="What happens after the work is done.")])
+GEN_TEAM = dict(sheet="Team", title="The people behind the work", lead="Faces build trust. Add a photo and a role for everyone clients will meet.",
+                items=[dict(image="team-1.webp", name="First Name", role="Founder"), dict(image="team-2.webp", name="Second Name", role="Role"), dict(image="team-3.webp", name="Third Name", role="Role")])
+GEN_CONTACT = dict(sheet="Contact", title="Get in touch.", lead="Tell us what you need. We reply within two working days.",
+                   details=[("Email", "hello@example.com"), ("Phone", "+1 555 0100"), ("Hours", "Mon–Fri, 9:00–17:00"), ("Address", "Street and number, Town")],
+                   image="contact.webp", alt="The front door of the office", form_label="Contact form",
+                   select_label="Topic", options=["General question", "First service", "Second service", "Third service"],
+                   message_label="How can we help?", button="Send message")
+GEN_POSTS = [dict(image="post-1.webp", alt="Morning light on a reading corner", cat="News", date="Nov 12, 2026", title="Your first post: answer a question clients ask", excerpt="Posts that answer real questions bring visitors from search. Start with the one you hear most.", href="post.html"),
+             dict(image="post-2.webp", alt="Samples on a table", cat="Guides", date="Oct 28, 2026", title="A short guide to something you know well", excerpt="Show what you know. A practical guide builds more trust than a sales page.", href="post.html"),
+             dict(image="post-3.webp", alt="A tidy hallway with a bench", cat="Projects", date="Oct 9, 2026", title="A recent project, before and after", excerpt="Tell one project as a story: the problem, what you did and the result.", href="post.html")]
+GEN_JOURNAL = dict(sheet="Journal", title="News and notes", lead="Short posts about your work, your field and your clients’ questions.", items=GEN_POSTS)
+GEN_POST = dict(cat="News", title="Your first post: answer a question clients ask", date="Nov 12, 2026", author="Your Name", image="post-1.webp", alt="Morning light on a reading corner",
+                body="""<p>Start with the question in the client’s own words, then answer it in the first paragraph. Visitors who came from search want the answer before anything else.</p>
+<h2>Explain the details</h2>
+<p>Use short paragraphs and a heading for each part of the answer. Add an example from your own work.</p>
+<blockquote>A good post answers one question well. Save the next question for the next post.</blockquote>
+<p>End with one clear next step, for example a link to the contact page.</p>""")
+GEN_404 = dict(sheet="404", title="This page doesn’t exist.", lead="It may have moved. Try the menu, or go back to the home page.")
+
+# ---------------------------------------------------------------------------------------------------------------------
 # Pages
 
 def build_pages():
-    nl_head, nl_foot = B.header_drawing(NL), B.footer_titleblock(NL)
+    nl_head, nl_foot = B.header_drawing(NL), B.footer_titleblock(NL).replace("<footer ", '<footer id="contact" ', 1)
+    gen_head, gen_foot = B.header_simple(GEN), B.footer_columns(GEN)
+
+    def gen_site(sections, define=False):
+        return site(component(gen_head, "site-header", "Site header", "Logo, menu and a button. Edit it on index.html, Pinegrow updates every page.", define),
+                    sections,
+                    component(gen_foot, "site-footer", "Site footer", "Contact details and links. Edit it on index.html, Pinegrow updates every page.", define))
+
+    start_here = '''<section class="section" data-pg-name="Start here">
+<div class="container-site">
+<p class="sheet-label">New page</p>
+<h1 class="heading-xl mt-8">Add blocks from Insert › kit-blocks.html.</h1>
+<p class="lead mt-6 max-w-2xl">Then delete this section. The header and footer are components: edit them on index.html and every page follows.</p>
+</div>
+</section>'''
     pages = {
-        "index.html": (page("Northlight Interiors | Rooms that work as well as they look", "Northlight Interiors plans homes and small workplaces down to the last shelf, hinge and lamp. Portland, Oregon.",
-                            site(nl_head, [B.hero_callouts(NL_HERO), B.services_schedule(NL_SCHEDULE), B.work_case_files(NL_CASES), B.process_timeline(NL_TIMELINE),
-                                           B.samples_board(NL_SAMPLES), B.notes_columns(NL_NOTES), B.faq_list(NL_FAQ), B.cta_band(NL_CTA)], nl_foot), wp=True)),
-        "about.html": (page("Studio | Northlight Interiors", "Meet Northlight Interiors, a small studio that designs homes and workplaces around everyday life.",
-                            site(no_export(nl_head), [B.about_intro(NL_ABOUT), B.story_split(NL_STORY), B.principles_list(NL_PRINCIPLES), B.team_grid(NL_TEAM)], no_export(nl_foot)), wp=True)),
-        "contact.html": (page("Request a site visit | Northlight Interiors", "Tell Northlight Interiors about your space. We reply within two working days.",
-                              site(no_export(nl_head), [B.contact_form(NL_CONTACT)], no_export(nl_foot)), wp=True)),
-        "journal.html": (page("Journal | Northlight Interiors", "Small, practical ideas from real interior design projects.",
-                              site(no_export(nl_head), [B.journal_list(NL_JOURNAL)], no_export(nl_foot)), wp=True)),
-        "post.html": (page("Five small changes that make a living room calmer | Northlight Interiors", "Before you buy anything new, try moving what you already have.",
-                           site(no_export(nl_head), [B.post_single(NL_POST)], no_export(nl_foot)), wp=True)),
-        "404.html": (page("Page not found | Northlight Interiors", "The page you are looking for has moved or never existed.",
-                          site(no_export(nl_head), [B.not_found(NL_404)], no_export(nl_foot)), wp=True)),
+        "index.html": (page("Your Company | Say what you do in one sentence", "One or two sentences about what you do and who it is for. Search engines show this text.",
+                            gen_site([B.hero_split(GEN_HERO), B.logos_row(GEN_LOGOS), B.services_cards(GEN_SERVICES), B.process_steps(GEN_STEPS),
+                                      B.quote_large(GEN_QUOTE), B.cta_band(GEN_CTA)], define=True), wp=True)),
+        "about.html": (page("About | Your Company", "Who we are, what we believe and the people behind the work.",
+                            gen_site([B.about_intro(GEN_ABOUT), B.story_split(GEN_STORY), B.principles_list(GEN_PRINCIPLES), B.team_grid(GEN_TEAM), copy_of(B.cta_band(GEN_CTA))]), wp=True)),
+        "contact.html": (page("Contact | Your Company", "Get in touch. We reply within two working days.",
+                              gen_site([B.contact_form(GEN_CONTACT)]), wp=True)),
+        "journal.html": (page("Journal | Your Company", "News and notes about our work.",
+                              gen_site([B.journal_list(GEN_JOURNAL)]), wp=True)),
+        "post.html": (page("Your first post | Your Company", "Start with the question in the client’s own words, then answer it.",
+                           gen_site([B.post_single(GEN_POST), copy_of(B.cta_band(GEN_CTA))]), wp=True)),
+        "404.html": (page("Page not found | Your Company", "The page you are looking for has moved or never existed.",
+                          gen_site([B.not_found(GEN_404)]), wp=True)),
+        "index-blank.html": (page("New page | Your Company", "A page with only the header and footer. Add blocks from the Insert panel.",
+                                  gen_site([start_here]))),
+        "index-architecture.html": (page("Northlight Interiors | Rooms that work as well as they look", "Northlight Interiors plans homes and small workplaces down to the last shelf, hinge and lamp. Portland, Oregon.",
+                                         site(nl_head, [B.hero_callouts(NL_HERO), B.services_schedule(NL_SCHEDULE), B.work_case_files(NL_CASES), B.process_timeline(NL_TIMELINE),
+                                                        B.samples_board(NL_SAMPLES), B.notes_columns(NL_NOTES), B.faq_list(NL_FAQ), B.cta_band(NL_CTA)], nl_foot))),
         "index-agency.html": (page("Field Office | Websites people actually use", "Field Office is a small digital studio that designs and builds websites.",
                                    site(B.header_simple(FO), [B.hero_statement(FO_HERO), B.logos_row(FO_LOGOS), B.features_grid(FO_FEATURES), B.work_index(FO_INDEX),
                                                               B.work_gallery(FO_GALLERY), B.stats_band(FO_STATS), B.quote_large(FO_QUOTE), B.pricing_tiers(FO_TIERS), B.cta_split(FO_CTA)],
@@ -398,8 +494,6 @@ def build_pages():
                                                                  B.contact_simple(AR_CONTACT)], B.footer_columns(AR)))),
         "index-personal.html": (page("Sam Rivera | Writer and developer", "Essays about calm software and small, useful tools.",
                                      site(B.header_simple(SR), [B.hero_portrait(SR_HERO), B.posts_latest(SR_POSTS), B.work_index(SR_PROJECTS), B.newsletter(SR_NEWS)], B.footer_big(SR)))),
-        "blank.html": (page("New page", "A page with only the header and footer. Add blocks from the Insert panel.",
-                            site(B.header_simple(BLANK), ['<section class="section" data-pg-name="Start here">\n<div class="container-site">\n<p class="sheet-label">Start here</p>\n<h1 class="heading-xl mt-8">Add blocks from Insert › block libraries.</h1>\n</div>\n</section>'], B.footer_columns(BLANK)))),
     }
 
     def lib_section(name, html):
@@ -477,7 +571,7 @@ to another category or back here. Blocks use the project’s design and componen
     defined = set()
     for url, html in pages.items():
         if " wp-template" in html.split("\n", 2)[1]:
-            defined |= set(re.findall(r'<(?:section|header|footer|div)(?![^>]*cms-no-export)[^>]* cms-block="([^"]+)"(?![^>]*cms-block-parent)', html))
+            defined |= set(re.findall(r'<(?:section|header|footer|div)(?![^>]*\scms-no-export[\s>=])[^>]* cms-block="([^"]+)"(?![^>]*cms-block-parent)', html))
     extra = []
     for cat, sections in libs:
         for n, h in sections:
@@ -501,12 +595,19 @@ def check_blocks(pages):
     """Every block id used anywhere must be defined exactly once on the WordPress pages."""
     used, defined = set(), {}
     for url, html in pages.items():
-        top = re.findall(r'<(?:section|header|footer|div)(?![^>]*cms-no-export)[^>]* cms-block="([^"]+)"(?![^>]*cms-block-parent)', html)
+        top = re.findall(r'<(?:section|header|footer|div)(?![^>]*\scms-no-export[\s>=])[^>]* cms-block="([^"]+)"(?![^>]*cms-block-parent)', html)
         used |= set(top)
         if " wp-template" in html.split("\n", 2)[1]:
             for bid in top:
                 defined.setdefault(bid, []).append(url)
+    subs = {}
+    for url, html in pages.items():
+        if " wp-template" in html.split("\n", 2)[1]:
+            for tag in re.findall(r'<[a-z]+[^>]* cms-block-parent="[^"]*"[^>]*>', html):
+                if not re.search(r'\scms-no-export[\s>=]', tag):
+                    subs.setdefault(re.search(r' cms-block="([^"]+)"', tag).group(1), []).append(url)
     problems = [f"{b} not exported" for b in sorted(used - set(defined))]
+    problems += [f"sub-block {b} defined {len(u)} times ({', '.join(sorted(set(u)))})" for b, u in sorted(subs.items()) if len(u) > 1]
     problems += [f"{b} defined on {', '.join(u)}" for b, u in sorted(defined.items()) if len(u) > 1]
     return problems
 
@@ -563,6 +664,9 @@ def main():
     for url, html in pages.items():
         with open(os.path.join(WEB, url), "w", encoding="utf-8") as f:
             f.write(indent(html))
+    for name in ["blank.html"]:
+        if os.path.exists(os.path.join(WEB, name)):
+            os.remove(os.path.join(WEB, name))
     for name in os.listdir(os.path.join(WEB, "blocks")):
         if "blocks/" + name not in pages:
             os.remove(os.path.join(WEB, "blocks", name))

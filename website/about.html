@@ -3,34 +3,34 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Studio | Northlight Interiors</title>
-        <meta name="description" content="Meet Northlight Interiors, a small studio that designs homes and workplaces around everyday life.">
+        <title>About | Your Company</title>
+        <meta name="description" content="Who we are, what we believe and the people behind the work.">
         <link href="tailwind_theme/tailwind.css" rel="stylesheet" type="text/css">
         <script src="form/form.js" defer></script>
     </head>
     <body class="bg-page font-sans text-ink antialiased">
         <a href="#main" class="skip-link">Skip to content</a>
-        <header class="site-header" data-pg-name="Header (drawing)" cms-no-export cms-block="header-drawing" cms-block-title="Header (drawing)" cms-block-description="Logo mark, technical menu and a button" data-pg-content-group="Header (drawing)">
-            <div class="container-site flex h-16 items-center justify-between gap-6">
-                <a href="index.html" class="brand" aria-label="Northlight Interiors home"><span class="brand-mark" aria-hidden="true">NL</span> <span cms-site-name data-pg-content-label="Site name">Northlight Interiors</span></a>
+        <header data-pgc="site-header" data-pgc-field="WordPress" cms-no-export class="site-header-simple" data-pg-name="Header (simple)" cms-block="header-simple" cms-block-title="Header (simple)" cms-block-description="Wordmark, menu and a button" data-pg-content-group="Header (simple)">
+            <div class="container-site flex h-20 items-center justify-between gap-6">
+                <a href="index.html" class="wordmark-small" aria-label="Your Company home"><span cms-site-name data-pg-content-label="Site name">Your Company</span></a>
                 <nav class="hidden lg:block" aria-label="Main">
                     <ul class="flex items-center gap-8" cms-menu="primary">
-                        <li><a href="index.html#schedule" class="nav-link">Services</a></li>
-                        <li><a href="index.html#cases" class="nav-link">Case files</a></li>
-                        <li><a href="about.html" class="nav-link">Studio</a></li>
-                        <li><a href="journal.html" class="nav-link">Journal</a></li>
+                        <li><a href="index.html#services" class="nav-link-plain">Services</a></li>
+                        <li><a href="about.html" class="nav-link-plain">About</a></li>
+                        <li><a href="journal.html" class="nav-link-plain">Journal</a></li>
+                        <li><a href="contact.html" class="nav-link-plain">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="flex items-center gap-2">
-                    <a href="contact.html" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Request a site visit</a>
+                    <a href="contact.html" class="btn-primary hidden sm:inline-flex" cms-block-field="header_button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="header_button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Get in touch</a>
                     <details class="mobile-menu lg:hidden">
                         <summary class="mobile-menu-button" aria-label="Open menu">Menu</summary>
                         <div class="mobile-menu-panel">
-                            <a href="index.html#schedule" class="nav-link">Services</a>
-                            <a href="index.html#cases" class="nav-link">Case files</a>
-                            <a href="about.html" class="nav-link">Studio</a>
-                            <a href="journal.html" class="nav-link">Journal</a>
-                            <a href="contact.html" class="btn-primary mt-2">Request a site visit</a>
+                            <a href="index.html#services" class="nav-link-plain text-xl">Services</a>
+                            <a href="about.html" class="nav-link-plain text-xl">About</a>
+                            <a href="journal.html" class="nav-link-plain text-xl">Journal</a>
+                            <a href="contact.html" class="nav-link-plain text-xl">Contact</a>
+                            <a href="contact.html" class="btn-primary mt-2">Get in touch</a>
                         </div>
                     </details>
                 </div>
@@ -41,41 +41,41 @@
                 <div class="container-site">
                     <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
                         <div class="lg:col-span-7">
-                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-00 · The studio</p>
-                            <h1 class="heading-xl mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">A small studio that measures twice.</h1>
-                            <p class="lead mt-6 max-w-xl" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three designers, one workshop table and a long list of builders we trust. We take on a few projects at a time and see each one through.</p>
+                            <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">About</p>
+                            <h1 class="heading-xl mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">A sentence about who you are.</h1>
+                            <p class="lead mt-6 max-w-xl" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Tell your story in two or three sentences: when you started, what you believe and why clients choose you.</p>
                         </div>
                         <dl class="title-block lg:col-span-5">
                             <div>
                                 <dt cms-block-field="fact_1_label" cms-block-field-type="content" cms-block-field-title="Fact 1 label" data-pg-content-label="Fact 1 label">Founded</dt>
-                                <dd cms-block-field="fact_1_value" cms-block-field-type="content" cms-block-field-title="Fact 1 value" data-pg-content-label="Fact 1 value">2014</dd>
+                                <dd cms-block-field="fact_1_value" cms-block-field-type="content" cms-block-field-title="Fact 1 value" data-pg-content-label="Fact 1 value">Year</dd>
                             </div>
                             <div>
                                 <dt cms-block-field="fact_2_label" cms-block-field-type="content" cms-block-field-title="Fact 2 label" data-pg-content-label="Fact 2 label">Team</dt>
-                                <dd cms-block-field="fact_2_value" cms-block-field-type="content" cms-block-field-title="Fact 2 value" data-pg-content-label="Fact 2 value">3 designers</dd>
+                                <dd cms-block-field="fact_2_value" cms-block-field-type="content" cms-block-field-title="Fact 2 value" data-pg-content-label="Fact 2 value">Number of people</dd>
                             </div>
                             <div>
-                                <dt cms-block-field="fact_3_label" cms-block-field-type="content" cms-block-field-title="Fact 3 label" data-pg-content-label="Fact 3 label">Rooms designed</dt>
-                                <dd cms-block-field="fact_3_value" cms-block-field-type="content" cms-block-field-title="Fact 3 value" data-pg-content-label="Fact 3 value">140+</dd>
+                                <dt cms-block-field="fact_3_label" cms-block-field-type="content" cms-block-field-title="Fact 3 label" data-pg-content-label="Fact 3 label">Projects</dt>
+                                <dd cms-block-field="fact_3_value" cms-block-field-type="content" cms-block-field-title="Fact 3 value" data-pg-content-label="Fact 3 value">Number</dd>
                             </div>
                             <div>
-                                <dt cms-block-field="fact_4_label" cms-block-field-type="content" cms-block-field-title="Fact 4 label" data-pg-content-label="Fact 4 label">Builders we trust</dt>
-                                <dd cms-block-field="fact_4_value" cms-block-field-type="content" cms-block-field-title="Fact 4 value" data-pg-content-label="Fact 4 value">12</dd>
+                                <dt cms-block-field="fact_4_label" cms-block-field-type="content" cms-block-field-title="Fact 4 label" data-pg-content-label="Fact 4 label">Based in</dt>
+                                <dd cms-block-field="fact_4_value" cms-block-field-type="content" cms-block-field-title="Fact 4 value" data-pg-content-label="Fact 4 value">Town</dd>
                             </div>
                         </dl>
                     </div>
-                    <img src="images/about-studio.webp" alt="The Northlight studio with a long work table, material samples and tall windows" width="2400" height="1029" class="img-frame mt-12 aspect-[21/9] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                    <img src="images/about-studio.webp" alt="A bright studio with a long work table" width="2400" height="1029" class="img-frame mt-12 aspect-[21/9] w-full" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                 </div>
             </section>
             <section class="section" data-pg-name="Story (text and image)" cms-block="story-split" cms-block-title="Story (text and image)" cms-block-description="A short story next to a tall image" data-pg-content-group="Story (text and image)">
                 <div class="container-site grid items-start gap-12 lg:grid-cols-12">
-                    <img src="images/about-detail.webp" alt="Hands sketching a floor plan next to fabric swatches" width="1200" height="1500" class="img-frame aspect-[4/5] w-full lg:col-span-5" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
+                    <img src="images/work-3.webp" alt="A small studio with long desks and plants" width="1200" height="1500" class="img-frame aspect-[4/5] w-full lg:col-span-5" cms-block-field="image" cms-block-field-type="image" cms-block-field-title="Image" data-pg-content-label="Image">
                     <div class="lg:col-span-6 lg:col-start-7">
-                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-01</p>
-                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">We start with how you live, not with a mood board.</h2>
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Our story</p>
+                        <h2 class="heading-lg mt-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">How it started, and where you are going.</h2>
                         <div class="mt-6 space-y-4 text-lg leading-relaxed text-muted" cms-block-field="text" cms-block-field-type="content" cms-block-field-title="Text" cms-block-field-control="richtext" data-pg-content-label="Text">
-                            <p>Before we draw anything, we spend time in your space. Where does the morning light fall? Where do the bags land after school? Which chair does everyone fight over?</p>
-                            <p>Then we measure everything, twice. Good drawings are the reason our projects finish on time: builders know exactly what to do, and you know exactly what it costs.</p>
+                            <p>Write a short paragraph about how the company started. Real details make it believable: a place, a year, a first client.</p>
+                            <p>Then say what you do differently today, and what a client can expect when they work with you.</p>
                         </div>
                     </div>
                 </div>
@@ -83,25 +83,25 @@
             <section class="section bg-surface" data-pg-name="Principles (list)" cms-block="principles-list" cms-block-title="Principles (list)" cms-block-description="Numbered principles or promises" data-pg-content-group="Principles (list)">
                 <div class="container-site">
                     <div class="section-head">
-                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-02</p>
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Promises</p>
                         <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">What you can count on</h2>
-                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three things we promise on every project, large or small.</p>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Three things clients can rely on every time.</p>
                     </div>
                     <div class="" cms-block-inner-content cms-block-inner-content-allowed="principle" data-pg-content-collection="Principles">
                         <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
-                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-01</p>
-                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Fees before we start</h3>
-                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Every proposal has a fixed fee. If something will cost more, you hear it from us first, in writing.</p>
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">01</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">First promise</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">A promise you keep on every project, stated plainly.</p>
                         </div>
-                        <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
-                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-02</p>
-                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Drawings builders love</h3>
-                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Clear, measured drawings with every detail. Fewer questions on site, fewer surprises on the invoice.</p>
+                        <div cms-no-export class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">02</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Second promise</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Something clients worry about, and how you handle it.</p>
                         </div>
-                        <div class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
-                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">N-03</p>
-                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">One designer, start to finish</h3>
-                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">The person who measures your room on day one is on site on the last day.</p>
+                        <div cms-no-export class="principle-row" cms-block="principle" cms-block-title="Principle" cms-block-parent="principles-list" data-pg-content-item="Principle">
+                            <p class="ref" cms-block-field="ref" cms-block-field-type="content" cms-block-field-title="Ref" data-pg-content-label="Ref">03</p>
+                            <h3 class="heading-md" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Third promise</h3>
+                            <p class="text-muted" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">What happens after the work is done.</p>
                         </div>
                     </div>
                 </div>
@@ -109,55 +109,58 @@
             <section class="section" data-pg-name="Team (grid)" cms-block="team-grid" cms-block-title="Team (grid)" cms-block-description="People with portraits, names and roles" data-pg-content-group="Team (grid)">
                 <div class="container-site">
                     <div class="section-head">
-                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Sheet B-03</p>
-                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The people you will work with</h2>
-                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Small on purpose. You will know everyone by name.</p>
+                        <p class="sheet-label" cms-block-field="sheet" cms-block-field-type="content" cms-block-field-title="Sheet label" data-pg-content-label="Sheet label">Team</p>
+                        <h2 class="heading-lg" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">The people behind the work</h2>
+                        <p class="lead" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">Faces build trust. Add a photo and a role for everyone clients will meet.</p>
                     </div>
                     <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" cms-block-inner-content cms-block-inner-content-allowed="team-member" data-pg-content-collection="People">
                         <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
-                            <img src="images/team-1.webp" alt="Portrait of Ingrid Holm" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
-                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Ingrid Holm</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Founder · lead designer</span></figcaption>
+                            <img src="images/team-1.webp" alt="Portrait of First Name" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">First Name</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Founder</span></figcaption>
                         </figure>
-                        <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
-                            <img src="images/team-2.webp" alt="Portrait of Tomás Reyes" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
-                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Tomás Reyes</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Interior architect</span></figcaption>
+                        <figure cms-no-export class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
+                            <img src="images/team-2.webp" alt="Portrait of Second Name" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Second Name</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Role</span></figcaption>
                         </figure>
-                        <figure class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
-                            <img src="images/team-3.webp" alt="Portrait of Aiko Tanaka" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
-                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Aiko Tanaka</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Project manager</span></figcaption>
+                        <figure cms-no-export class="" cms-block="team-member" cms-block-title="Person" cms-block-parent="team-grid" data-pg-content-item="Person">
+                            <img src="images/team-3.webp" alt="Portrait of Third Name" width="800" height="1000" class="portrait" cms-block-field="photo" cms-block-field-type="image" cms-block-field-title="Photo" data-pg-content-label="Photo">
+                            <figcaption class="mt-4 border-t border-ink pt-3"><span class="heading-md block" cms-block-field="name" cms-block-field-type="content" cms-block-field-title="Name" data-pg-content-label="Name">Third Name</span><span class="ref mt-1 block" cms-block-field="role" cms-block-field-type="content" cms-block-field-title="Role" data-pg-content-label="Role">Role</span></figcaption>
                         </figure>
                     </div>
                 </div>
             </section>
+            <section cms-no-export class="section-cta" data-pg-name="Call to action (band)" cms-block="cta-band" cms-block-title="Call to action (band)" cms-block-description="A closing invitation on the band color" data-pg-content-group="Call to action (band)">
+                <div class="container-site grid gap-10 lg:grid-cols-12 lg:items-end">
+                    <h2 class="cta-title lg:col-span-8" cms-block-field="title" cms-block-field-type="content" cms-block-field-title="Title" data-pg-content-label="Title">Ready to start? Tell us what you need.</h2>
+                    <div class="lg:col-span-4">
+                        <p class="opacity-80" cms-block-field="description" cms-block-field-type="content" cms-block-field-title="Description" data-pg-content-label="Description">We reply within two working days.</p>
+                        <a href="contact.html" class="btn-on-band mt-6" cms-block-field="button_link" cms-block-field-type="link" cms-block-field-title="Button link" cms-block-field-2="button_label" cms-block-field-type-2="content" cms-block-field-title-2="Button label" data-pg-content-label="Button">Get in touch</a>
+                    </div>
+                </div>
+            </section>
         </main>
-        <footer class="site-footer" data-pg-name="Footer (title block)" cms-no-export cms-block="footer-titleblock" cms-block-title="Footer (title block)" cms-block-description="Details laid out like a drawing title block" data-pg-content-group="Footer (title block)">
-            <div class="container-site">
-                <dl class="footer-block">
-                    <div class="md:col-span-2">
-                        <dt>Studio</dt>
-                        <dd><span cms-site-name class="font-display text-2xl font-semibold tracking-tight">Northlight Interiors</span><span class="mt-2 block text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">Interior design for homes and small workplaces.</span></dd>
-                    </div>
-                    <div>
-                        <dt cms-block-field="address_label" cms-block-field-type="content" cms-block-field-title="Address label" data-pg-content-label="Address label">Address</dt>
-                        <dd cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">48 Alder Street<br>Portland, OR 97205</dd>
-                    </div>
-                    <div>
-                        <dt cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</dt>
-                        <dd><a href="mailto:hello@northlight.studio" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@northlight.studio</a><br><a href="tel:+15035550142" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">+1 503 555 0142</a></dd>
-                    </div>
-                    <div>
-                        <dt>Follow</dt>
-                        <dd><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a><br><a href="https://www.pinterest.com/" class="footer-link" cms-block-field="pinterest_link" cms-block-field-type="link" cms-block-field-title="Pinterest link" cms-block-field-2="pinterest_label" cms-block-field-type-2="content" cms-block-field-title-2="Pinterest label" data-pg-content-label="Pinterest">Pinterest</a></dd>
-                    </div>
-                    <div>
-                        <dt>Drawing</dt>
-                        <dd>NL-<span cms-function="current_year" cms-function-type="content">2026</span> · Rev. 3</dd>
-                    </div>
-                    <div class="md:col-span-6">
-                        <dt>Notes</dt>
-                        <dd cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">© Northlight Interiors. Made with Pinegrow.</dd>
-                    </div>
-                </dl>
+        <footer data-pgc="site-footer" data-pgc-field="WordPress" cms-no-export class="site-footer-columns" data-pg-name="Footer (columns)" cms-block="footer-columns" cms-block-title="Footer (columns)" cms-block-description="Details in columns with a bottom bar" data-pg-content-group="Footer (columns)">
+            <div class="container-site grid gap-12 md:grid-cols-12">
+                <div class="md:col-span-4">
+                    <p class="wordmark-small"><span cms-site-name>Your Company</span></p>
+                    <p class="mt-4 max-w-sm text-muted" cms-block-field="about" cms-block-field-type="content" cms-block-field-title="About" data-pg-content-label="About">One sentence about what you do and who it is for.</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="ref" cms-block-field="visit_label" cms-block-field-type="content" cms-block-field-title="Visit label" data-pg-content-label="Visit label">Visit</p>
+                    <p class="mt-3" cms-block-field="address" cms-block-field-type="content" cms-block-field-title="Address" cms-block-field-control="richtext" data-pg-content-label="Address">Street and number<br>Postcode and town</p>
+                </div>
+                <div class="md:col-span-3">
+                    <p class="ref" cms-block-field="contact_label" cms-block-field-type="content" cms-block-field-title="Contact label" data-pg-content-label="Contact label">Contact</p>
+                    <p class="mt-3"><a href="mailto:hello@example.com" class="footer-link" cms-block-field="email" cms-block-field-type="content" cms-block-field-title="Email address" cms-block-field-2="email" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="mailto:{{ email }}" data-pg-content-label="Email address">hello@example.com</a><br><a href="tel:+15550100" class="footer-link" cms-block-field="phone" cms-block-field-type="content" cms-block-field-title="Phone" cms-block-field-2="phone" cms-block-field-type-2="attr" cms-block-field-attribute-2="href" cms-block-field-expression-2="tel:{{ phone }}" data-pg-content-label="Phone">+1 555 0100</a></p>
+                </div>
+                <div class="md:col-span-2">
+                    <p class="ref" cms-block-field="follow_label" cms-block-field-type="content" cms-block-field-title="Follow label" data-pg-content-label="Follow label">Follow</p>
+                    <p class="mt-3"><a href="https://www.instagram.com/" class="footer-link" cms-block-field="instagram_link" cms-block-field-type="link" cms-block-field-title="Instagram link" cms-block-field-2="instagram_label" cms-block-field-type-2="content" cms-block-field-title-2="Instagram label" data-pg-content-label="Instagram">Instagram</a></p>
+                </div>
+            </div>
+            <div class="container-site mt-16 flex flex-col gap-2 border-t border-line pt-6 text-sm text-muted sm:flex-row sm:justify-between">
+                <p>© <span cms-function="current_year" cms-function-type="content">2026</span> <span cms-site-name>Your Company</span></p>
+                <p cms-block-field="credit" cms-block-field-type="content" cms-block-field-title="Credit" data-pg-content-label="Credit">Made with Pinegrow</p>
             </div>
         </footer>
     </body>

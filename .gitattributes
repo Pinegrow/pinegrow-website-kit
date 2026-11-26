@@ -6,3 +6,6 @@ package.sh export-ignore
 notes/ export-ignore
 source/ export-ignore
 tools/ export-ignore
+promo/ export-ignore
+.nojekyll export-ignore
+examples/ export-ignore
