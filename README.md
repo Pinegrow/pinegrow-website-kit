@@ -62,7 +62,10 @@ Live demos:
 [Willowbend Family Dental](https://pinegrow.github.io/pinegrow-website-kit/examples/willowbend-dental/website/)
 and [Still Water Yoga](https://pinegrow.github.io/pinegrow-website-kit/examples/still-water-yoga/website/).
 
-[![Website kits built by your AI agent: video, 0:31](promo/video-kits-promo.jpg)](https://cactorial.page/g/pinegrow/website-kit/your-own-website-kits-built-by-your-ai-agent-p3ydDie6dAcg)
+**Watch the kits being built by an AI agent** (0:31), or see
+[all eight lessons on building kits](#build-your-own-kits):
+
+[![Website kits built by your AI agent: video lesson](promo/video-kits-promo.jpg)](https://cactorial.page/g/pinegrow/website-kit/your-own-website-kits-built-by-your-ai-agent-p3ydDie6dAcg)
 
 ## Downloads
 
