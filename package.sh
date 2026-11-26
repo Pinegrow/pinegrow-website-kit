@@ -6,9 +6,10 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 version="${1:?Give the version, for example: ./package.sh 1.1}"
-if [ -n "$(git status --porcelain)" ]; then
+# Untracked files never get into the zips (git archive), so only uncommitted changes stop it.
+if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
     echo "Commit your changes first; the zips are made from the last commit:"
-    git status --short
+    git status --short --untracked-files=no
     exit 1
 fi
 
