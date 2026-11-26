@@ -28,6 +28,6 @@ team portraits and testimonial photos that aren't of the real people.
    classes.
 3. Every saved design looks right on every page (the user switches them in the Design panel).
 4. Every page works at phone width.
-5. `README.md` in the kit folder explains: what's in the kit, the starters, the designs, the block library (Insert
-   panel, "+" menu, `kit-blocks.html`), the contact form setup, where the images came from and which to replace,
+5. `README.md` in the kit folder explains: what's in the kit, the starters, the designs, the block library (the Insert
+   panel's `kit-blocks.html` tab), the contact form setup, where the images came from and which to replace,
    and the publish excludes.

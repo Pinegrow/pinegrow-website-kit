@@ -17,7 +17,9 @@ the kit. Run it from anywhere: `python3 <skill folder>/scripts/kit.py <command> 
 
 Run `kit.py init <kit folder>` (for example `~/Sites/yoga-kit`). It creates `KIT-BRIEF.md`, `source/` and
 `website/` (the Pinegrow project). Then ask the user at most these six questions, in one message, each with your
-default. Skip the ones their request already answers.
+default. Then end your turn and wait for the user's answers: don't write the concept or build anything before they
+reply. Skip only the questions their request already answers, and all of them only when the user says to use your
+defaults.
 
 1. What is the kit for: one client's site, a reusable base for their agency, or a template to sell? Which business or
    businesses, and which pages? (Default: one business, a home page plus about, services and contact.)
@@ -57,7 +59,10 @@ styles and the traps that break the project.
    original is still missing.
 5. **Pages.** Write the pages in `website/` from the blocks (copy a block, then change its content). For one
    business these are the pages in the brief. For several businesses, each gets a starter home page
-   (`index-cafe.html`...), plus `blank.html` with only the header and footer.
+   (`index-cafe.html`...). Add `index-blank.html` with only the header and footer, to start new pages from.
+   On a site with several pages, make the header and footer Pinegrow components, so they stay the same on every
+   page: define them on `index.html` and put instances on the other pages (`references/project-files.md`,
+   Components).
 6. **Block library.** Run `kit.py library` (`references/block-library.md`).
 7. **Contact form.** If there is a contact page, follow `references/forms.md`.
 8. **Publishing.** Follow `references/publishing.md`.
@@ -70,9 +75,9 @@ afterwards. Pinegrow can otherwise save its open copy over your changes.
 1. Run `kit.py check <kit folder>` and fix every error. Fix warnings unless there is a good reason, and say which
    ones you left.
 2. Ask the user to open the `website` folder in Pinegrow, open every page once (Pinegrow compiles the Tailwind CSS
-   for the classes on the pages it has opened), switch through the saved designs, and try the block library (Insert
-   panel, "+" menu, `kit-blocks.html`). If you can drive Pinegrow yourself (the `pinegrow` command from Pinegrow
-   10.2), do it.
+   for the classes on the pages it has opened), switch through the saved designs, and try the block library (the Insert
+   panel's `kit-blocks.html` tab). If you have the `pinegrow` command (Pinegrow 10.2), use it for this;
+   don't take over the user's screen to click through Pinegrow.
 3. Run `kit.py check` again once the CSS is compiled: it then also finds classes that don't exist. If it lists common
    utilities (`flex-col`, `gap-4`), Pinegrow compiled before every page was open: ask the user to make any small
    change in Pinegrow so it compiles again.
@@ -89,7 +94,12 @@ afterwards. Pinegrow can otherwise save its open copy over your changes.
 - Every block sets its own background and spacing. Don't rely on the page around it.
 - One block is one root element (`section`, `header` or `footer`) with `data-pg-name` and `data-pg-content-group`.
 - Repeat structure through component styles, not by copying long class lists.
+- Style everything with Tailwind classes and component styles: no `<style>` elements, `style` attributes or extra
+  stylesheets. Pinegrow's Style panel and saved designs only see classes.
 - Write real, specific content for the business, never lorem ipsum.
 - No JavaScript frameworks. Use plain HTML for interaction where possible (`<details>` for menus and questions).
 - Make every page work on phones (no horizontal scrolling, readable text, tappable links).
-- Don't edit `tailwind_theme/tailwind.css` or `_pginfo/` by hand, except through `kit.py`.
+- Never write, patch, regenerate or compile `tailwind_theme/tailwind.css` yourself, with any tool (no Tailwind CLI, no
+  appended CSS): only Pinegrow compiles it. When `kit.py check` lists classes that aren't in the compiled CSS, tell the
+  user which pages to open in Pinegrow so it compiles them, then run the check again. Don't edit `_pginfo/` by hand
+  either, except through `kit.py`.

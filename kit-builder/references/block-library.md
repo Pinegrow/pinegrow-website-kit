@@ -39,8 +39,8 @@ tells you when the library is older than its sources. Never edit `website/blocks
 
 ## How it behaves in Pinegrow (10.1)
 
-- The user opens the library once from the Insert panel's "+" menu (under the project name: `kit-blocks.html`).
-  Pinegrow keeps the tab.
+- `pinegrow.json` registers the home page as a page library, so the Insert panel shows a `kit-blocks.html` tab as
+  soon as the project is open.
 - Clicking a category card or a link in the bar opens that page in the library. The library's Back button and jump
   menu don't follow these pages, which is why every page links back to All blocks.
 - Hovering anywhere in a block marks the whole block, so only whole blocks can be dragged. A script in the library

@@ -75,4 +75,5 @@ story and team, testimonials, calls to action, contact. Give each block one clea
 important blocks (hero, services, footer) make the library useful for other businesses.
 
 A starter is a home page built only from library blocks, with real content for one business. If the kit is for
-several businesses, make one starter per business and a `blank.html` with only the header and footer.
+several businesses, make one starter per business. Every kit also gets `index-blank.html` with only the header and
+footer.

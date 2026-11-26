@@ -32,6 +32,20 @@ with the `pinegrow` command if you have it. After your changes, the user opens t
 Pinegrow compiles `tailwind_theme/tailwind.css` from the classes on the pages it has opened and from the component
 styles. So after opening the project, every page must be opened once. Until then, pages look unstyled in a browser.
 
+## Components
+
+On a site with several pages, the header and footer are Pinegrow components. The user edits them once on
+`index.html`, and Components › Update the whole project copies them to every page.
+
+- The definition, on `index.html`, gets `data-pgc-define="site-header"`, `data-pgc-define-name="Site header"` and
+  `data-pgc-define-description` (one sentence: what it is, and that it is edited on index.html) on its root element.
+- Every other page, `index-blank.html` included, has an instance: the same markup, character for character, with
+  `data-pgc="site-header"` on the root instead of the three `data-pgc-define` attributes.
+- The footer works the same way (`site-footer`, "Site footer").
+- Starter home pages for other businesses keep their own header and footer, without component attributes.
+- After changing the definition yourself, copy it to every instance the same way, so the pages agree before the
+  user opens them.
+
 ## pinegrow.json
 
 `kit.py init` writes a Tailwind CSS 4 project:
