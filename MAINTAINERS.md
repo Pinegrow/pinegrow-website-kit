@@ -13,6 +13,20 @@ into the download; this file is for us.
 - `website/`: the Pinegrow project (Tailwind CSS 4, compiled by Pinegrow). In the download.
 - `kit-builder/`: the skill that lets users build kits like this one with their own AI agent (Tailwind CSS, static
   sites so far; tested with two agent runs). See `notes/kit-builder-skill-plan.md`. In the download.
+- `kit-builder/configurator/`: the Kit Builder, the browser page for choosing a direction, pages and features and
+  copying a prompt for an AI agent. It ships inside the skill, so the skill can open it offline, and GitHub Pages
+  serves it at `/kit-builder/configurator/`. It has no build step. A prompt copied from the web page starts with a
+  Setup section that asks the agent to download the skill from `releases/latest/download/kit-builder-skill.zip`
+  (written by `package.sh`; upload it to every release under that name). The skill opens the page with `?agent=1`,
+  which leaves Setup out and tells the user to paste the prompt back; agents that can run JavaScript read it from
+  `#pk-prompt-text`. Its preview images are optimized copies from the demo and examples,
+  with two generated Still Water Yoga photos for this interface. `styles.css` is the app (pinegrow.com colours and
+  Open Sans, the logo from `PinegrowWeb/pg4assets/img/pg_logo_new.svg`), `preview.css` the homepage concept and its
+  visual directions. The concept is one short homepage (`siteMarkup` in `app.js`) designed at 1100px (390px for the
+  phone view) and zoomed to fit, also in the direction cards. Each direction in `app.js` has Google Fonts and three
+  palettes (checked for WCAG AA text contrast); the chosen palette goes into the prompt's Color roles and the other two
+  into Saved designs. Photo crops follow each example photo's `position` (its focal point). Settings are saved in
+  localStorage, and Copy setup link puts them in the URL hash (`#kit=`, without the photo folder).
 - `source/images/`: the original images (generated, any size). `kit-builder/scripts/kit.py optimize .` writes them
   to `website/images/` as WebP at the size each page uses. Not in the download.
 - `tools/`: the generator that writes the pages (`blocks.py` has every block, `build_kit.py` the content and pages).

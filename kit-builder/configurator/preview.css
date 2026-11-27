@@ -1,0 +1,1873 @@
+/* The homepage concept: a short homepage at a fixed design width (1100px, or 390px for a phone) that app.js zooms
+   to fit its frame. The same markup is used for the large preview and the direction cards. Each visual direction
+   restyles it. Colours and fonts come from custom properties that app.js sets from the chosen direction and palette:
+   --page, --ink, --accent, --band, --on-band, --on-accent, --display, --text, --mono, --dw (heading weight),
+   --tracking and --focus (the photo's focal point). */
+
+#pinegrow-kit-studio .site {
+  --muted: color-mix(in srgb, var(--ink) 72%, var(--page));
+  --rule: color-mix(in srgb, var(--ink) 20%, transparent);
+  --radius: 0px;
+  --pad: 64px;
+  position: relative;
+  width: 1100px;
+  overflow: hidden;
+  background: var(--page);
+  color: var(--ink);
+  font: 400 17px/1.55 var(--text);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+
+  & p {
+    margin: 0;
+  }
+
+  /* Header */
+  & .s-header {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 24px var(--pad);
+  }
+  & .s-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font: 700 21px/1.1 var(--display);
+    white-space: nowrap;
+  }
+  & .s-brand::before {
+    content: "";
+    flex: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%);
+  }
+  & .s-nav {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  & .s-hcta {
+    padding: 9px 18px;
+    border: 1.5px solid currentColor;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  & .s-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 24px;
+    margin-left: auto;
+  }
+  & .s-menu i {
+    display: block;
+    height: 2px;
+    background: currentColor;
+  }
+
+  /* Hero */
+  & .s-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 600px;
+  }
+  & .s-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 72px var(--pad);
+  }
+  & .s-eyebrow {
+    margin-bottom: 22px;
+    font: 600 13px/1.3 var(--mono, var(--text));
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  & .s-title {
+    max-width: 11ch;
+    font: var(--dw) 78px/.98 var(--display);
+    letter-spacing: var(--tracking);
+    text-wrap: balance;
+  }
+  & .s-lead {
+    max-width: 34ch;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 19px;
+  }
+  & .s-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 26px;
+    margin-top: 36px;
+  }
+  & .s-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 26px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  & .s-link {
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+  }
+  & :is(.s-sticker, .s-special, .s-card) {
+    display: none;
+  }
+
+  /* Photos. An empty photo shows a quiet placeholder. */
+  & .s-photo {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--ink) 9%, var(--page));
+  }
+  & .s-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--focus, 50% 50%);
+  }
+  & .s-photo.is-empty::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 54px;
+    translate: -50% -50%;
+    border: 2px solid color-mix(in srgb, var(--ink) 28%, transparent);
+    border-radius: 6px;
+    background:
+      radial-gradient(circle at 72% 32%, color-mix(in srgb, var(--ink) 28%, transparent) 6px, transparent 7px),
+      linear-gradient(145deg, transparent 58%, color-mix(in srgb, var(--ink) 22%, transparent) 58%);
+  }
+
+  /* Services */
+  & .s-services {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0 48px;
+    padding: 96px var(--pad);
+  }
+  & .s-services.has-detail {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  & .s-section-title {
+    grid-column: 1;
+    max-width: 18ch;
+    margin-bottom: 40px;
+    font: var(--dw) 46px/1.05 var(--display);
+    letter-spacing: var(--tracking);
+  }
+  & .s-items {
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  & .s-item b {
+    display: block;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  & .s-item span {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  & .s-num {
+    display: none;
+    font-style: normal;
+  }
+  & .s-detail {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 260px;
+  }
+  & .s-services:not(.has-detail) .s-detail {
+    display: none;
+  }
+
+  /* Quote */
+  & .s-quote {
+    padding: 96px var(--pad);
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  & .s-quote p {
+    max-width: 26ch;
+    margin-inline: auto;
+    font: var(--dw) 38px/1.25 var(--display);
+    letter-spacing: var(--tracking);
+    text-wrap: balance;
+  }
+  & .s-quote cite {
+    display: block;
+    margin-top: 24px;
+    color: var(--muted);
+    font: 600 13px/1.3 var(--text);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  /* Call to action */
+  & .s-cta {
+    --muted: color-mix(in srgb, var(--on-band) 75%, var(--band));
+    --rule: color-mix(in srgb, var(--on-band) 22%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 88px var(--pad);
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-cta-title {
+    max-width: 15ch;
+    font: var(--dw) 54px/1.02 var(--display);
+    letter-spacing: var(--tracking);
+    text-wrap: balance;
+  }
+
+  /* Footer */
+  & .s-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px 48px;
+    padding: 44px var(--pad) 36px;
+    font-size: 14px;
+  }
+  & .s-footer .s-brand {
+    grid-column: 1;
+  }
+  & .s-address {
+    grid-column: 1;
+    color: var(--muted);
+  }
+  & .s-fnav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    align-self: center;
+    gap: 24px;
+  }
+  & .s-copyright {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* Phone */
+  &[data-device="phone"] {
+    --pad: 22px;
+    width: 390px;
+    font-size: 16px;
+
+    & .s-header {
+      gap: 16px;
+      padding: 16px var(--pad);
+    }
+    & :is(.s-nav, .s-hcta) {
+      display: none;
+    }
+    & .s-menu {
+      display: flex;
+    }
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+    }
+    & .s-hero .s-photo {
+      min-height: 280px;
+    }
+    & .s-copy {
+      padding: 36px var(--pad) 40px;
+    }
+    & .s-title {
+      font-size: 46px;
+    }
+    & .s-lead {
+      margin-top: 16px;
+      font-size: 17px;
+    }
+    & .s-actions {
+      margin-top: 26px;
+    }
+    & .s-services, & .s-services.has-detail {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 56px var(--pad);
+    }
+    & .s-section-title {
+      margin-bottom: 26px;
+      font-size: 32px;
+    }
+    & .s-items {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+    & .s-detail {
+      grid-column: 1;
+      grid-row: auto;
+      min-height: 200px;
+      margin-top: 28px;
+    }
+    & .s-quote {
+      padding: 56px var(--pad);
+    }
+    & .s-quote p {
+      font-size: 26px;
+    }
+    & .s-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 56px var(--pad);
+    }
+    & .s-cta-title {
+      font-size: 34px;
+    }
+    & .s-footer {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 32px var(--pad);
+    }
+    & .s-fnav {
+      grid-column: 1;
+      grid-row: auto;
+      flex-wrap: wrap;
+      align-self: start;
+      gap: 8px 18px;
+    }
+  }
+}
+
+/* Action poster: a poster-like colour field, oversized condensed capitals and a diagonal photo cut. */
+#pinegrow-kit-studio .site[data-look="bold"] {
+  & .s-header {
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-hcta {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-hero {
+    --muted: color-mix(in srgb, var(--on-accent) 82%, var(--accent));
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-eyebrow {
+    padding: 6px 10px;
+    background: var(--on-accent);
+    color: var(--accent);
+  }
+  & .s-title {
+    max-width: none;
+    font-size: 100px;
+    line-height: .86;
+    text-transform: uppercase;
+  }
+  & .s-btn {
+    background: var(--on-accent);
+    color: var(--accent);
+  }
+  & .s-hero .s-photo {
+    margin-left: -90px;
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%);
+  }
+  & .s-services {
+    --muted: color-mix(in srgb, var(--on-band) 75%, var(--band));
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-section-title {
+    font-size: 68px;
+    line-height: .9;
+    text-transform: uppercase;
+  }
+  & .s-item {
+    padding-top: 18px;
+    border-top: 5px solid var(--accent);
+  }
+  & .s-num {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--accent);
+    font: 800 46px/1 var(--display);
+  }
+  & .s-quote {
+    border: 0;
+    text-align: left;
+  }
+  & .s-quote p {
+    max-width: 17ch;
+    margin: 0;
+    font-size: 60px;
+    line-height: .94;
+    text-transform: uppercase;
+  }
+  & .s-quote cite {
+    display: inline-block;
+    padding: 6px 10px;
+    background: var(--ink);
+    color: var(--page);
+  }
+  & .s-cta {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-cta-title {
+    font-size: 78px;
+    line-height: .88;
+    text-transform: uppercase;
+  }
+  & .s-cta .s-btn {
+    background: var(--on-accent);
+    color: var(--accent);
+  }
+  & .s-footer {
+    --muted: color-mix(in srgb, var(--on-band) 72%, var(--band));
+    --rule: color-mix(in srgb, var(--on-band) 22%, transparent);
+    background: var(--band);
+    color: var(--on-band);
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    & .s-title {
+      font-size: 62px;
+    }
+    & .s-hero .s-photo {
+      margin-left: 0;
+      clip-path: polygon(0 14%, 100% 0, 100% 100%, 0 100%);
+    }
+    & .s-section-title {
+      font-size: 44px;
+    }
+    & .s-quote p {
+      font-size: 38px;
+    }
+    & .s-cta-title {
+      font-size: 48px;
+    }
+  }
+}
+
+/* Sunday edition: a centered masthead, a serif headline with a standfirst, and a panoramic photograph. */
+#pinegrow-kit-studio .site[data-look="editorial"] {
+  & .s-header {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px var(--pad) 0;
+    text-align: center;
+  }
+  & .s-header::before {
+    content: "Weekend edition · No. 12";
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  & .s-header .s-brand {
+    font-size: 46px;
+    font-weight: 600;
+    letter-spacing: -.02em;
+  }
+  & .s-brand::before {
+    display: none;
+  }
+  & .s-nav {
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 12px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  & .s-hcta {
+    display: none;
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-bottom: 72px;
+  }
+  & .s-copy {
+    align-items: center;
+    padding: 60px var(--pad) 44px;
+    text-align: center;
+  }
+  & .s-eyebrow {
+    color: var(--accent);
+  }
+  & .s-title {
+    max-width: 16ch;
+    font-size: 86px;
+    line-height: 1;
+  }
+  & .s-lead {
+    max-width: 46ch;
+    color: var(--ink);
+    font: italic 400 23px/1.45 var(--display);
+  }
+  & .s-btn {
+    padding: 0 0 4px;
+    border-bottom: 2px solid var(--accent);
+    background: none;
+    color: var(--accent);
+  }
+  & .s-link {
+    display: none;
+  }
+  & .s-hero .s-photo {
+    height: 420px;
+    margin: 0 var(--pad);
+  }
+  & .s-services {
+    padding-top: 0;
+  }
+  & .s-section-title {
+    max-width: none;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--ink);
+    font-size: 40px;
+  }
+  & .s-items {
+    gap: 0;
+  }
+  & .s-item {
+    padding: 0 28px;
+    border-left: 1px solid var(--rule);
+  }
+  & .s-item:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+  & .s-item b {
+    font: var(--dw) 25px/1.2 var(--display);
+  }
+  & .s-quote {
+    border-top: 4px double var(--ink);
+  }
+  & .s-quote p {
+    max-width: 24ch;
+    font-size: 44px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  & .s-cta .s-btn {
+    border-color: var(--on-band);
+    color: var(--on-band);
+  }
+  & .s-footer {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    text-align: center;
+  }
+  & .s-fnav {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  &[data-device="phone"] {
+    & .s-header {
+      flex-direction: row;
+      padding: 16px var(--pad);
+      border-bottom: 4px double var(--ink);
+    }
+    & .s-header::before {
+      display: none;
+    }
+    & .s-header .s-brand {
+      font-size: 26px;
+    }
+    & .s-hero {
+      padding-bottom: 40px;
+    }
+    & .s-title {
+      font-size: 46px;
+    }
+    & .s-lead {
+      font-size: 19px;
+    }
+    & .s-hero .s-photo {
+      height: 240px;
+      min-height: 0;
+      margin: 0 var(--pad);
+    }
+    & .s-item, & .s-item:first-child {
+      padding: 16px 0 0;
+      border-top: 1px solid var(--rule);
+      border-left: 0;
+    }
+    & .s-quote p {
+      font-size: 30px;
+    }
+  }
+}
+
+/* Open house: an arched photograph, soft rounded cards and pill buttons. */
+#pinegrow-kit-studio .site[data-look="coastal"] {
+  --radius: 999px;
+
+  & .s-brand::before {
+    border-radius: 50%;
+    clip-path: none;
+  }
+  & .s-hcta {
+    border: 0;
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-hero {
+    gap: 56px;
+    min-height: 0;
+    padding: 8px var(--pad) 80px;
+  }
+  & .s-hero::before, & .s-hero::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  & .s-hero::before {
+    left: 520px;
+    bottom: 64px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid color-mix(in srgb, var(--page) 75%, transparent);
+    background: color-mix(in srgb, var(--accent) 32%, transparent);
+  }
+  & .s-hero::after {
+    top: 48px;
+    right: 48px;
+    width: 64px;
+    height: 64px;
+    background: color-mix(in srgb, var(--accent) 40%, var(--page));
+  }
+  & .s-copy {
+    padding: 40px 0;
+  }
+  & .s-eyebrow {
+    color: var(--accent);
+  }
+  & .s-title {
+    font-size: 72px;
+    line-height: 1.02;
+  }
+  & .s-hero .s-photo {
+    align-self: center;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+  & .s-services {
+    background: color-mix(in srgb, var(--accent) 9%, var(--page));
+  }
+  & .s-items {
+    gap: 20px;
+  }
+  & .s-item {
+    padding: 30px;
+    border-radius: 24px;
+    background: var(--page);
+  }
+  & .s-num {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent) 16%, var(--page));
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 800;
+  }
+  & .s-detail {
+    border-radius: 24px;
+  }
+  & .s-quote {
+    border: 0;
+  }
+  & .s-quote p {
+    font-size: 34px;
+  }
+  & .s-quote p::before {
+    content: "“";
+    display: block;
+    height: 50px;
+    color: var(--accent);
+    font-size: 110px;
+    line-height: 1;
+  }
+  & .s-cta {
+    margin: 0 var(--pad) 72px;
+    padding: 64px;
+    border-radius: 32px;
+  }
+  & .s-cta .s-btn {
+    background: var(--on-band);
+    color: var(--band);
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      gap: 0;
+      padding: 0 var(--pad) 48px;
+    }
+    & .s-hero::before {
+      left: 14px;
+      bottom: 40px;
+      width: 96px;
+      height: 96px;
+    }
+    & .s-hero::after {
+      top: auto;
+      right: 18px;
+      bottom: 300px;
+      width: 44px;
+      height: 44px;
+    }
+    & .s-copy {
+      padding: 24px 0 32px;
+    }
+    & .s-hero .s-photo {
+      min-height: 0;
+    }
+    & .s-title {
+      font-size: 44px;
+    }
+    & .s-item {
+      padding: 24px;
+    }
+    & .s-quote p {
+      font-size: 24px;
+    }
+    & .s-cta {
+      margin: 0 14px 40px;
+      padding: 40px 26px;
+    }
+  }
+}
+
+/* Studio index: a navigation rail, a precisely framed image and an index of entries on a strict grid. */
+#pinegrow-kit-studio .site[data-look="architectural"] {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+
+  & > :not(.s-header) {
+    grid-column: 2;
+  }
+  & .s-header {
+    --muted: color-mix(in srgb, var(--on-band) 70%, var(--band));
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 44px;
+    padding: 32px 28px;
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-brand {
+    font-size: 19px;
+    font-weight: 500;
+    white-space: normal;
+  }
+  & .s-brand::before {
+    width: 10px;
+    height: 10px;
+    clip-path: none;
+    background: currentColor;
+  }
+  & .s-nav {
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    font-size: 14px;
+    counter-reset: nav;
+  }
+  & .s-nav span::before {
+    counter-increment: nav;
+    content: counter(nav, decimal-leading-zero) "  ";
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    white-space: pre;
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 380px auto;
+    gap: 36px;
+    min-height: 0;
+    padding: 36px 44px 0;
+  }
+  & .s-hero .s-photo {
+    grid-row: 1;
+  }
+  & .s-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 0 44px;
+    padding: 0 0 72px;
+  }
+  & .s-eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: 26px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-weight: 500;
+  }
+  & .s-title {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    max-width: none;
+    font-size: 66px;
+    line-height: 1;
+  }
+  & .s-lead {
+    grid-column: 2;
+    margin-top: 4px;
+  }
+  & .s-actions {
+    grid-column: 2;
+    margin-top: 28px;
+  }
+  & .s-services, & .s-services.has-detail {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    padding: 64px 44px;
+  }
+  & .s-services:not(.has-detail) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  & .s-section-title {
+    font-size: 30px;
+  }
+  & .s-items {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  & .s-item {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr) 20px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--rule);
+  }
+  & .s-item::after {
+    content: "→";
+  }
+  & .s-num {
+    display: block;
+    color: var(--muted);
+    font: 500 13px/1 var(--mono);
+  }
+  & .s-item b {
+    font-size: 19px;
+    font-weight: 500;
+  }
+  & .s-item span {
+    margin: 0;
+  }
+  & .s-quote {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 0 44px;
+    padding: 72px 44px;
+    text-align: left;
+  }
+  & .s-quote::before {
+    content: "Client note";
+    grid-row: 1 / span 2;
+    color: var(--muted);
+    font: 500 12px/1.6 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  & .s-quote p {
+    max-width: 30ch;
+    margin: 0;
+    font-size: 32px;
+  }
+  & .s-cta {
+    margin: 0 44px;
+    padding: 64px 0;
+    border-top: 1px solid var(--ink);
+    background: none;
+    color: var(--ink);
+  }
+  & .s-cta-title {
+    font-size: 44px;
+  }
+  & .s-footer {
+    padding: 40px 44px 32px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  & .s-footer .s-brand {
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  &[data-device="phone"] {
+    display: block;
+
+    & .s-header {
+      flex-direction: row;
+      align-items: center;
+      padding: 16px var(--pad);
+    }
+    & .s-hero {
+      grid-template-rows: 240px auto;
+      gap: 0;
+      padding: 0;
+    }
+    & .s-hero .s-photo {
+      min-height: 0;
+    }
+    & .s-copy {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 28px var(--pad) 48px;
+    }
+    & :is(.s-title, .s-lead, .s-actions) {
+      grid-column: 1;
+      grid-row: auto;
+    }
+    & .s-title {
+      margin-bottom: 18px;
+      font-size: 42px;
+    }
+    & .s-services, & .s-services.has-detail {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 48px var(--pad);
+    }
+    & .s-item {
+      grid-template-columns: 40px minmax(0, 1fr) 16px;
+    }
+    & .s-item span {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 4px;
+    }
+    & .s-item::after {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    & .s-quote {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      padding: 48px var(--pad);
+    }
+    & .s-quote p {
+      font-size: 24px;
+    }
+    & .s-cta {
+      margin: 0 var(--pad);
+      padding: 44px 0;
+    }
+    & .s-cta-title {
+      font-size: 30px;
+    }
+    & .s-footer {
+      padding: 32px var(--pad);
+    }
+  }
+}
+
+/* Playroom: chunky tiles with thick outlines, a sticker and playful tilts. */
+#pinegrow-kit-studio .site[data-look="playful"] {
+  --radius: 999px;
+
+  & .s-brand::before {
+    border-radius: 50%;
+    clip-path: none;
+  }
+  & .s-hcta {
+    border: 0;
+    background: var(--ink);
+    color: var(--page);
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    gap: 22px;
+    min-height: 0;
+    padding: 12px var(--pad) 72px;
+  }
+  & .s-hero .s-photo {
+    order: -1;
+    min-height: 470px;
+    border: 4px solid var(--ink);
+    border-radius: 60px 20px 60px 20px;
+    rotate: -2deg;
+  }
+  & .s-copy {
+    --muted: color-mix(in srgb, var(--on-band) 80%, var(--band));
+    padding: 56px 52px;
+    border-radius: 20px 60px 20px 60px;
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-title {
+    font-size: 70px;
+    line-height: 1;
+  }
+  & .s-copy .s-btn {
+    background: var(--on-band);
+    color: var(--band);
+  }
+  & .s-sticker {
+    position: absolute;
+    top: 26px;
+    left: calc(47.5% - 70px);
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 118px;
+    height: 118px;
+    border: 4px solid var(--ink);
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--on-accent);
+    font: 800 20px/1.05 var(--display);
+    text-align: center;
+    rotate: -12deg;
+  }
+  & .s-services {
+    padding-top: 32px;
+  }
+  & .s-section-title {
+    font-size: 52px;
+  }
+  & .s-items {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+  }
+  & .s-item {
+    padding: 28px;
+    border: 3px solid var(--ink);
+    border-radius: 30px 10px 30px 10px;
+    background: var(--page);
+  }
+  & .s-item:first-child {
+    --muted: color-mix(in srgb, var(--on-accent) 85%, var(--accent));
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-item:nth-child(2) {
+    rotate: 1.5deg;
+  }
+  & .s-item:nth-child(3) {
+    rotate: -1deg;
+  }
+  & .s-item b {
+    font: var(--dw) 24px/1.15 var(--display);
+  }
+  & .s-detail {
+    border: 3px solid var(--ink);
+    border-radius: 30px;
+  }
+  & .s-quote {
+    border: 0;
+    background: color-mix(in srgb, var(--accent) 14%, var(--page));
+  }
+  & .s-quote p {
+    position: relative;
+    display: inline-block;
+    max-width: 30ch;
+    padding: 40px 48px;
+    border: 3px solid var(--ink);
+    border-radius: 40px;
+    background: var(--page);
+    font-size: 30px;
+  }
+  & .s-quote p::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 26px;
+    height: 26px;
+    border-right: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    background: var(--page);
+    rotate: 45deg;
+  }
+  & .s-cta {
+    margin: 64px var(--pad);
+    border-radius: 44px 16px 44px 16px;
+  }
+  & .s-cta .s-btn {
+    background: var(--on-band);
+    color: var(--band);
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      padding: 4px 16px 44px;
+    }
+    & .s-hero .s-photo {
+      min-height: 280px;
+      rotate: -1.5deg;
+    }
+    & .s-copy {
+      padding: 34px 26px;
+    }
+    & .s-title {
+      font-size: 42px;
+    }
+    & .s-sticker {
+      top: 6px;
+      right: 18px;
+      left: auto;
+      width: 88px;
+      height: 88px;
+      font-size: 15px;
+    }
+    & .s-section-title {
+      font-size: 34px;
+    }
+    & .s-items {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    & .s-item:nth-child(n) {
+      rotate: 0deg;
+    }
+    & .s-quote p {
+      padding: 28px;
+      font-size: 22px;
+    }
+    & .s-cta {
+      margin: 40px 14px;
+    }
+  }
+}
+
+/* Night cinema: one edge-to-edge photograph behind overlaid navigation and a low-set serif headline. */
+#pinegrow-kit-studio .site[data-look="atelier"] {
+  & .s-header {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 2;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
+  }
+  & .s-hcta {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  & .s-hero {
+    display: block;
+    min-height: 680px;
+  }
+  & .s-hero .s-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  & .s-hero .s-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to top, var(--page) 2%, color-mix(in srgb, var(--page) 70%, transparent) 38%, transparent 72%),
+      linear-gradient(to right, color-mix(in srgb, var(--page) 55%, transparent), transparent 65%),
+      linear-gradient(to bottom, color-mix(in srgb, var(--page) 55%, transparent), transparent 22%);
+  }
+  & .s-copy {
+    position: relative;
+    z-index: 1;
+    min-height: 680px;
+    justify-content: flex-end;
+    padding: 0 var(--pad) 76px;
+  }
+  & .s-eyebrow {
+    color: var(--accent);
+  }
+  & .s-title {
+    max-width: 12ch;
+    font-size: 100px;
+    line-height: .94;
+  }
+  & .s-lead {
+    color: color-mix(in srgb, var(--ink) 84%, var(--page));
+  }
+  & .s-btn {
+    padding: 14px 26px;
+    border: 1px solid var(--accent);
+    background: none;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  & .s-services {
+    --muted: color-mix(in srgb, var(--on-band) 70%, var(--band));
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-section-title {
+    font-size: 54px;
+  }
+  & .s-item {
+    padding-top: 20px;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  }
+  & .s-num {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+    font: italic 500 34px/1 var(--display);
+  }
+  & .s-item b {
+    font-weight: 500;
+  }
+  & .s-quote {
+    border: 0;
+  }
+  & .s-quote p {
+    color: var(--accent);
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.12;
+  }
+  & .s-cta {
+    margin: 0 var(--pad) 72px;
+    padding: 64px;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    background: none;
+    color: var(--ink);
+  }
+  & .s-cta-title {
+    font-size: 56px;
+  }
+
+  &[data-device="phone"] {
+    & .s-hero, & .s-copy {
+      min-height: 580px;
+    }
+    & .s-hero .s-photo {
+      min-height: 0;
+    }
+    & .s-copy {
+      padding: 0 var(--pad) 44px;
+    }
+    & .s-title {
+      font-size: 52px;
+    }
+    & .s-section-title {
+      font-size: 38px;
+    }
+    & .s-quote p {
+      font-size: 32px;
+    }
+    & .s-cta {
+      margin: 0 14px 40px;
+      padding: 40px 24px;
+    }
+    & .s-cta-title {
+      font-size: 36px;
+    }
+  }
+}
+
+/* Field guide: ruled bands, a framed photographic plate, monospaced labels and a numbered contents list. */
+#pinegrow-kit-studio .site[data-look="fieldnotes"] {
+  & .s-header {
+    border-bottom: 4px double var(--ink);
+  }
+  & .s-brand {
+    font-size: 24px;
+  }
+  & .s-nav, & .s-hcta {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 56px;
+    min-height: 0;
+    padding: 56px var(--pad) 80px;
+  }
+  & .s-copy {
+    justify-content: flex-start;
+    padding: 0;
+  }
+  & .s-eyebrow {
+    width: 100%;
+    margin-bottom: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ink);
+    font-weight: 500;
+  }
+  & .s-eyebrow::before {
+    content: "No. 01 — ";
+  }
+  & .s-title {
+    max-width: 12ch;
+    font-size: 74px;
+    line-height: 1.02;
+  }
+  & .s-btn {
+    border-radius: 2px;
+  }
+  & .s-hero .s-photo {
+    min-height: 470px;
+    margin: 9px;
+    border: 1px solid var(--ink);
+    outline: 1px solid var(--ink);
+    outline-offset: 8px;
+  }
+  & .s-hero .s-photo::before {
+    content: "Plate I";
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 1;
+    padding: 4px 8px;
+    background: var(--page);
+    font: 500 11px/1.3 var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  & .s-services, & .s-services.has-detail {
+    --muted: color-mix(in srgb, var(--on-band) 72%, var(--band));
+    --rule: color-mix(in srgb, var(--on-band) 30%, transparent);
+    grid-template-columns: 300px minmax(0, 1fr);
+    background: var(--band);
+    color: var(--on-band);
+  }
+  & .s-section-title {
+    grid-row: 1 / span 2;
+    font-size: 46px;
+  }
+  & .s-items {
+    grid-column: 2;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  & .s-item {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr) minmax(0, 1fr);
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+  & .s-num {
+    display: block;
+    font: 500 13px/1 var(--mono);
+  }
+  & .s-item b {
+    font: var(--dw) 22px/1.2 var(--display);
+  }
+  & .s-item span {
+    margin: 0;
+  }
+  & .s-detail {
+    grid-column: 2;
+    grid-row: auto;
+    min-height: 220px;
+    margin-top: 32px;
+    border: 1px solid var(--on-band);
+  }
+  & .s-quote {
+    border: 0;
+  }
+  & .s-quote p {
+    max-width: 640px;
+    padding: 40px 44px;
+    border: 1px solid var(--ink);
+    background: color-mix(in srgb, var(--accent) 7%, var(--page));
+    font-size: 30px;
+    text-align: left;
+  }
+  & .s-quote p::before {
+    content: "Field note";
+    display: block;
+    margin-bottom: 18px;
+    color: var(--accent);
+    font: 500 12px/1.3 var(--mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  & .s-quote cite {
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: left;
+    font-family: var(--mono);
+  }
+  & .s-cta {
+    margin: 0 var(--pad) 72px;
+    padding: 64px;
+    border: 1px solid var(--ink);
+    outline: 1px solid var(--ink);
+    outline-offset: -9px;
+    background: none;
+    color: var(--ink);
+  }
+  & .s-cta-title {
+    font-size: 48px;
+  }
+  & .s-footer {
+    border-top: 4px double var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 36px;
+      padding: 32px var(--pad) 56px;
+    }
+    & .s-hero .s-photo {
+      min-height: 260px;
+    }
+    & .s-title {
+      font-size: 44px;
+    }
+    & .s-services, & .s-services.has-detail {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    & .s-section-title {
+      grid-row: auto;
+      font-size: 32px;
+    }
+    & :is(.s-items, .s-detail) {
+      grid-column: 1;
+    }
+    & .s-item {
+      grid-template-columns: 40px minmax(0, 1fr);
+    }
+    & .s-item span {
+      grid-column: 2;
+      margin-top: 4px;
+    }
+    & .s-quote p {
+      padding: 28px;
+      font-size: 22px;
+    }
+    & .s-cta {
+      margin: 0 14px 40px;
+      padding: 40px 26px;
+    }
+    & .s-cta-title {
+      font-size: 32px;
+    }
+  }
+}
+
+/* Fresh daily: a modern bakery board with a big light serif headline, a rounded photo with today's special and a
+   menu-style list. */
+#pinegrow-kit-studio .site[data-look="retro"] {
+  --radius: 999px;
+
+  & .s-brand {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  & .s-brand::before {
+    border-radius: 50%;
+    clip-path: none;
+  }
+  & .s-hcta {
+    border-width: 1px;
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 48px;
+    min-height: 0;
+    padding: 24px var(--pad) 96px;
+  }
+  & .s-copy {
+    padding: 48px 0;
+  }
+  & .s-eyebrow {
+    color: var(--accent);
+    letter-spacing: .16em;
+  }
+  & .s-title {
+    max-width: 10ch;
+    font-size: 100px;
+    line-height: .94;
+  }
+  & .s-lead {
+    font-size: 20px;
+  }
+  & .s-hero .s-photo {
+    min-height: 580px;
+    border-radius: 28px;
+  }
+  & .s-special {
+    position: absolute;
+    left: 545px;
+    bottom: 128px;
+    z-index: 1;
+    display: grid;
+    gap: 4px;
+    width: 250px;
+    padding: 20px 24px 22px;
+    border-radius: 20px;
+    background: var(--page);
+    box-shadow: 0 18px 40px rgb(0 0 0 / .16);
+  }
+  & .s-special small {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  & .s-special b {
+    font: 400 28px/1.1 var(--display);
+  }
+  & .s-special span {
+    color: var(--muted);
+    font-size: 15px;
+  }
+  & .s-services, & .s-services.has-detail {
+    margin: 0 var(--pad);
+    padding: 64px;
+    border-radius: 32px;
+    background: color-mix(in srgb, var(--accent) 8%, var(--page));
+  }
+  & .s-section-title {
+    font-size: 56px;
+  }
+  & .s-items {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  & .s-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+  }
+  & .s-item b {
+    font: 400 32px/1.1 var(--display);
+  }
+  & .s-item span {
+    margin: 0;
+    font-style: italic;
+    text-align: right;
+  }
+  & .s-detail {
+    border-radius: 24px;
+  }
+  & .s-quote {
+    padding: 112px var(--pad);
+    border: 0;
+    text-align: left;
+  }
+  & .s-quote p {
+    max-width: 22ch;
+    margin: 0;
+    font-size: 56px;
+    font-style: italic;
+    line-height: 1.08;
+  }
+  & .s-quote cite {
+    color: var(--accent);
+  }
+  & .s-cta {
+    margin: 0 var(--pad) 64px;
+    padding: 72px;
+    border-radius: 32px;
+  }
+  & .s-cta-title {
+    font-size: 68px;
+  }
+  & .s-cta .s-btn {
+    background: var(--on-band);
+    color: var(--band);
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding: 8px var(--pad) 48px;
+    }
+    & .s-copy {
+      padding: 24px 0 32px;
+    }
+    & .s-title {
+      font-size: 58px;
+    }
+    & .s-hero .s-photo {
+      min-height: 320px;
+      border-radius: 20px;
+    }
+    & .s-special {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      width: auto;
+      margin: -56px 16px 0;
+    }
+    & .s-services, & .s-services.has-detail {
+      margin: 0 14px;
+      padding: 40px 22px;
+    }
+    & .s-section-title {
+      font-size: 40px;
+    }
+    & .s-item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+    }
+    & .s-item b {
+      font-size: 26px;
+    }
+    & .s-item span {
+      text-align: left;
+    }
+    & .s-quote {
+      padding: 64px var(--pad);
+    }
+    & .s-quote p {
+      font-size: 34px;
+    }
+    & .s-cta {
+      margin: 0 14px 40px;
+      padding: 44px 26px;
+    }
+    & .s-cta-title {
+      font-size: 42px;
+    }
+  }
+}
+
+/* Clear care: calm and trustworthy, with a visit card over a rounded photo, icon cards and star ratings. */
+#pinegrow-kit-studio .site[data-look="clinic"] {
+  --radius: 10px;
+
+  & .s-header {
+    border-bottom: 1px solid var(--rule);
+  }
+  & .s-brand::before {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    clip-path: none;
+  }
+  & .s-hcta {
+    border: 0;
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  & .s-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 56px;
+    min-height: 0;
+    padding: 48px var(--pad) 104px;
+  }
+  & .s-copy {
+    padding: 32px 0;
+  }
+  & .s-eyebrow {
+    padding: 7px 16px;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--accent) 12%, var(--page));
+    color: var(--accent);
+    font-size: 14px;
+    letter-spacing: .02em;
+    text-transform: none;
+  }
+  & .s-title {
+    max-width: 12ch;
+    font-size: 66px;
+    line-height: 1.04;
+  }
+  & .s-hero .s-photo {
+    min-height: 520px;
+    border-radius: 24px;
+  }
+  & .s-card {
+    position: absolute;
+    left: 508px;
+    bottom: 64px;
+    z-index: 1;
+    display: grid;
+    gap: 6px;
+    width: 290px;
+    padding: 22px 24px;
+    border-radius: 18px;
+    background: var(--page);
+    box-shadow: 0 20px 44px rgb(0 0 0 / .14);
+  }
+  & .s-card b {
+    font: var(--dw) 20px/1.25 var(--display);
+  }
+  & .s-card > span:not(.s-card-link) {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  & .s-card-link {
+    margin-top: 6px;
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 700;
+  }
+  & .s-services {
+    background: color-mix(in srgb, var(--accent) 6%, var(--page));
+  }
+  & .s-section-title {
+    font-size: 42px;
+  }
+  & .s-items {
+    gap: 20px;
+  }
+  & .s-item {
+    padding: 28px;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    background: var(--page);
+  }
+  & .s-item::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--accent) 14%, var(--page));
+    color: var(--accent);
+    font-weight: 800;
+  }
+  & .s-item::after {
+    content: "Learn more →";
+    display: block;
+    margin-top: 16px;
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 700;
+  }
+  & .s-detail {
+    border-radius: 18px;
+  }
+  & .s-quote {
+    border: 0;
+  }
+  & .s-quote::before {
+    content: "★★★★★";
+    display: block;
+    margin-bottom: 18px;
+    color: var(--accent);
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
+  & .s-quote p {
+    font-size: 32px;
+    letter-spacing: -.02em;
+  }
+  & .s-cta {
+    --muted: color-mix(in srgb, var(--ink) 72%, var(--page));
+    margin: 0 var(--pad) 80px;
+    padding: 56px 64px;
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--accent) 11%, var(--page));
+    color: var(--ink);
+  }
+  & .s-cta-title {
+    font-size: 44px;
+  }
+  & .s-footer {
+    --muted: color-mix(in srgb, var(--on-band) 72%, var(--band));
+    --rule: color-mix(in srgb, var(--on-band) 22%, transparent);
+    background: var(--band);
+    color: var(--on-band);
+  }
+
+  &[data-device="phone"] {
+    & .s-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding: 8px var(--pad) 48px;
+    }
+    & .s-copy {
+      padding: 24px 0 32px;
+    }
+    & .s-title {
+      font-size: 40px;
+    }
+    & .s-hero .s-photo {
+      min-height: 300px;
+      border-radius: 18px;
+    }
+    & .s-card {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      width: auto;
+      margin: -48px 14px 0;
+    }
+    & .s-section-title {
+      font-size: 30px;
+    }
+    & .s-item {
+      padding: 22px;
+    }
+    & .s-quote p {
+      font-size: 24px;
+    }
+    & .s-cta {
+      margin: 0 14px 40px;
+      padding: 36px 24px;
+    }
+    & .s-cta-title {
+      font-size: 30px;
+    }
+  }
+}

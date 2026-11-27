@@ -9,6 +9,11 @@ which starts with a free trial. The [website kit guide](https://cactorial.page/g
 video lessons for every part, and for building your own kits with an AI agent.
 
 <!-- repo -->
+![New](promo/new-badge.svg) **Build a kit like this for your own business.** Choose an example, a look, pages and
+features in the [Kit Builder](#kit-builder), and your AI agent builds it:
+
+[![Start here: open the Kit Builder](promo/start-kit-builder.svg)](https://pinegrow.github.io/pinegrow-website-kit/kit-builder/configurator/)
+
 ![The kit's complete site and two of its starter home pages](promo/readme-banner.png)
 
 **[Open the live demo](https://pinegrow.github.io/pinegrow-website-kit/website/)**: the complete site, the starter
@@ -46,6 +51,27 @@ Headers and footers, heroes, services and pricing, work, story and team, testimo
 block library in Pinegrow's Insert panel.
 
 ![Blocks from the block library](promo/blocks-mosaic.png)
+
+### Kit Builder
+
+![New](promo/new-badge.svg) Plan a website kit for your own business or a client, right in your browser. Start from
+one of eight example businesses, or describe your own or give the address of its current website. Pick one of nine
+visual directions, each with its own fonts and three palettes, then the pages and the features. The Kit Builder shows
+a homepage concept as you go and writes a prompt for your AI agent.
+
+[![Start here: open the Kit Builder](promo/start-kit-builder.svg)](https://pinegrow.github.io/pinegrow-website-kit/kit-builder/configurator/)
+
+[![The Kit Builder: the Look step with a homepage concept](promo/kit-builder.jpg)](https://pinegrow.github.io/pinegrow-website-kit/kit-builder/configurator/)
+
+Then:
+
+1. Copy the prompt and paste it into Claude Code, Codex or another AI agent, in an empty folder.
+2. If the agent doesn't have the kit-builder skill yet, it asks to download it from this repository and install it.
+3. The agent asks only what is missing, then builds the kit: saved designs in your palettes, component styles, blocks,
+   a block library and pages.
+4. Open the kit in Pinegrow to compile the CSS and finish it visually.
+
+![Nine visual directions in the Kit Builder](promo/kit-builder-directions.jpg)
 
 ### Kits built by an AI agent
 
@@ -196,9 +222,18 @@ or change them in the Content panel.
 few questions, picks a concept, writes the saved designs, component styles, blocks, block library and pages, gets the
 photos, and checks the result. It needs Python 3 and works with Tailwind CSS static sites for now.
 
-Copy the `kit-builder` folder into your agent's skills folder, or tell your agent:
+The easiest start is the [Kit Builder](https://pinegrow.github.io/pinegrow-website-kit/kit-builder/configurator/):
+pick an example, a visual direction with its colors and fonts, the pages and the features, then copy the prompt and
+paste it into Claude Code, Codex or another AI agent in an empty folder. If the agent doesn't have the skill yet, it
+asks to download it from this repository first.
+
+To install the skill yourself, copy the `kit-builder` folder into your agent's skills folder as
+`pinegrow-website-kit` (Claude Code: `~/.claude/skills`, Codex: `~/.codex/skills`), or tell your agent:
 
 > Read kit-builder/SKILL.md and build me a website kit for <your business>.
+
+The skill offers the Kit Builder too. It opens it in your agent's browser, or `kit-builder/configurator/index.html`
+from the skill folder when you're offline.
 
 Open the kit it makes in Pinegrow to compile the CSS and finish it visually.
 

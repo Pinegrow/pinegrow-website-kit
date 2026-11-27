@@ -1,0 +1,888 @@
+/* The Kit Builder app: Pinegrow header, settings on the left, preview and prompt on the right.
+   Colours and type follow pinegrow.com (pg4assets/css/tokens.css). preview.css styles the homepage concept. */
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  background: light-dark(#e8ecee, #10181c);
+}
+
+#pinegrow-kit-studio {
+  --pg-blue: #0198cd;
+  --pg-blue-dark: #00566a;
+  --pg-blue-dark-hover: #007793;
+  --pg-orange: #fda050;
+  --pg-header: #02425b;
+  --canvas: light-dark(#e8ecee, #10181c);
+  --panel: light-dark(#fff, #172227);
+  --paper: light-dark(#fff, #1d2a30);
+  --ink: light-dark(#1f2d35, #e6edf0);
+  --sub: light-dark(#5a6a73, #9fb1b9);
+  --line: light-dark(#d6dde1, #2d3d44);
+  --tint: light-dark(#e6f5fb, #11394a);
+  --brand: light-dark(#0079ae, #5cc6ec);
+  --action: light-dark(var(--pg-blue-dark), #007793);
+  --action-hover: light-dark(var(--pg-blue-dark-hover), #008aab);
+  color-scheme: light dark;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  background: var(--canvas);
+  color: var(--ink);
+  font: 400 14px/1.5 "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
+}
+#pinegrow-kit-studio *, #pinegrow-kit-studio *::before, #pinegrow-kit-studio *::after {
+  box-sizing: border-box;
+}
+#pinegrow-kit-studio [hidden] {
+  display: none !important;
+}
+#pinegrow-kit-studio :is(h1, h2, h3, h4, p, fieldset, ol, ul, dl) {
+  margin: 0;
+}
+#pinegrow-kit-studio button {
+  font: inherit;
+  cursor: pointer;
+}
+#pinegrow-kit-studio :is(button, select, input, textarea, a):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+#pinegrow-kit-studio a {
+  color: var(--brand);
+  text-underline-offset: 2px;
+}
+#pinegrow-kit-studio .javascript-required {
+  padding: 16px 20px;
+}
+
+/* Header */
+#pinegrow-kit-studio .studio-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 58px;
+  padding: 8px 20px;
+  background: var(--pg-header);
+  color: #fff;
+}
+#pinegrow-kit-studio .studio-logo {
+  display: flex;
+  flex: none;
+}
+#pinegrow-kit-studio .studio-logo img {
+  display: block;
+  width: 122px;
+  height: auto;
+}
+#pinegrow-kit-studio .studio-name {
+  padding-left: 16px;
+  border-left: 1px solid rgb(255 255 255 / .3);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+#pinegrow-kit-studio .studio-links {
+  display: flex;
+  gap: 4px 18px;
+  margin-left: auto;
+  font-size: 13px;
+}
+#pinegrow-kit-studio .studio-links a {
+  color: rgb(255 255 255 / .82);
+  text-decoration: none;
+}
+#pinegrow-kit-studio .studio-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+#pinegrow-kit-studio .copy-prompt {
+  flex: none;
+  min-height: 36px;
+  padding: 7px 16px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--pg-orange);
+  color: #2e1a05;
+  font-weight: 700;
+}
+#pinegrow-kit-studio .copy-prompt:hover {
+  background: #ffb36f;
+}
+
+/* Layout */
+#pinegrow-kit-studio .studio-content {
+  display: grid;
+  grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
+  min-height: 0;
+}
+#pinegrow-kit-studio .studio-controls {
+  min-width: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+}
+#pinegrow-kit-studio .studio-stage {
+  min-width: 0;
+  overflow-y: auto;
+  padding: 22px clamp(16px, 3vw, 40px) 32px;
+}
+
+/* Steps */
+#pinegrow-kit-studio .studio-steps {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+#pinegrow-kit-studio .studio-steps button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 62px;
+  padding: 10px 2px 8px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .step-number {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+#pinegrow-kit-studio .studio-steps button:hover {
+  color: var(--ink);
+}
+#pinegrow-kit-studio .studio-steps button[aria-pressed="true"] {
+  border-bottom-color: var(--pg-blue);
+  color: var(--ink);
+}
+#pinegrow-kit-studio .studio-steps button[aria-pressed="true"] .step-number {
+  border-color: var(--action);
+  background: var(--action);
+  color: #fff;
+}
+#pinegrow-kit-studio .studio-steps button.is-done .step-number {
+  border-color: var(--brand);
+  color: transparent;
+  position: relative;
+}
+#pinegrow-kit-studio .studio-steps button.is-done .step-number::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  margin-top: -2px;
+  border-left: 2px solid var(--brand);
+  border-bottom: 2px solid var(--brand);
+  transform: rotate(-45deg);
+}
+
+/* Fields */
+#pinegrow-kit-studio .studio-fields {
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px 24px;
+}
+#pinegrow-kit-studio .studio-intro {
+  color: var(--sub);
+  font-size: 13px;
+  line-height: 1.5;
+}
+/* The skill opens the page with ?agent=1: the prompt then goes back to the agent that opened it. */
+#pinegrow-kit-studio:not(.is-agent) .for-agent, #pinegrow-kit-studio.is-agent .for-web {
+  display: none;
+}
+#pinegrow-kit-studio .agent-note {
+  padding: 10px 12px;
+  border-left: 3px solid var(--pg-orange);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--pg-orange) 14%, var(--paper));
+  color: var(--ink);
+}
+#pinegrow-kit-studio .studio-field {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .optional {
+  margin-left: 4px;
+  color: var(--sub);
+  font-weight: 400;
+}
+#pinegrow-kit-studio .studio-field .studio-note {
+  font-weight: 400;
+}
+#pinegrow-kit-studio .segmented {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--canvas);
+}
+#pinegrow-kit-studio .segmented label {
+  position: relative;
+  cursor: pointer;
+}
+#pinegrow-kit-studio .segmented input {
+  position: absolute;
+  opacity: 0;
+}
+#pinegrow-kit-studio .segmented span {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--sub);
+  font-size: 13px;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .segmented input:checked + span {
+  background: var(--action);
+  color: #fff;
+}
+#pinegrow-kit-studio .segmented input:focus-visible + span {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+#pinegrow-kit-studio :is(input:not([type=checkbox]), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 14px/1.4 inherit;
+  font-family: inherit;
+}
+#pinegrow-kit-studio :is(input:not([type=checkbox]), select, textarea):hover {
+  border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+}
+#pinegrow-kit-studio :is(input:not([type=checkbox]), select, textarea):focus {
+  border-color: var(--brand);
+}
+#pinegrow-kit-studio textarea {
+  resize: vertical;
+}
+#pinegrow-kit-studio ::placeholder {
+  color: color-mix(in srgb, var(--sub) 75%, transparent);
+}
+#pinegrow-kit-studio fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+#pinegrow-kit-studio legend {
+  margin-bottom: 7px;
+  padding: 0;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+#pinegrow-kit-studio input[type=checkbox] {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--action);
+}
+#pinegrow-kit-studio .studio-note {
+  color: var(--sub);
+  font-size: 12px;
+}
+
+/* Buttons */
+#pinegrow-kit-studio .next-step {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 4px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--action);
+  color: #fff;
+  font-weight: 700;
+}
+#pinegrow-kit-studio .next-step:hover {
+  background: var(--action-hover);
+}
+#pinegrow-kit-studio .mini-button {
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+#pinegrow-kit-studio .mini-button:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+/* Look: each card shows the top of the concept in its own direction. app.js sets --thumb-zoom. */
+#pinegrow-kit-studio .look-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+#pinegrow-kit-studio .look {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+}
+#pinegrow-kit-studio .look:hover {
+  border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
+}
+#pinegrow-kit-studio .look[aria-pressed="true"] {
+  border-color: var(--pg-blue);
+  box-shadow: 0 0 0 2px var(--pg-blue);
+}
+#pinegrow-kit-studio .look-thumb {
+  display: block;
+  aspect-ratio: 1100 / 640;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  pointer-events: none;
+}
+#pinegrow-kit-studio .look-thumb .site {
+  zoom: var(--thumb-zoom, .15);
+}
+#pinegrow-kit-studio .look-text {
+  display: grid;
+  gap: 2px;
+  padding: 7px 10px 8px;
+}
+#pinegrow-kit-studio .look-text strong {
+  font-size: 13px;
+}
+#pinegrow-kit-studio .look-summary {
+  font-size: 13px;
+}
+#pinegrow-kit-studio .palette-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+#pinegrow-kit-studio .palette {
+  display: grid;
+  justify-items: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .palette:hover {
+  border-color: color-mix(in srgb, var(--brand) 50%, var(--line));
+}
+#pinegrow-kit-studio .palette[aria-pressed="true"] {
+  border-color: var(--pg-blue);
+  background: var(--tint);
+  box-shadow: inset 0 0 0 1px var(--pg-blue);
+}
+#pinegrow-kit-studio .palette-dots {
+  display: flex;
+}
+#pinegrow-kit-studio .palette-dots span {
+  width: 20px;
+  height: 20px;
+  margin-right: -5px;
+  border: 1.5px solid var(--paper);
+  border-radius: 50%;
+}
+#pinegrow-kit-studio .look-fonts {
+  font-size: 13px;
+}
+#pinegrow-kit-studio .look-fonts span {
+  color: var(--sub);
+}
+
+/* Pages and features */
+#pinegrow-kit-studio .select-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+#pinegrow-kit-studio .choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  font-size: 13px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+#pinegrow-kit-studio .choice:has(input:checked), #pinegrow-kit-studio .toggle:has(input:checked) {
+  border-color: color-mix(in srgb, var(--pg-blue) 55%, var(--line));
+  background: var(--tint);
+}
+#pinegrow-kit-studio .choice:has(input:disabled) {
+  cursor: default;
+}
+#pinegrow-kit-studio .feature-list {
+  display: grid;
+  gap: 6px;
+}
+#pinegrow-kit-studio .feature-list .choice {
+  align-items: start;
+  padding: 8px 10px;
+}
+#pinegrow-kit-studio .feature-list .choice input {
+  margin-top: 2px;
+}
+#pinegrow-kit-studio .choice-text strong {
+  display: block;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .choice-text small {
+  display: block;
+  margin-top: 1px;
+  color: var(--sub);
+  font-size: 12px;
+}
+#pinegrow-kit-studio .add-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 6px;
+}
+#pinegrow-kit-studio .custom-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+#pinegrow-kit-studio .custom-list:empty {
+  display: none;
+}
+#pinegrow-kit-studio .token {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px 2px 10px;
+  border: 1px solid color-mix(in srgb, var(--pg-blue) 55%, var(--line));
+  border-radius: 99px;
+  background: var(--tint);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+#pinegrow-kit-studio .token button {
+  padding: 2px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Build settings */
+#pinegrow-kit-studio .toggle {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  font-size: 12px;
+  cursor: pointer;
+}
+#pinegrow-kit-studio .toggle input {
+  margin-top: 2px;
+}
+#pinegrow-kit-studio .toggle strong {
+  display: block;
+  padding-bottom: 2px;
+  font-size: 13px;
+}
+#pinegrow-kit-studio .toggle:has(input:disabled) {
+  color: var(--sub);
+  cursor: default;
+}
+#pinegrow-kit-studio .soon {
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--pg-orange) 28%, transparent);
+  color: var(--ink);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .02em;
+  vertical-align: 1px;
+}
+#pinegrow-kit-studio .folder-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+#pinegrow-kit-studio .folder-field .mini-button {
+  justify-self: start;
+}
+
+/* Preview */
+#pinegrow-kit-studio .preview-view {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+#pinegrow-kit-studio .stage-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+#pinegrow-kit-studio .stage-heading {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+#pinegrow-kit-studio .device-toggle {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+}
+#pinegrow-kit-studio .device-toggle button {
+  min-height: 30px;
+  padding: 4px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--sub);
+  font-size: 12px;
+  font-weight: 600;
+}
+#pinegrow-kit-studio .device-toggle button[aria-pressed="true"] {
+  background: var(--action);
+  color: #fff;
+}
+#pinegrow-kit-studio .preview-frame {
+  overflow: hidden;
+  border-radius: 6px;
+}
+#pinegrow-kit-studio .preview {
+  display: grid;
+  justify-items: center;
+}
+#pinegrow-kit-studio .preview .site {
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+#pinegrow-kit-studio.is-compact-preview .preview .site {
+  border-radius: 0;
+}
+#pinegrow-kit-studio .stage-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: 12px;
+  color: var(--sub);
+  font-size: 12px;
+}
+#pinegrow-kit-studio .stage-foot strong {
+  color: var(--ink);
+}
+
+/* Prompt */
+#pinegrow-kit-studio .prompt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#pinegrow-kit-studio .prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+#pinegrow-kit-studio .brief {
+  padding: 26px clamp(18px, 3vw, 34px) 30px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+#pinegrow-kit-studio .brief > * + * {
+  margin-top: 8px;
+}
+#pinegrow-kit-studio .brief h3 {
+  margin-top: 22px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--pg-blue);
+  font-size: 17px;
+  line-height: 1.3;
+}
+#pinegrow-kit-studio .brief h4 {
+  margin-top: 18px;
+  color: var(--pg-blue-dark);
+  color: light-dark(var(--pg-blue-dark), #7fd3ef);
+  font-size: 14px;
+}
+#pinegrow-kit-studio .brief ul {
+  padding-left: 18px;
+}
+#pinegrow-kit-studio .brief li + li {
+  margin-top: 3px;
+}
+#pinegrow-kit-studio .brief .brief-fact {
+  margin-top: 2px;
+}
+#pinegrow-kit-studio .brief .brief-fact b {
+  font-weight: 700;
+}
+#pinegrow-kit-studio .brief li:has(.color-chip) {
+  list-style: none;
+  margin-left: -18px;
+}
+#pinegrow-kit-studio .brief .color-chip {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  border-radius: 3px;
+  background: var(--chip);
+  vertical-align: -1px;
+}
+#pinegrow-kit-studio .handoff-side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  align-content: start;
+  gap: 14px;
+}
+#pinegrow-kit-studio .review-facts {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+#pinegrow-kit-studio .review-facts div + div {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+#pinegrow-kit-studio .review-facts dt {
+  color: var(--sub);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+#pinegrow-kit-studio .review-facts dd {
+  margin: 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+#pinegrow-kit-studio .side-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+#pinegrow-kit-studio .next-steps {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  font-size: 13px;
+}
+#pinegrow-kit-studio .next-steps li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 8px;
+  counter-increment: step;
+}
+#pinegrow-kit-studio .next-steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--action);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+#pinegrow-kit-studio code {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--canvas);
+  font-size: 12px;
+}
+
+/* The prompt step: the brief beside a small preview (app.js moves it into the side column) and the next steps. */
+#pinegrow-kit-studio .prompt-view {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  grid-template-areas: "head head" "brief side";
+  align-items: start;
+  gap: 16px 24px;
+}
+#pinegrow-kit-studio .prompt-toolbar {
+  grid-area: head;
+}
+#pinegrow-kit-studio .brief {
+  grid-area: brief;
+}
+#pinegrow-kit-studio .handoff-side {
+  grid-area: side;
+}
+#pinegrow-kit-studio .handoff-side .preview-view {
+  width: 100%;
+}
+#pinegrow-kit-studio .handoff-side :is(.stage-head, .stage-foot) {
+  display: none;
+}
+
+/* Copy confirmation */
+#pinegrow-kit-studio .copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10;
+  padding: 9px 16px;
+  border-radius: 6px;
+  background: var(--pg-header);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity .2s, transform .2s;
+}
+#pinegrow-kit-studio .copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 1180px) {
+  #pinegrow-kit-studio .prompt-view {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "brief" "side";
+  }
+  #pinegrow-kit-studio .handoff-side .preview-view {
+    display: none;
+  }
+}
+
+/* Narrow windows: one column, the preview small and pinned at the top while choosing. */
+@media (max-width: 860px) {
+  #pinegrow-kit-studio {
+    display: block;
+    height: auto;
+  }
+  #pinegrow-kit-studio .studio-top {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 10px 14px;
+  }
+  #pinegrow-kit-studio .studio-links {
+    display: none;
+  }
+  #pinegrow-kit-studio .studio-top .copy-prompt {
+    margin-left: auto;
+  }
+  #pinegrow-kit-studio .studio-content {
+    display: flex;
+    flex-direction: column;
+  }
+  #pinegrow-kit-studio .studio-controls, #pinegrow-kit-studio .studio-stage {
+    overflow: visible;
+    border-right: 0;
+  }
+  #pinegrow-kit-studio .studio-stage {
+    order: -1;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    padding: 10px 14px;
+    background: var(--canvas);
+    border-bottom: 1px solid var(--line);
+  }
+  #pinegrow-kit-studio[data-step="handoff"] .studio-stage {
+    order: 1;
+    position: static;
+    padding: 18px 14px 28px;
+    border-bottom: 0;
+  }
+  #pinegrow-kit-studio .studio-steps {
+    top: var(--stage-height, 0px);
+  }
+  #pinegrow-kit-studio:not([data-step="handoff"]) :is(.stage-head, .stage-foot) {
+    display: none;
+  }
+  #pinegrow-kit-studio .studio-fields {
+    padding: 16px 14px 24px;
+  }
+  #pinegrow-kit-studio :is(input:not([type=checkbox]), select, textarea) {
+    font-size: 16px;
+  }
+}
+@media (max-width: 420px) {
+  #pinegrow-kit-studio .studio-name {
+    padding-left: 12px;
+    font-size: 15px;
+  }
+  #pinegrow-kit-studio .studio-logo img {
+    width: 100px;
+  }
+}
+@media (pointer: coarse) {
+  #pinegrow-kit-studio :is(button, .choice, select, input:not([type=checkbox])) {
+    min-height: 44px;
+  }
+}

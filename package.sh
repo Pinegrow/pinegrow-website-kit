@@ -1,7 +1,10 @@
 #!/bin/bash
-# Makes the two downloads from the last commit (see .gitattributes for what they contain):
+# Makes the downloads from the last commit (see .gitattributes for what they contain):
 #   pinegrow-website-kit-<version>-static.zip     without the WordPress attributes and templates
 #   pinegrow-website-kit-<version>-wordpress.zip  the kit as it is in this repository
+#   kit-builder-skill.zip                          only the skill, as the folder pinegrow-website-kit. Upload it to
+#                                                  every release under this name: Kit Builder prompts download it from
+#                                                  releases/latest/download/kit-builder-skill.zip
 # Usage: ./package.sh 1.1
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -27,3 +30,11 @@ for variant in static wordpress; do
     (cd "$work/$variant" && zip -qrX "$out" pinegrow-website-kit)
     echo "$out ($(du -h "$out" | cut -f1))"
 done
+
+mkdir -p "$work/skill"
+git archive HEAD kit-builder | tar -x -C "$work/skill"
+mv "$work/skill/kit-builder" "$work/skill/pinegrow-website-kit"
+out="$dist/kit-builder-skill.zip"
+rm -f "$out"
+(cd "$work/skill" && zip -qrX "$out" pinegrow-website-kit)
+echo "$out ($(du -h "$out" | cut -f1))"

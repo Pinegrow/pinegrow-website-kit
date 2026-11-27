@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan a website kit for your business or client, preview design directions, and copy a brief for your AI agent and the Pinegrow kit-builder skill.">
+  <title>Kit Builder · Pinegrow</title>
+  <link rel="icon" href="./images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Jost:wght@400;500;600&family=Libre+Franklin:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&family=Space+Grotesk:wght@400;500;700&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./preview.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main id="pinegrow-kit-studio" data-step="business" aria-labelledby="page-title">
+    <header class="studio-top">
+      <a class="studio-logo" href="https://pinegrow.com/"><img src="./images/pinegrow-logo.svg" alt="Pinegrow" width="122" height="24"></a>
+      <h1 class="studio-name" id="page-title">Kit Builder</h1>
+      <nav class="studio-links" aria-label="Pinegrow website kit">
+        <a href="https://github.com/Pinegrow/pinegrow-website-kit#build-your-own-kits">How it works</a>
+        <a href="https://github.com/Pinegrow/pinegrow-website-kit#kits-built-by-an-ai-agent">Example kits</a>
+      </nav>
+      <button type="button" class="copy-prompt" data-copy="prompt">Copy prompt</button>
+    </header>
+    <noscript><p class="javascript-required">Enable JavaScript to plan your kit and get the prompt.</p></noscript>
+    <div class="studio-content">
+      <div class="studio-controls">
+        <nav class="studio-steps" aria-label="Kit setup">
+          <button type="button" data-step="business" aria-controls="pk-business-panel" aria-pressed="true"><span class="step-number">1</span>Business</button>
+          <button type="button" data-step="look" aria-controls="pk-look-panel" aria-pressed="false"><span class="step-number">2</span>Look</button>
+          <button type="button" data-step="pages" aria-controls="pk-pages-panel" aria-pressed="false"><span class="step-number">3</span>Pages</button>
+          <button type="button" data-step="handoff" aria-controls="pk-handoff-panel" aria-pressed="false"><span class="step-number">4</span>Prompt</button>
+        </nav>
+
+        <section id="pk-business-panel" class="studio-fields" data-panel="business" aria-label="Business">
+          <p class="studio-intro for-web">Plan a website kit for your business or a client, then paste the prompt into
+            Claude Code, Codex or another AI agent. It builds the kit for Pinegrow.</p>
+          <p class="studio-intro agent-note for-agent">Your AI agent opened the Kit Builder. Make your choices, then press
+            <strong>Copy prompt</strong> and paste it back into the agent.</p>
+          <label class="studio-field">Start from an example
+            <select id="pk-starter">
+              <option value="crux">Crux Climbing · Bouldering gym</option>
+              <option value="splash">Splash Swim School · Swim school</option>
+              <option value="yoga">Still Water Yoga · Yoga studio</option>
+              <option value="cafe">Ember &amp; Oat · Café &amp; bakery</option>
+              <option value="dental">Willowbend · Dental practice</option>
+              <option value="architecture">Northlight · Interior design</option>
+              <option value="portfolio">Ana Ruiz · Photographer</option>
+              <option value="agency">Field Office · Web agency</option>
+              <option value="blank">Start from scratch</option>
+            </select>
+          </label>
+          <fieldset>
+            <legend>The business</legend>
+            <div class="segmented">
+              <label><input type="radio" name="pk-mode" id="pk-mode-new" value="new" checked><span>New website</span></label>
+              <label><input type="radio" name="pk-mode" id="pk-mode-existing" value="existing"><span>Current website</span></label>
+            </div>
+          </fieldset>
+          <label class="studio-field" id="pk-url-field" hidden>Website address
+            <input id="pk-website-url" type="url" maxlength="300" placeholder="https://example.com" spellcheck="false">
+            <span class="studio-note">The agent reads your current site for the business, its content and its pages.</span>
+          </label>
+          <label class="studio-field"><span>Describe the business <span class="optional">optional</span></span>
+            <textarea id="pk-notes" rows="5" maxlength="1500"></textarea>
+            <span class="studio-note" id="pk-notes-help"></span>
+          </label>
+          <button type="button" class="next-step" data-next="look">Next: choose a look</button>
+        </section>
+
+        <section id="pk-look-panel" class="studio-fields" data-panel="look" aria-label="Look" hidden>
+          <fieldset>
+            <legend>Visual direction</legend>
+            <div class="look-list" id="pk-looks"></div>
+          </fieldset>
+          <p class="look-summary" id="pk-look-summary"></p>
+          <fieldset>
+            <legend>Colours</legend>
+            <div class="palette-list" id="pk-palettes"></div>
+          </fieldset>
+          <p class="look-fonts" id="pk-fonts"></p>
+          <p class="studio-note">The kit gets three saved designs: your colours first, then the other two.</p>
+          <button type="button" class="next-step" data-next="pages">Next: pages and features</button>
+        </section>
+
+        <section id="pk-pages-panel" class="studio-fields" data-panel="pages" aria-label="Pages and features" hidden>
+          <fieldset>
+            <legend>Pages to build</legend>
+            <div class="select-grid" id="pk-pages"></div>
+          </fieldset>
+          <div class="add-entry">
+            <label class="studio-field">Other pages <input id="pk-other-pages" placeholder="e.g. Our locations" maxlength="120"></label>
+            <button type="button" data-add="pages" class="mini-button">Add</button>
+          </div>
+          <div class="custom-list" id="pk-custom-pages" aria-label="Added pages"></div>
+          <fieldset>
+            <legend>What should the site do?</legend>
+            <div class="feature-list" id="pk-features"></div>
+          </fieldset>
+          <label class="studio-field" id="pk-delivery-field" hidden>Form delivery
+            <select id="pk-delivery">
+              <option value="later">Connect a form provider later</option>
+              <option value="netlify">Prepare for Netlify Forms</option>
+              <option value="external">Use a separate form service</option>
+            </select>
+          </label>
+          <div class="add-entry">
+            <label class="studio-field">Other features <input id="pk-other-features" placeholder="e.g. Event registration" maxlength="150"></label>
+            <button type="button" data-add="features" class="mini-button">Add</button>
+          </div>
+          <div class="custom-list" id="pk-custom-features" aria-label="Added features"></div>
+          <button type="button" class="next-step" data-next="handoff">Next: get the prompt</button>
+        </section>
+
+        <section id="pk-handoff-panel" class="studio-fields" data-panel="handoff" aria-label="Build settings" hidden>
+          <label class="studio-field">I’m building
+            <select id="pk-purpose">
+              <option value="client">One site for me or my client</option>
+              <option value="agency">A base for future client sites</option>
+              <option value="template">A kit to distribute or sell</option>
+            </select>
+          </label>
+          <label class="studio-field">Images
+            <select id="pk-images">
+              <option value="stock">Find photos on Unsplash</option>
+              <option value="generated">Generate images</option>
+              <option value="local">Use my own photos</option>
+              <option value="placeholder">Use placeholders</option>
+            </select>
+          </label>
+          <div class="folder-field" id="pk-image-folder-field" hidden>
+            <label class="studio-field">Photo folder
+              <input id="pk-image-folder" placeholder="e.g. ./client-photos" maxlength="1024" spellcheck="false" aria-describedby="pk-folder-note">
+            </label>
+            <button type="button" class="mini-button" id="pk-choose-folder">Choose folder…</button>
+            <input type="file" id="pk-folder-picker" webkitdirectory multiple hidden>
+            <p class="studio-note" id="pk-folder-note" aria-live="polite"></p>
+          </div>
+          <label class="studio-field">CSS framework
+            <select id="pk-framework">
+              <option value="tailwind">Tailwind CSS</option>
+              <option value="bootstrap" disabled>Bootstrap (coming soon)</option>
+              <option value="plain" disabled>Plain CSS (coming soon)</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input id="pk-library" type="checkbox" checked>
+            <span><strong>Block library</strong>Two more layouts for every section, ready to drag in from the Insert panel.</span>
+          </label>
+          <label class="toggle">
+            <input id="pk-wordpress" type="checkbox" disabled>
+            <span><strong>WordPress block theme <em class="soon">Coming soon</em></strong>The skill builds static sites for now. Pinegrow can export the kit to WordPress later.</span>
+          </label>
+        </section>
+      </div>
+
+      <section class="studio-stage" aria-label="Preview and prompt">
+        <div class="preview-view" id="pk-preview-view">
+          <div class="stage-head">
+            <h2 class="stage-heading" id="pk-preview-heading">Homepage concept</h2>
+            <div class="device-toggle" role="group" aria-label="Preview width">
+              <button type="button" data-device-choice="desktop" aria-pressed="true">Desktop</button>
+              <button type="button" data-device-choice="phone" aria-pressed="false">Phone</button>
+            </div>
+          </div>
+          <div class="preview-frame">
+            <div class="preview" id="pk-preview" role="img" aria-labelledby="pk-preview-heading"></div>
+          </div>
+          <p class="stage-foot" aria-live="polite"><strong id="pk-look-status"></strong><span id="pk-scope-status"></span><span id="pk-sample-status"></span></p>
+        </div>
+
+        <div class="prompt-view" id="pk-prompt-view" hidden>
+          <div class="prompt-toolbar">
+            <h2 class="stage-heading">Prompt for your AI agent</h2>
+            <div class="prompt-actions">
+              <button type="button" class="mini-button" id="pk-share">Copy setup link</button>
+              <button type="button" class="mini-button" id="pk-download">Download .md</button>
+            </div>
+          </div>
+          <article class="brief" id="pk-brief" aria-label="Prompt"></article>
+          <textarea id="pk-prompt-text" hidden readonly aria-hidden="true"></textarea>
+          <aside class="handoff-side">
+            <dl class="review-facts">
+              <div><dt>Business</dt><dd id="pk-review-business"></dd></div>
+              <div><dt>Look</dt><dd id="pk-review-look"></dd></div>
+              <div><dt>Build</dt><dd id="pk-review-format"></dd></div>
+              <div><dt>Scope</dt><dd id="pk-review-scope"></dd></div>
+            </dl>
+            <h3 class="side-title">Next steps</h3>
+            <ol class="next-steps for-web">
+              <li><span>Open an empty folder for the kit in Claude Code, Codex or another AI agent.</span></li>
+              <li><span>Paste the prompt. If the agent doesn’t have the Pinegrow kit-builder skill yet, it asks to
+                download it from <a href="https://github.com/Pinegrow/pinegrow-website-kit">GitHub</a> first.</span></li>
+              <li><span>The agent asks only what is missing, then builds the kit.</span></li>
+              <li><span>Open the kit’s <code>website</code> folder in Pinegrow to compile the CSS and finish it visually.</span></li>
+            </ol>
+            <ol class="next-steps for-agent">
+              <li><span>Press <strong>Copy prompt</strong> at the top.</span></li>
+              <li><span>Paste it back into your AI agent. It builds the kit from it.</span></li>
+            </ol>
+          </aside>
+        </div>
+      </section>
+    </div>
+    <p class="copy-toast" id="pk-copy-status" role="status"></p>
+  </main>
+</body>
+</html>

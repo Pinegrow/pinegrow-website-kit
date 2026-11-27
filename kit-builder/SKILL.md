@@ -16,8 +16,23 @@ the kit. Run it from anywhere: `python3 <skill folder>/scripts/kit.py <command> 
 ## 1. Ask, then write the brief
 
 Run `kit.py init <kit folder>` (for example `~/Sites/yoga-kit`). It creates `KIT-BRIEF.md`, `source/` and
-`website/` (the Pinegrow project). Then ask the user at most these six questions, in one message, each with your
-default. Then end your turn and wait for the user's answers: don't write the concept or build anything before they
+`website/` (the Pinegrow project).
+
+If the user's message is a Kit Builder prompt (it starts with "Build an editable Pinegrow website kit from this
+brief"), it answers the questions below: copy its brief into `KIT-BRIEF.md`, keep its Color roles, Fonts and Saved
+designs, and ask only about what is missing.
+
+Otherwise, offer the Kit Builder: a page where the user picks an example, a visual direction with its colors and
+fonts, the pages and the features, and copies a finished brief back to you.
+If they want it, open `https://pinegrow.github.io/pinegrow-website-kit/kit-builder/configurator/?agent=1` in your own
+browser if you have one, or else in the system browser (`open` on macOS, `xdg-open` on Linux, `start` on Windows).
+Without internet, open the copy in this skill folder: `file://<skill folder>/configurator/index.html?agent=1`. Tell
+the user to press Copy prompt when they are done and paste it here. If your browser tools can run JavaScript on that
+page, you can read the prompt yourself with `document.getElementById("pk-prompt-text").value` once the user says
+they are done.
+
+In the same message, for users who prefer to answer here, ask at most these six questions, each with your default.
+Then end your turn and wait for the user's answers or prompt: don't write the concept or build anything before they
 reply. Skip only the questions their request already answers, and all of them only when the user says to use your
 defaults.
 
